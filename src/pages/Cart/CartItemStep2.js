@@ -18,13 +18,18 @@ function CartItemStep2() {
 
       <BgMountain />
       <div className="container-fluid">
-        <ScStepRow />
+        <ScStepRow 
+          step={2}
+        />
         {/*-------------- 第二頁 --------------*/}
         <ScLabel />
         <div className="col-10 mx-auto px-0 shadow-sm ">
           <ScContent2 />
         </div>
-        <ScBtn />
+        <ScBtn 
+          prevUrl={"/cart/item/step1"}
+          nextUrl={"/cart/item/step3"}
+        />
       </div>
     </>
   )

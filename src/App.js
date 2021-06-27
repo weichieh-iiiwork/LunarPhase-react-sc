@@ -1,25 +1,25 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from 'react'
+import {
+  BrowserRouter as Router,
+  Route,
+  Link,
+  Switch,
+} from 'react-router-dom'
+
+// 導入所需頁面
+import LunarPhaseHeader from './components/LunarPhaseHeader'
+import Breadcrumb from './components/Breadcrumb'
+import CartIndex from './pages/Cart/CartIndex'
+
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    <>
+      <LunarPhaseHeader/>
+      <Breadcrumb/>
+      <CartIndex/>
+    </>
+  )
 }
 
-export default App;
+export default App

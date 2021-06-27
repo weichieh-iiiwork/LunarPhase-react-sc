@@ -7,7 +7,7 @@ function Breadcrumb() {
         <div className="d-flex justify-content-between">
           <div className="bread-box">
             <div className="bread d-flex">
-              <a href>HOME</a>
+              <a href="/">HOME</a>
               <p>&gt;</p>
               <a href>CART</a>
             </div>

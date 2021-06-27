@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import ScStepRow from './components/ScStepRow'
-import ScContent from './components/ScContent'
+import ScContent1 from './components/ScContent1'
 import BgMountain from './components/BgMountain'
 import ScBtn from './components/ScBtn'
 
@@ -11,7 +11,7 @@ function CartIndex() {
       <div className="container-fluid">
         <ScStepRow />
         {/*-------------- 第一頁 --------------*/}
-        <ScContent />
+        <ScContent1 />
         <ScBtn/>
         
       </div>

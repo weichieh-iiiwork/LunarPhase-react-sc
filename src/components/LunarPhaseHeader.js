@@ -27,7 +27,7 @@ function LunarPhaseHeader() {
               <p className="small mx-0">(0)</p>
             </div>
             <div className="ml-2">
-              <a href className="mx-0">
+              <a href="/cart/item-cart/step1" className="mx-0">
                 <i className="fas fa-shopping-cart" />
               </a>
               <p className="small mx-0">(0)</p>

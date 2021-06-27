@@ -9,19 +9,19 @@ function ScLabel(props) {
         <div className="myLabelGroup d-flex">
           <div className="labelSquare">
             <div className="lableName">
-              <a href="/cart/item-cart/step1">商品</a>
+              <a href="/cart/item/step1">商品</a>
             </div>
             <div className="labelTriangle" />
           </div>
           <div className="labelSquare bgWhite">
             <div className="lableName">
-              <a href="/cart/order-cart/step1">訂閱</a>
+              <a href="/cart/order/step1">訂閱</a>
             </div>
             <div className="labelTriangleWhite" />
           </div>
           <div className="labelSquare bgWhite">
             <div className="lableName">
-            <a href="/cart/event-cart/step1">活動</a>
+            <a href="/cart/event/step1">活動</a>
             </div>
             <div className="labelTriangleWhite" />
           </div>

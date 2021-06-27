@@ -26,10 +26,10 @@ function App() {
       <>
         <Switch>
         
-          <Route path="/cart/item-cart/step2">
+          <Route path="/cart/item/step2">
             <CartItemStep2 auth={auth} />
           </Route>
-          <Route path="/cart/item-cart/step1">
+          <Route path="/cart/item/step1">
             <CartItemStep1 auth={auth} />
           </Route>
           <Route exact path="/">

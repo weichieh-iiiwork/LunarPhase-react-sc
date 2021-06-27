@@ -8,8 +8,12 @@ import BgMountain from './components/BgMountain'
 import ScBtn from './components/ScBtn'
 import ScLabel from './components/ScLabel'
 
-//網址 /cart/item-cart/step1
+//網址 /cart/item/step1
 function CartItemStep1() {
+
+  // const [prevUrl, setPrevUrl] = useState("#")
+  // const [nextUrl, setNextUrl] = useState("#")
+
   return (
     <>
       <LunarPhaseHeader />
@@ -23,7 +27,10 @@ function CartItemStep1() {
         <div className="col-10 mx-auto px-0 shadow-sm ">
           <ScContent1 />
         </div>
-        <ScBtn />
+        <ScBtn 
+          prevUrl={"/cart/item/step1"}
+          nextUrl={"/cart/item/step2"}
+        />
       </div>
     </>
   )

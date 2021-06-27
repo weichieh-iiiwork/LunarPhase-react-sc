@@ -29,6 +29,7 @@ function CartItemStep2() {
         <ScBtn 
           prevUrl={"/cart/item/step1"}
           nextUrl={"/cart/item/step3"}
+          showStep1={true}
         />
       </div>
     </>

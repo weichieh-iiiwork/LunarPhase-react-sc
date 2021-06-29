@@ -1,6 +1,17 @@
 import React, { useState, useEffect } from 'react'
 
-function ScPriceRow() {
+
+function ScPriceRow(props) {
+  const { mycartDisplay } = props
+
+  // 計算總價用的函式
+  const sum = (items) => {
+    let total = 0
+    for (let i = 0; i < items.length; i++) {
+      total += items[i].amount * items[i].price
+    }
+    return total
+  }
   return (
     <>
       {/* 總金額列 */}
@@ -12,7 +23,7 @@ function ScPriceRow() {
           <div className="w-100 d-flex jus justify-content-end my-2 px-0">
             <div className="totalPriceFont col-3 px-0">總計</div>
             <div className="totalPriceFont-med col-3 px-0">
-              NT<span>$1200</span>
+              NT<span>{sum(mycartDisplay)}</span>
             </div>
           </div>
         </div>

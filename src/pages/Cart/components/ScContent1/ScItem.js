@@ -66,6 +66,23 @@ function ScItem(props) {
     setMycart(currentCart)
   }
 
+  // 參考ProductList.js中updateCartToLocalStorage概念
+  // 製作按下X按鈕執行delItem函式刪除localStorage單筆資料
+  const delItem = (item) => {
+    // 先複製原有的購物車內容
+    const currentCart = JSON.parse(localStorage.getItem('cart')) || []
+
+    // 找尋是否有此筆item.id的對應資料
+    const index = currentCart.findIndex((v) => v.id === item.id)
+    
+    if (index > -1) {
+      // 找到的話就透過splice來移除array中的那個物件
+      // 再更新至localStorage cart之中並且更新Mycart
+      currentCart.splice(index, 1)
+      localStorage.setItem('cart', JSON.stringify(currentCart))
+      setMycart(currentCart)
+    }
+  }
   
 
   const loading = (
@@ -112,7 +129,8 @@ function ScItem(props) {
             </div>
             <div className="sc-priceFont col-2">{item.price}</div>
             <div className="sc-priceFont col-2">{item.amount * item.price}</div>
-            <div className="delOne position-absolute">
+            <div className="delOne position-absolute"
+                  onClick={()=>{delItem(item)}}>
               <i className="fas fa-times p-3 scBtn " />
             </div>
         </div>

@@ -37,10 +37,12 @@ function LunarPhaseHeader() {
         <div className="nav-bar-bottom">
           <ul className="d-flex justify-content-around col-11 mx-auto">
             <li>
-              <a href="#shop">SHOP</a>
+              {/* <a href="#shop">SHOP</a> */}
+              <a href="/productlist">商品列表</a>
             </li>
             <li>
-              <a href="#article">ARTICLE</a>
+              {/* <a href="#article">ARTICLE</a> */}
+              <a href="/cart/test">購物車測試</a>
             </li>
             <li>
               <a href="#order">ORDER</a>

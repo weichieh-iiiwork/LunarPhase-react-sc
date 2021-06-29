@@ -11,8 +11,6 @@ import ScLabel from './components/ScLabel'
 //網址 /cart/item/step1
 function CartItemStep1() {
 
-  // const [prevUrl, setPrevUrl] = useState("#")
-  // const [nextUrl, setNextUrl] = useState("#")
 
   return (
     <>

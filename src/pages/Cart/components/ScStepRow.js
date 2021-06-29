@@ -16,7 +16,7 @@ function ScStepRow(props) {
             <i className="stepArrow right" />
           </div>
           <div className="stepFont">
-            <a href="/cart/item-cart/step1">確認購物車</a>
+            <a href="/cart/item/step1">確認購物車</a>
           </div>
         </div>
         <div className="step">
@@ -26,7 +26,7 @@ function ScStepRow(props) {
             <i className="stepArrow right" />
           </div>
           <div className="stepFont">
-            <a href="/cart/item-cart/step2">物流選擇</a>
+            <a href="/cart/item/step2">物流選擇</a>
           </div>
         </div>
         <div className="step">
@@ -36,7 +36,7 @@ function ScStepRow(props) {
             <i className="stepArrow right" />
           </div>
           <div className="stepFont">
-            <a href="/cart/item-cart/step3">填寫資料</a>
+            <a href="/cart/item/step3">填寫資料</a>
           </div>
         </div>
         <div className="step">
@@ -44,7 +44,7 @@ function ScStepRow(props) {
           <i className={`stepCircle ${step === 4 ? 'stepActive' : ''}`} />
           </div>
           <div className="stepFont">
-            <a href="/cart/item-cart/step4">完成訂購</a>
+            <a href="/cart/item/step4">完成訂購</a>
           </div>
         </div>
       </div>

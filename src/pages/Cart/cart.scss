@@ -497,16 +497,14 @@ $labelName: 20px;
 
 /* =============label區塊 end============== */
 /* =============商品下拉區塊============== */
-.dropdownItems {
+.dropdownBtnPanel {
     cursor: pointer;
 }
 .dropdownItem:nth-of-type(even) {
     /* 商品偶數加背景色 */
     background-color: rgba(205,205,210,0.35);
 }
-
-.dropdownItemsPanel {
-    /* 預設隱藏商品細項 */
+.dropdownItemsPanel.hidden {
     display: none;
 }
 .dropdownItemsTitle .sc-formTitle.hidden {

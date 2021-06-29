@@ -3,7 +3,7 @@ import LunarPhaseHeader from '../../components/LunarPhaseHeader'
 import Breadcrumb from '../../components/Breadcrumb'
 
 import ScStepRow from './components/ScStepRow'
-import ScContent2 from './components/ScContent2'
+import ScContent2 from './components/ScContent2/'
 import BgMountain from './components/BgMountain'
 import ScBtn from './components/ScBtn'
 import ScLabel from './components/ScLabel'

@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react'
 
-function ScPriceRowCheck() {
+function ScPriceRowCheck(props) {
+  const {orderItemsStr, sum, shipPrice} = props
+
   return (
     <>
       {/* 總金額：商品小計 + 運費 */}
@@ -8,13 +10,13 @@ function ScPriceRowCheck() {
         <div className="col-3 d-flex justify-content-between p-0  ml-auto">
           <div className="sc-describeFont">商品總金額:</div>
           <div className="sc-describeFont">
-            <span>NT 1,200</span>
+            <span>NT {sum(orderItemsStr)}</span>
           </div>
         </div>
         <div className="col-3 d-flex justify-content-between p-0 ml-auto">
           <div className="sc-describeFont">運費總金額:</div>
           <div className="sc-describeFont">
-            <span>NT 60</span>
+            <span>NT {shipPrice}</span>
           </div>
         </div>
       </div>
@@ -22,7 +24,7 @@ function ScPriceRowCheck() {
       <div className="w-100 d-flex jus justify-content-end my-2 px-0">
         <div className="totalPriceFont col-3 px-0">總計</div>
         <div className="totalPriceFont-med col-3 px-0">
-          NT<span>$1260</span>
+          NT<span>${sum(orderItemsStr)+shipPrice}</span>
         </div>
       </div>
     </>

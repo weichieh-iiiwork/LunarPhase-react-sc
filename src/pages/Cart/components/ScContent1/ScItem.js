@@ -3,12 +3,12 @@ import ScPriceRow from './ScPriceRow'
 
 function ScItem(props) {
   const [mycart, setMycart] = useState([])
-  const [dataLoading, setDataLoading] = useState(false)
+  // const [dataLoading, setDataLoading] = useState(false)
   const [mycartDisplay, setMycartDisplay] = useState([])
 
   function getCartFromLocalStorage() {
     // 開啟載入的指示圖示
-    setDataLoading(true)
+    // setDataLoading(true)
 
     const newCart = localStorage.getItem('cart') || '[]'
 
@@ -21,7 +21,7 @@ function ScItem(props) {
 
   // componentDidUpdate
   useEffect(() => {
-    setTimeout(() => setDataLoading(false), 1000)
+    // setTimeout(() => setDataLoading(false), 1000)
 
     // mycartDisplay運算
     let newMycartDisplay = []
@@ -85,15 +85,15 @@ function ScItem(props) {
   }
   
 
-  const loading = (
-    <>
-      <div className="d-flex justify-content-center">
-        <div className="spinner-border" role="status">
-          <span className="sr-only">Loading...</span>
-        </div>
-      </div>
-    </>
-  )
+  // const loading = (
+  //   <>
+  //     <div className="d-flex justify-content-center">
+  //       <div className="spinner-border" role="status">
+  //         <span className="sr-only">Loading...</span>
+  //       </div>
+  //     </div>
+  //   </>
+  // )
 
   const display = (
     //   為何最外層還是要加上<></>
@@ -142,7 +142,8 @@ function ScItem(props) {
 
   return(
     <>
-    {dataLoading ? loading : display}
+    {/* {dataLoading ? loading : display} */}
+    { display}
     <ScPriceRow
       mycartDisplay={mycartDisplay} />
     </>

@@ -1,51 +1,35 @@
 import React, { useState, useEffect } from 'react'
 
 function ScItemChecked(props) {
-  const {isHidden, toggleIsHidden} = props
+  const {isHidden, toggleIsHidden, orderItemsStr, amountSum, sum} = props
+  
 
- 
-  return (
+  const displayItems = (
     <>
-      {/* 訂單商品 */}
-      <div className="dropdownItemsTitle d-flex justify-content-between align-items-center pb-2 titleDivider">
-        <div className="scTitle col-5">訂單商品</div>
-        {/* <div className="sc-formTitle hidden col-1">數量</div>
-        <div className="sc-formTitle hidden col-2">單價</div>
-        <div className="sc-formTitle hidden col-2">總價</div> */}
-        <div className={`sc-formTitle ${isHidden ? 'hidden' : ''} col-1`}>數量</div>
-        <div className={`sc-formTitle ${isHidden ? 'hidden' : ''} col-2`}>單價</div>
-        <div className={`sc-formTitle ${isHidden ? 'hidden' : ''} col-2`}>總價</div>
-        <div className="col-2" />
-      </div>
-      {/* <div className="dropdownItemsPanel hidden"> */}
-      <div className={`dropdownItemsPanel ${isHidden ? 'hidden' : ''}`}>
-        <div className="dropdownItem my-2 d-flex align-items-center py-3">
+    {orderItemsStr.map((item, index)=>{
+      return (
+        <div key={item.id} className="dropdownItem my-2 d-flex align-items-center py-3">
           <div className="col-5 d-flex align-items-center sc-nameFont">
             <div className="itemPic-sm mr-3" />
-            <div>弦月柔棉 日用薄型衛生棉 15片</div>
+            <div>{item.name}</div>
           </div>
-          <div className="col-1 sc-priceFont">1</div>
-          <div className="col-2 sc-priceFont">$ 600</div>
-          <div className="col-2 sc-priceFont">$ 600</div>
+          <div className="col-1 sc-priceFont">{item.amount}</div>
+          <div className="col-2 sc-priceFont">$ {item.price}</div>
+          <div className="col-2 sc-priceFont">$ {item.amount * item.price}</div>
           <div className="col-2 sc-priceFont">商品詳細頁</div>
         </div>
-        <div className="dropdownItem my-2 d-flex align-items-center py-3">
-          <div className="col-5 d-flex align-items-center sc-nameFont">
-            <div className="itemPic-sm mr-3" />
-            <div>弦月柔棉 日用薄型衛生棉 15片</div>
-          </div>
-          <div className="col-1 sc-priceFont">1</div>
-          <div className="col-2 sc-priceFont">$ 600</div>
-          <div className="col-2 sc-priceFont">$ 600</div>
-          <div className="col-2 sc-priceFont">商品詳細頁</div>
-        </div>
-      </div>
+      )
+    })}
+    </>
+  )
+  const displayText = (
+    <>
       <div className="dropdownBtnPanel d-flex justify-content-end align-items-center mt-2 ml-auto"
       onClick={()=>{toggleIsHidden()}}>
         <div className="sc-describeFont mx-3">
-          訂單金額(<span>41</span> 件商品)
+          訂單金額(<span>{amountSum(orderItemsStr)}</span> 件商品)
         </div>
-        <div className="sc-describePriceFont mx-4">NT 12,000</div>
+        <div className="sc-describePriceFont mx-4">NT{sum(orderItemsStr)}</div>
         <img
           id="dropdownBtn"
           // className="icon18px dropdownIcon"
@@ -54,6 +38,25 @@ function ScItemChecked(props) {
           alt=""
         />
       </div>
+    </>
+  )
+
+ 
+  return (
+    <>
+      {/* 訂單商品 */}
+      <div className="dropdownItemsTitle d-flex justify-content-between align-items-center pb-2 titleDivider">
+        <div className="scTitle col-5">訂單商品</div>
+        <div className={`sc-formTitle ${isHidden ? 'hidden' : ''} col-1`}>數量</div>
+        <div className={`sc-formTitle ${isHidden ? 'hidden' : ''} col-2`}>單價</div>
+        <div className={`sc-formTitle ${isHidden ? 'hidden' : ''} col-2`}>總價</div>
+        <div className="col-2" />
+      </div>
+      <div className={`dropdownItemsPanel ${isHidden ? 'hidden' : ''}`}>
+        {displayItems}
+      </div>
+      {displayText}
+      
     </>
   )
 }

@@ -3,8 +3,10 @@ import React, { useState, useEffect } from 'react'
 import ScItemChecked from './ScItemChecked'
 import ShipSel from './ShipSel'
 import ScPriceRowCheck from './ScPriceRowCheck'
+import ScContent3 from './ScContent3/'
 
-function ScContent2() {
+function ScContent2(props) {
+  const {showContent3} = props
   const [isHidden, setIsHidden] = useState(true)
   const [shipPrice, setShipPrice] =useState(0)
 
@@ -50,6 +52,8 @@ function ScContent2() {
         <ShipSel 
           setShipPrice={setShipPrice}
         />
+        {showContent3 ? <ScContent3/> : "" }
+        
         <ScPriceRowCheck 
           orderItemsStr={orderItemsStr}
           sum={sum}

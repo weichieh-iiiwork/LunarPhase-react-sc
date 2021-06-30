@@ -8,11 +8,9 @@ import {
 
 // 導入所需頁面
 import Home from './pages/Home'
-import LunarPhaseHeader from './components/LunarPhaseHeader'
-import Breadcrumb from './components/Breadcrumb'
 import CartItemStep1 from './pages/Cart/CartItemStep1'
 import CartItemStep2 from './pages/Cart/CartItemStep2'
-// import CartItemStep3 from './pages/Cart/CartItemStep3'
+import CartItemStep3 from './pages/Cart/CartItemStep3'
 // import CartItemStep4 from './pages/Cart/CartItemStep4'
 import ProductList from './pages/Product/ProductList'
 import CartTest from './pages/Cart/CartTest'
@@ -27,7 +25,9 @@ function App() {
 
       <>
         <Switch>
-        
+          <Route path="/cart/item/step3">
+            <CartItemStep3 auth={auth} />
+          </Route>
           <Route path="/cart/item/step2">
             <CartItemStep2 auth={auth} />
           </Route>

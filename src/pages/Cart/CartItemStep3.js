@@ -7,10 +7,10 @@ import ScContent2 from './components/ScContent2/'
 import BgMountain from './components/BgMountain'
 import ScBtn from './components/ScBtn'
 import ScLabel from './components/ScLabel'
+import ScContent3 from './components/ScContent2/ScContent3'
 
-
-//網址 /cart/item/step2
-function CartItemStep2() {
+//網址 /cart/item/step3
+function CartItemStep3() {
   return (
     <>
       <LunarPhaseHeader />
@@ -18,19 +18,16 @@ function CartItemStep2() {
 
       <BgMountain />
       <div className="container-fluid">
-        <ScStepRow 
-          step={2}
-        />
+        <ScStepRow step={3} />
         {/*-------------- 第二頁 --------------*/}
         <ScLabel />
         <div className="col-10 mx-auto px-0 shadow-sm ">
-          <ScContent2 
-            showContent3={false}
-          />
+          <ScContent2
+          showContent3={true} />
         </div>
-        <ScBtn 
-          prevUrl={"/cart/item/step1"}
-          nextUrl={"/cart/item/step3"}
+        <ScBtn
+          prevUrl={'/cart/item/step2'}
+          nextUrl={'/cart/item/step4'}
           showStep1={true}
         />
       </div>
@@ -38,4 +35,4 @@ function CartItemStep2() {
   )
 }
 
-export default CartItemStep2
+export default CartItemStep3

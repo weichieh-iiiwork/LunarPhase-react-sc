@@ -10,19 +10,21 @@ function ShipSel(props) {
         <div className="scTitle col-5">選擇物流方式</div>
       </div>
       <div className="d-flex align-items-center justify-content-start my-2">
-        {/* <input class="myRadio ml-5" type="radio" name="selectOne" id=""> */}
         <div className="myRadio ml-5" 
           onClick={()=>{setShipPrice(60)}}
-        />
+        ></div>
         <div className="sc-contentFont mb-0 ml-3">
           便利商店(未滿900元，運費60元)
         </div>
       </div>
       <div className="d-flex align-items-center justify-content-start my-2">
-        {/* <input class="myRadio ml-5" type="radio" name="selectOne" id=""> */}
+      {/* bootstrap覆蓋樣式 */}
+      {/* <div className="d-flex my-2 custom-control custom-radio">
+        <input className="custom-control-input" type="radio" name="selectOne" id=""/>
+        <label for="radioBtn2" className="custom-control-label"></label> */}
         <div className="myRadio ml-5" 
           onClick={()=>{setShipPrice(120)}}
-        />
+        ></div>
         <div className="sc-contentFont mb-0 ml-3">
           宅配(未滿900元，運費120元)
         </div>

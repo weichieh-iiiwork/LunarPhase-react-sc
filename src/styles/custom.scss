@@ -2,3 +2,57 @@
 @import '~bootstrap/scss/bootstrap.scss';
 
 // 其它要導入覆蓋掉原本的預設bootstrap樣式要放在這下面
+// .custom-control-label::before {
+//     background-color: #f1f2ec;
+//     border: 2px solid #E64B4B;
+//     height: 25px;
+//     width: 25px;
+//     border-radius: 25px;
+//     box-sizing: border-box;
+//   }
+  
+//   .custom-control-input:checked ~ .custom-control-label::before {
+//     color: #E64B4B;
+//     border-color: #E64B4B;
+//     background-color: #f1f2ec;
+//   }
+  
+//   .custom-radio .custom-control-input:checked ~ .custom-control-label::after {
+//     content: "⬤";
+//     width: 20px;
+//     height: 20px;
+//     left: -10px;
+//     top: 0px;
+//     color: #E64B4B;
+//   }
+  
+//   .custom-checkbox .custom-control-input:checked ~ .custom-control-label::after {
+//     content: "";
+//     color: #E64B4B;
+//     position: absolute;
+//     border: 1px #fff solid;
+//     border-radius: 3px;
+//     background-color: #E64B4B;
+//     background-image: none;
+//     top: 7px;
+//     left: -10px;
+//     height: 15px;
+//     width: 16px;
+//   }
+  
+//   .custom-checkbox .custom-control-input[indeterminate] ~ .custom-control-label::after {
+//     color: #E64B4B;
+//     background-image: none;
+//     background-color: #E64B4B;
+//     position: absolute;
+//     height: 2px;
+//     width: 14px;
+//     top: 13px;
+//     left: -20.5px;
+//   }
+
+//   // 讓文字不被遮住
+//   .custom-control-label {
+//     padding-left: 0;
+//     font-size: 20px;
+//   }

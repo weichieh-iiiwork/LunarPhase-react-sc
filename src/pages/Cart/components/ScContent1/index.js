@@ -1,5 +1,4 @@
-import React, { useState, useEffect } from 'react'
-import { withRouter } from 'react-router-dom'
+import React from 'react'
 
 import ScBar from './ScBar'
 import ScFormTitle from './ScFormTitle'

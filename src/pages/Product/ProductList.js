@@ -1,5 +1,5 @@
-import React, { useState, useEffect} from 'react'
-import { Link, withRouter } from 'react-router-dom'
+import React, { useState} from 'react'
+import { Link } from 'react-router-dom'
 
 function ProductList(props) {
   const [mycart, setMycart] = useState([])
@@ -27,15 +27,15 @@ function ProductList(props) {
 
   }
 
-  const spinner = (
-    <>
-      <div className="d-flex justify-content-center">
-        <div className="spinner-border" role="status">
-          <span className="sr-only">Loading...</span>
-        </div>
-      </div>
-    </>
-  )
+  // const spinner = (
+  //   <>
+  //     <div className="d-flex justify-content-center">
+  //       <div className="spinner-border" role="status">
+  //         <span className="sr-only">Loading...</span>
+  //       </div>
+  //     </div>
+  //   </>
+  // )
 
   const message = (
     <>

@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React from 'react'
 
 function ScItemChecked(props) {
   const {isHidden, toggleIsHidden, orderItemsStr, amountSum, sum} = props

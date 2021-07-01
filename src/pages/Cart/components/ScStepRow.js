@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React from 'react'
 
 // #10 <i className=`stepCircle ${condition ? 'stepActive' : ''}` />
 // #10 <i className=`stepCircle ${this.props.step === 1 ? 'stepActive' : ''}` />

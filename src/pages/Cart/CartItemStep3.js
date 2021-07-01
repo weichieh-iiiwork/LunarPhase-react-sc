@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React from 'react'
 import LunarPhaseHeader from '../../components/LunarPhaseHeader'
 import Breadcrumb from '../../components/Breadcrumb'
 
@@ -7,7 +7,6 @@ import ScContent2 from './components/ScContent2/'
 import BgMountain from './components/BgMountain'
 import ScBtn from './components/ScBtn'
 import ScLabel from './components/ScLabel'
-import ScContent3 from './components/ScContent2/ScContent3'
 
 //網址 /cart/item/step3
 function CartItemStep3() {

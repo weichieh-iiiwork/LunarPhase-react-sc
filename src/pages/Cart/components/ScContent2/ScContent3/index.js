@@ -1,4 +1,4 @@
-import React, { useState, useEffect} from 'react'
+import React from 'react'
 import ConData from './ConData'
 import HomeData from './HomeData'
 import SelPayment from './SelPayment'

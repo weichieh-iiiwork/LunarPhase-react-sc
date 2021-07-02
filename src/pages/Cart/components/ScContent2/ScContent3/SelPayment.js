@@ -9,16 +9,25 @@ function SelPayment() {
       </div>
       <div className="d-flex">
         <div className="d-flex align-items-center justify-content-start my-2">
-          <div className="myRadio ml-5" />
-          <div className="sc-contentFont mb-0 ml-3">貨到付款</div>
+          <input type="radio" className="ml-5" name="paymentWay"
+              // onClick={()=>{}}
+          />
+          {/* <div className="myRadio ml-5"></div> */}
+          <label className="sc-contentFont mb-0 ml-3">貨到付款</label>
         </div>
         <div className="d-flex align-items-center justify-content-start my-2">
-          <div className="myRadio ml-5" />
-          <div className="sc-contentFont mb-0 ml-3">信用卡/金融卡</div>
+          <input type="radio" className="ml-5" name="paymentWay"
+              // onClick={()=>{}}
+          />
+          {/* <div className="myRadio ml-5"></div> */}
+          <label className="sc-contentFont mb-0 ml-3">信用卡/金融卡</label>
         </div>
         <div className="d-flex align-items-center justify-content-start my-2">
-          <div className="myRadio ml-5" />
-          <div className="sc-contentFont mb-0 ml-3">銀行轉帳</div>
+          <input type="radio" className="ml-5" name="paymentWay"
+              // onClick={()=>{}}
+          />
+          {/* <div className="myRadio ml-5"></div> */}
+          <label className="sc-contentFont mb-0 ml-3">銀行轉帳</label>
         </div>
       </div>
     </>

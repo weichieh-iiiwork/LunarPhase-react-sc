@@ -8,7 +8,7 @@ function LunarPhaseHeader() {
         <div className="nav-bar-top d-flex">
           <div className="col-4" />
           <div className="nav-logo col-4 d-flex justify-content-center">
-            LOGO HERE
+            <img src="/../img/Cart/logo-s-dark.svg" alt="" />
           </div>
           <div className="nav-member-act col-4 d-flex justify-content-end">
             <div className="">

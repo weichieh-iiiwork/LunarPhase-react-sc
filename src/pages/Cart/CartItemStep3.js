@@ -22,7 +22,9 @@ function CartItemStep3() {
         <ScLabel />
         <div className="col-10 mx-auto px-0 shadow-sm ">
           <ScContent2
-          showContent3={true} />
+          showContent3={true} 
+          showShipSel={true}
+          />
         </div>
         <ScBtn
           prevUrl={'/cart/item/step2'}

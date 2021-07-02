@@ -1,17 +1,14 @@
 import React from 'react'
 import LunarPhaseHeader from '../../components/LunarPhaseHeader'
 import Breadcrumb from '../../components/Breadcrumb'
-
-import ScStepRow from './components/ScStepRow'
-import ScContent2 from './components/ScContent2/'
 import BgMountain from './components/BgMountain'
-import ScBtn from './components/ScBtn'
+import ScStepRow from './components/ScStepRow'
 import ScLabel from './components/ScLabel'
+import ScContent2 from './components/ScContent2/'
 
+function CartItemStep4() {
 
-//網址 /cart/item/step2
-function CartItemStep2() {
-  return (
+  return(
     <>
       <LunarPhaseHeader />
       <Breadcrumb />
@@ -19,24 +16,20 @@ function CartItemStep2() {
       <BgMountain />
       <div className="container-fluid">
         <ScStepRow 
-          step={2}
+          step={4}
         />
-        {/*-------------- 第二頁 --------------*/}
+        {/*-------------- 第四頁 --------------*/}
         <ScLabel />
         <div className="col-10 mx-auto px-0 shadow-sm ">
           <ScContent2 
             showContent3={false}
-            showShipSel={true}
+            showShipSel={false}
           />
         </div>
-        <ScBtn 
-          prevUrl={"/cart/item/step1"}
-          nextUrl={"/cart/item/step3"}
-          showStep1={true}
-        />
-      </div>
+        </div>
+
     </>
   )
 }
 
-export default CartItemStep2
+export default CartItemStep4

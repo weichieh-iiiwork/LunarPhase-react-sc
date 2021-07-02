@@ -1,7 +1,8 @@
-import React from 'react'
+import React, {useState}  from 'react'
 
 function ShipSel(props) {
   const {setShipPrice} = props
+  const [shipWay,setShipWay] = useState(0)
 
   return (
     <>

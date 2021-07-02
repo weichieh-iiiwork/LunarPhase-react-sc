@@ -7,7 +7,7 @@ function SelCon() {
     const [seletedConStore, setSeletedConStore] = useState('')
 
     useEffect(() => {
-        console.log(city.stores[0])
+        console.log(city.stores[0].POIName)
         console.log(allCity[0])
       }, [])
     
@@ -40,6 +40,9 @@ function SelCon() {
             setSeletedConStore(e.target.value)
               }}>
         <option value="0">選擇門市</option>
+        {city.stores.map((store,index)=>{
+            return(<option key={index} value={store.POIName}>{store.POIName}店</option>) 
+        })}
       </select>
     </>
   )

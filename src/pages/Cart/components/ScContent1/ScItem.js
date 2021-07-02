@@ -11,6 +11,7 @@ function ScItem(props) {
     // 注意header資料格式要設定，伺服器才知道是json格式
     const request = new Request(url, {
       method: 'GET',
+      credentials: 'include',
       headers: new Headers({
         Accept: 'application/json',
         'Content-Type': 'appliaction/json',

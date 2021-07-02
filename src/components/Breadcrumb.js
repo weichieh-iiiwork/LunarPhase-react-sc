@@ -9,7 +9,7 @@ function Breadcrumb() {
             <div className="bread d-flex">
               <a href="/">HOME</a>
               <p>&gt;</p>
-              <a href>CART</a>
+              <a href="#/">CART</a>
             </div>
           </div>
           <div className="search-box">
@@ -19,7 +19,7 @@ function Breadcrumb() {
                 type="text"
                 placeholder="Search"
               />
-              <button className="search-button" href="#">
+              <button className="search-button" href="#/">
                 <i className="fas fa-search" />
               </button>
             </form>

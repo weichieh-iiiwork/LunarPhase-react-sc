@@ -11,17 +11,17 @@ function LunarPhaseHeader() {
             LOGO HERE
           </div>
           <div className="nav-member-act col-4 d-flex justify-content-end">
-            <div className>
+            <div className="">
               <p className="small">來賓 您好</p>
             </div>
             <div className="ml-2">
-              <a href className="mx-0" >
+              <a href="#/" className="mx-0" >
                 <i className="fas fa-user" />
               </a>
               <div />
             </div>
             <div className="ml-2">
-              <a href className="mx-0">
+              <a href="#/" className="mx-0">
                 <i className="fas fa-bookmark" />
               </a>
               <p className="small mx-0">(0)</p>

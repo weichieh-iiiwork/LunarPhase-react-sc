@@ -81,13 +81,13 @@ function CartTest() {
   }
 
   // 計算總價用的函式
-  const sum = (items) => {
-    let total = 0
-    for (let i = 0; i < items.length; i++) {
-      total += items[i].amount * items[i].price
-    }
-    return total
-  }
+  // const sum = (items) => {
+  //   let total = 0
+  //   for (let i = 0; i < items.length; i++) {
+  //     total += items[i].amount * items[i].price
+  //   }
+  //   return total
+  // }
 
   function resetLocalStorage(){
     setMycart ("")

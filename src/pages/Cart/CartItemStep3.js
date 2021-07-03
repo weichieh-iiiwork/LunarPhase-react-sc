@@ -16,9 +16,9 @@ function CartItemStep3() {
       <Breadcrumb />
 
       <BgMountain />
-      <div className="container-fluid">
         <ScStepRow step={3} />
         {/*-------------- 第二頁 --------------*/}
+      <div className="container-fluid">
         <ScLabel />
         <div className="col-10 mx-auto px-0 shadow-sm ">
           <ScContent2

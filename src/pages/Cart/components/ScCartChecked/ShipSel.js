@@ -1,8 +1,11 @@
-import React, {useState}  from 'react'
+import React, {useEffect}  from 'react'
 
 function ShipSel(props) {
-  const {setShipPrice} = props
-  const [shipWay,setShipWay] = useState(0)
+  const {setShipPrice, shipWay, setShipWay} = props
+  
+  useEffect(() => {
+    console.log(shipWay)
+  }, [shipWay])
 
   return (
     <>
@@ -12,7 +15,11 @@ function ShipSel(props) {
       </div>
       <div className="d-flex align-items-center justify-content-start my-2">
         <input type="radio" className="ml-5" name="shipWay"
-          onClick={()=>{setShipPrice(60)}}
+          value="便利商店"
+          onClick={()=>{
+            setShipPrice(60)
+            console.log(shipWay)}}
+          onChange={(e)=>{setShipWay(e.target.value)}}
         />
         {/* <div className="myRadio ml-5" 
           onClick={()=>{setShipPrice(60)}}
@@ -27,7 +34,10 @@ function ShipSel(props) {
         <input className="custom-control-input" type="radio" name="selectOne" id=""/>
         <label for="radioBtn2" className="custom-control-label"></label> */}
         <input type="radio" className="ml-5" name="shipWay"
+          value="宅配"
           onClick={()=>{setShipPrice(120)}}
+          onChange={(e)=>{setShipWay(e.target.value)}}
+          checked={`${(shipWay==="宅配") ? 'checked': ""}`}
         />
         {/* <div className="myRadio ml-5" 
           onClick={()=>{setShipPrice(120)}}

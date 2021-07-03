@@ -11,6 +11,7 @@ function ScContent2(props) {
   const { showContent3, showShipSel, showContent4 } = props
   const [isHidden, setIsHidden] = useState(true)
   const [shipPrice, setShipPrice] = useState(0)
+  const [shipWay,setShipWay] = useState("")
 
   // 從localStorage取出購物車資訊，往子女元件傳遞
   const orderItems = localStorage.getItem('cart')
@@ -54,7 +55,12 @@ function ScContent2(props) {
               sum={sum}
               amountSum={amountSum}
             />
-            {showShipSel ? <ShipSel setShipPrice={setShipPrice} /> : ''}
+            {showShipSel ? 
+            <ShipSel setShipPrice={setShipPrice} 
+              shipWay={shipWay}
+              setShipWay={setShipWay}
+            /> 
+            : ''}
 
             {showContent3 ? <ScContent3 /> : ''}
             {showContent4 ? <ScOrderData/> : "" }

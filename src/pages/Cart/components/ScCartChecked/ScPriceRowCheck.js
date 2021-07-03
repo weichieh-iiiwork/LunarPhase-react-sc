@@ -3,6 +3,8 @@ import React from 'react'
 function ScPriceRowCheck(props) {
   const {orderItemsStr, sum, shipPrice} = props
 
+  // const cartShipPrice = JSON.parse(localStorage.getItem('cartShipPrice')) || 0
+
   return (
     <>
       {/* 總金額：商品小計 + 運費 */}

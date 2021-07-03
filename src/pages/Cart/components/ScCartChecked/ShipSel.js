@@ -1,7 +1,21 @@
 import React from 'react'
 
 function ShipSel(props) {
-  const {setShipPrice} = props
+  const {setShipPrice, orderItemsStr, sum} = props
+  // const priceCon = (totalPrice) =>{
+  //   if(totalPrice<900) {
+  //     return 60
+  //   } else {
+  //     return 0
+  //   }
+  // }
+  // const priceHome = (totalPrice) =>{
+  //   if(totalPrice<900) {
+  //     return 120
+  //   } else {
+  //     return 0
+  //   }
+  // }
 
   return (
     <>
@@ -18,18 +32,11 @@ function ShipSel(props) {
           }}
           checked={JSON.parse(localStorage.getItem('cartShip'))==="便利商店"}
         />
-        {/* <div className="myRadio ml-5" 
-          onClick={()=>{setShipPrice(60)}}
-        ></div> */}
         <label className="sc-contentFont mb-0 ml-3" >
           便利商店(未滿900元，運費60元)
         </label>
       </div>
       <div className="d-flex align-items-center justify-content-start my-2">
-      {/* bootstrap覆蓋樣式 */}
-      {/* <div className="d-flex my-2 custom-control custom-radio">
-        <input className="custom-control-input" type="radio" name="selectOne" id=""/>
-        <label for="radioBtn2" className="custom-control-label"></label> */}
         <input type="radio" className="ml-5" name="shipWay"
           value="宅配"
           onChange={(e)=>{
@@ -38,9 +45,6 @@ function ShipSel(props) {
             }}
           checked={JSON.parse(localStorage.getItem('cartShip'))==="宅配"}
         />
-        {/* <div className="myRadio ml-5" 
-          onClick={()=>{setShipPrice(120)}}
-        ></div> */}
         <label className="sc-contentFont mb-0 ml-3" >
           宅配(未滿900元，運費120元)
         </label>

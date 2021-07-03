@@ -55,7 +55,12 @@ function ScContent2(props) {
               amountSum={amountSum}
             />
             {showShipSel ? 
-            <ShipSel setShipPrice={setShipPrice} /> 
+            <ShipSel 
+              setShipPrice={setShipPrice}
+              shipPrice={shipPrice} 
+              orderItemsStr={orderItemsStr}
+              sum={sum}
+            /> 
             : ''}
 
             {showContent3 ? <ScContent3 /> : ''}

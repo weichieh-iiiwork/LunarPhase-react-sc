@@ -22,19 +22,16 @@ function CartItemStep2() {
         />
         {/*-------------- 第二頁 --------------*/}
         <ScLabel />
-        <div className="container-fluid">
-        <div className="col-10 mx-auto px-0 shadow-sm ">
-          <ScContent2 
-            showContent3={false}
-            showShipSel={true}
-          />
-        </div>
+        <ScContent2 
+          showContent3={false}
+          showShipSel={true}
+        />
         <ScBtn 
           prevUrl={"/cart/item/step1"}
           nextUrl={"/cart/item/step3"}
           showStep1={true}
         />
-      </div>
+      
     </>
   )
 }

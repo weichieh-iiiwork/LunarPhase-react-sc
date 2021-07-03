@@ -19,17 +19,12 @@ function CartItemStep1() {
       <ScStepRow step={1} />
       {/*-------------- 第一頁 --------------*/}
       <ScLabel />
-   
-        <div className="container-fluid">
-        <div className="col-10 mx-auto px-0 shadow-sm ">
-          <ScContent1 />
-        </div>
-        <ScBtn
-          prevUrl={'/cart/item/step1'}
-          nextUrl={'/cart/item/step2'}
-          showStep1={false}
-        />
-      </div>
+      <ScContent1 />
+      <ScBtn
+        prevUrl={'/cart/item/step1'}
+        nextUrl={'/cart/item/step2'}
+        showStep1={false}
+      />
     </>
   )
 }

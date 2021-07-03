@@ -6,7 +6,7 @@ import ScPriceRowCheck from './ScPriceRowCheck'
 import ScContent3 from './ScContent3/'
 
 function ScContent2(props) {
-  const {showContent3, showShipSel} = props
+  const { showContent3, showShipSel } = props
   const [isHidden, setIsHidden] = useState(true)
   const [shipPrice, setShipPrice] = useState(0)
 
@@ -23,45 +23,45 @@ function ScContent2(props) {
     return total
   }
 
-   // 計算總商品數量的函式
-   const amountSum = (items) => {
+  // 計算總商品數量的函式
+  const amountSum = (items) => {
     let totalAmount = 0
     for (let i = 0; i < items.length; i++) {
       totalAmount += items[i].amount
     }
     return totalAmount
   }
-  
+
   // isHidden的切換函式
   const toggleIsHidden = () => {
     setIsHidden(!isHidden)
   }
   return (
     <>
-      {/*  bar  */}
-      <div className="d-flex select-bar align-items-center"></div>
-      <div className="sc-Wrap d-flex flex-column justify-content-around">
-        <ScItemChecked 
-          isHidden={isHidden}
-          setIsHidden={setIsHidden}
-          toggleIsHidden={toggleIsHidden}
-          orderItemsStr={orderItemsStr}
-          sum={sum}
-          amountSum={amountSum}
-        />
-        {showShipSel ?
-          <ShipSel 
-          setShipPrice={setShipPrice}
-        />
-         : ""}
-        
-        {showContent3 ? <ScContent3/> : "" }
-        
-        <ScPriceRowCheck 
-          orderItemsStr={orderItemsStr}
-          sum={sum}
-          shipPrice={shipPrice}
-        />
+      <div className="container-fluid">
+        <div className="col-10 mx-auto px-0 shadow-sm ">
+          {/*  bar  */}
+          <div className="d-flex select-bar align-items-center"></div>
+          <div className="sc-Wrap d-flex flex-column justify-content-around">
+            <ScItemChecked
+              isHidden={isHidden}
+              setIsHidden={setIsHidden}
+              toggleIsHidden={toggleIsHidden}
+              orderItemsStr={orderItemsStr}
+              sum={sum}
+              amountSum={amountSum}
+            />
+            {showShipSel ? <ShipSel setShipPrice={setShipPrice} /> : ''}
+
+            {showContent3 ? <ScContent3 /> : ''}
+
+            <ScPriceRowCheck
+              orderItemsStr={orderItemsStr}
+              sum={sum}
+              shipPrice={shipPrice}
+            />
+          </div>
+        </div>
       </div>
     </>
   )

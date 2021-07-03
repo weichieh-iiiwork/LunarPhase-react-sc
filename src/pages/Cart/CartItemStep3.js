@@ -17,21 +17,17 @@ function CartItemStep3() {
 
       <BgMountain />
         <ScStepRow step={3} />
-        {/*-------------- 第二頁 --------------*/}
+        {/*-------------- 第三頁 --------------*/}
         <ScLabel />
-        <div className="container-fluid">
-        <div className="col-10 mx-auto px-0 shadow-sm ">
-          <ScContent2
-          showContent3={true} 
-          showShipSel={true}
-          />
-        </div>
+        <ScContent2
+        showContent3={true} 
+        showShipSel={true}
+        />
         <ScBtn
           prevUrl={'/cart/item/step2'}
           nextUrl={'/cart/item/step4'}
           showStep1={true}
         />
-      </div>
     </>
   )
 }

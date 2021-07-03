@@ -1,4 +1,4 @@
-import React, {useState} from 'react'
+import React from 'react'
 
 function ConData(props) {
   const {conUserName, setConUserName, conUserPhone, setConUserPhone} = props

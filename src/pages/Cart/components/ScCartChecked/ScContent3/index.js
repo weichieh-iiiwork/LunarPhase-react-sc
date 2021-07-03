@@ -17,7 +17,7 @@ function ScCartChecked() {
   const [cardName, setCardName] = useState('')
   const [cardDate, setCardDate] = useState('')
   const [cardCode, setCardCode] = useState('')
- 
+
 
 
   return(
@@ -32,7 +32,13 @@ function ScCartChecked() {
         setConUserName={setConUserName}
         conUserPhone={conUserPhone}
         setConUserPhone={setConUserPhone}
+        // addOrderToSever={addOrderToSever}
       />
+      <button
+        onClick={() => {
+          // addOrderToSever()
+        }}
+      >測試新增</button>
       <HomeData
         homeUserName={homeUserName}
         setHomeUserName={setHomeUserName}

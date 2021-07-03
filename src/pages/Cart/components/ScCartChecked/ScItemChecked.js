@@ -2,6 +2,55 @@ import React from 'react'
 
 function ScItemChecked(props) {
   const {isHidden, toggleIsHidden, orderItemsStr, amountSum, sum} = props
+
+// `id`, `orderId`, `orderItemsId`, `checkPrice`, `checkQty`, `checkSubtotal`, `created_at`, `updated_at`
+  async function addOrderToSever(e) {
+    // e.preventDefault()
+    const orderId = +new Date()
+    let data = {
+      orderItems: []
+    }
+     for (let item of orderItemsStr) {
+       const tempObj = {
+        orderId: orderId,
+        orderItemsId: item.id,
+        checkPrice: item.price,
+        checkQty: item.amount,
+        checkSubtotal: item.price*item.amount,
+       }
+       data.orderItems.push(tempObj)
+     }
+    //  `orderId`, `username`, `orderPrice`, `paymentTypeId`, `created_at`, `updated_at`
+     data.orderInfo = {
+      orderId: orderId,
+      username: 'jessica',
+      orderPrice: sum(orderItemsStr),
+      paymentTypeId: 5,
+     }
+
+  
+    // 連接的伺服器資料網址
+    const url = 'http://localhost:5500/cart/product/order/add'
+  
+    // 注意資料格式要設定，伺服器才知道是json格式
+    //  轉成json檔傳到伺服器
+    const request = new Request(url, {
+      method: 'POST',
+      body: JSON.stringify(data),
+      headers: new Headers({
+        Accept: 'application/json',
+        'Content-Type': 'application/json',
+      }),
+    })
+    console.log('JSON',JSON.stringify(data))
+  
+    const response = await fetch(request)
+    const dataRes = await response.json()
+  
+    console.log('伺服器回傳的json資料', dataRes)
+  
+  
+   }
   
 
   const displayItems = (
@@ -45,6 +94,9 @@ function ScItemChecked(props) {
   return (
     <>
       {/* 訂單商品 */}
+      <button
+      onClick={()=>{addOrderToSever()}}
+      >模擬加入訂單</button>
       <div className="dropdownItemsTitle d-flex justify-content-between align-items-center pb-2 titleDivider">
         <div className="scTitle col-5">訂單商品</div>
         <div className={`sc-formTitle ${isHidden ? 'hidden' : ''} col-1`}>數量</div>

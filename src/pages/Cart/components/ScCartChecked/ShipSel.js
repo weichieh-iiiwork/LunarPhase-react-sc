@@ -20,6 +20,7 @@ function ShipSel(props) {
             setShipPrice(60)
             console.log(shipWay)}}
           onChange={(e)=>{setShipWay(e.target.value)}}
+          checked={shipWay==="便利商店"}
         />
         {/* <div className="myRadio ml-5" 
           onClick={()=>{setShipPrice(60)}}
@@ -37,7 +38,7 @@ function ShipSel(props) {
           value="宅配"
           onClick={()=>{setShipPrice(120)}}
           onChange={(e)=>{setShipWay(e.target.value)}}
-          checked={`${(shipWay==="宅配") ? 'checked': ""}`}
+          checked={shipWay==="宅配"}
         />
         {/* <div className="myRadio ml-5" 
           onClick={()=>{setShipPrice(120)}}

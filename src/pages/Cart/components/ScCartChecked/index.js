@@ -11,6 +11,8 @@ function ScContent2(props) {
   const { showContent3, showShipSel, showContent4 } = props
   const [isHidden, setIsHidden] = useState(true)
   const [shipPrice, setShipPrice] = useState(0)
+  const [isCon, setIsCon] = useState(false)
+  const [isHome, setIsHome] = useState(false)
 
   // 從localStorage取出購物車資訊，往子女元件傳遞
   const orderItems = localStorage.getItem('cart')
@@ -60,6 +62,10 @@ function ScContent2(props) {
               shipPrice={shipPrice} 
               orderItemsStr={orderItemsStr}
               sum={sum}
+              isCon={isCon}
+              setIsCon={setIsCon}
+              isHome={isHome}
+              setIsHome={setIsHome}
             /> 
             : ''}
 
@@ -69,7 +75,7 @@ function ScContent2(props) {
             <ScPriceRowCheck
               orderItemsStr={orderItemsStr}
               sum={sum}
-              shipPrice={shipPrice}
+              // shipPrice={shipPrice}
             />
           </div>
         </div>

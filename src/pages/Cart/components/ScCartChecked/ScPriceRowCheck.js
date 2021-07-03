@@ -1,15 +1,21 @@
-import React from 'react'
+import React, {useEffect} from 'react'
 
 function ScPriceRowCheck(props) {
-  const {orderItemsStr, sum, shipPrice} = props
+  const {orderItemsStr, sum} = props
 
-  // const cartShipPrice = JSON.parse(localStorage.getItem('cartShipPrice')) || 0
+  let cartShipPrice = JSON.parse(localStorage.getItem('cartShipPrice'))
 
+  // let cartShipPrice
+  useEffect(() => {
+    // console.log(isCon, isHome, totalPrice, shipPrice)
+    let cartShipPrice = JSON.parse(localStorage.getItem('cartShipPrice'))
+    return cartShipPrice
+  }, [])
   return (
     <>
       {/* 總金額：商品小計 + 運費 */}
       <div className="sc-priceListRow">
-        <div className="col-3 d-flex justify-content-between p-0  ml-auto">
+        <div className="col-3 d-flex justify-content-between p-0 ml-auto">
           <div className="sc-describeFont">商品總金額:</div>
           <div className="sc-describeFont">
             <span>NT {sum(orderItemsStr)}</span>
@@ -18,7 +24,7 @@ function ScPriceRowCheck(props) {
         <div className="col-3 d-flex justify-content-between p-0 ml-auto">
           <div className="sc-describeFont">運費總金額:</div>
           <div className="sc-describeFont">
-            <span>NT {shipPrice}</span>
+            <span>NT {cartShipPrice}</span>
           </div>
         </div>
       </div>
@@ -26,7 +32,7 @@ function ScPriceRowCheck(props) {
       <div className="w-100 d-flex jus justify-content-end my-2 px-0">
         <div className="totalPriceFont col-3 px-0">總計</div>
         <div className="totalPriceFont-med col-3 px-0">
-          NT<span>${sum(orderItemsStr)+shipPrice}</span>
+          NT<span>${sum(orderItemsStr)+cartShipPrice}</span>
         </div>
       </div>
     </>

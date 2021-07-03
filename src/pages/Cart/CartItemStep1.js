@@ -24,6 +24,7 @@ function CartItemStep1() {
         prevUrl={'/cart/item/step1'}
         nextUrl={'/cart/item/step2'}
         showStep1={false}
+        showStep2={true}
       />
     </>
   )

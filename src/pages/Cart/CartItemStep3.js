@@ -19,11 +19,16 @@ function CartItemStep3() {
       <ScStepRow step={3} />
       {/*-------------- 第三頁 --------------*/}
       <ScLabel />
-      <ScCartChecked showContent3={true} showShipSel={true} />
+      <ScCartChecked
+        showContent3={true}
+        showShipSel={true}
+        showContent4={false}
+      />
       <ScBtn
         prevUrl={'/cart/item/step2'}
         nextUrl={'/cart/item/step4'}
         showStep1={true}
+        showStep2={true}
       />
     </>
   )

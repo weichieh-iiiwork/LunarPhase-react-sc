@@ -4,9 +4,11 @@ import ScItemChecked from './ScItemChecked'
 import ShipSel from './ShipSel'
 import ScPriceRowCheck from './ScPriceRowCheck'
 import ScContent3 from './ScContent3'
+import ScOrderId from './ScOrderId'
+import ScOrderData from './ScOrderData'
 
 function ScContent2(props) {
-  const { showContent3, showShipSel } = props
+  const { showContent3, showShipSel, showContent4 } = props
   const [isHidden, setIsHidden] = useState(true)
   const [shipPrice, setShipPrice] = useState(0)
 
@@ -43,6 +45,7 @@ function ScContent2(props) {
           {/*  bar  */}
           <div className="d-flex select-bar align-items-center"></div>
           <div className="sc-Wrap d-flex flex-column justify-content-around">
+            {showContent4 ? <ScOrderId/> : "" }        
             <ScItemChecked
               isHidden={isHidden}
               setIsHidden={setIsHidden}
@@ -54,6 +57,7 @@ function ScContent2(props) {
             {showShipSel ? <ShipSel setShipPrice={setShipPrice} /> : ''}
 
             {showContent3 ? <ScContent3 /> : ''}
+            {showContent4 ? <ScOrderData/> : "" }
 
             <ScPriceRowCheck
               orderItemsStr={orderItemsStr}

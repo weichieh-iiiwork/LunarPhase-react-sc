@@ -2,7 +2,7 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 
 function ScBtn(props) {
-  const {prevUrl, nextUrl, showStep1 } = props
+  const {prevUrl, nextUrl, showStep1, showStep2 } = props
   return (
     <>
       {/* 按鈕列 */}
@@ -17,9 +17,13 @@ function ScBtn(props) {
           }           
           </div>
           <div className="bg-green p-4 fitContent">
-            <Link to={nextUrl}>
+          {showStep2 ? 
+            (<Link to={nextUrl}>
               <button className="btn-soft-green">下一步</button>
-            </Link>
+            </Link>) :
+              ""
+          }  
+            
           </div>
         </div>
       </div>

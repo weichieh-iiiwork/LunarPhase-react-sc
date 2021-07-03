@@ -1,32 +1,59 @@
 import React from 'react'
 
-function HomeData() {
+function HomeData(props) {
+  const {
+    homeUserName,
+    setHomeUserName,
+    homeUserPhone,
+    setHomeUserPhone,
+    homeUserAddress,
+    setHomeUserAddress,
+  } = props
+
   return (
     <>
       {/* 收貨人資料 */}
       <div className="pb-2 mb-3 mt-5 titleDivider">
-        <div className="scTitle col-5">收貨人資料</div>
+        <div className="scTitle col-5">收貨人資料{homeUserName}{homeUserPhone}{homeUserAddress}</div>
       </div>
       <div className="ml-5 d-flex flex-column">
-        <label className="sc-inputLabel" htmlFor>
-          姓名：
-        </label>
-        <input className="w-25" type="text" />
-        <label className="sc-inputLabel" htmlFor>
-          連絡電話：
-        </label>
-        <input className="w-25" type="text" />
-        <label className="sc-inputLabel" htmlFor>
-          寄送地址：
-        </label>
+        <label className="sc-inputLabel">姓名：</label>
+        <input
+          className="w-25"
+          type="text"
+          name="homeUserName"
+          value={homeUserName}
+          onChange={(e) => {
+            setHomeUserName(e.target.value)
+          }}
+        />
+        <label className="sc-inputLabel">連絡電話：</label>
+        <input
+          className="w-25"
+          type="text"
+          name="homeUserPhone"
+          value={homeUserPhone}
+          onChange={(e) => {
+            setHomeUserPhone(e.target.value)
+          }}
+        />
+        <label className="sc-inputLabel">寄送地址：</label>
         <div>
-          <select className="sc-contentFont" name id>
+          <select className="sc-contentFont" name="homeUserCity" id="">
             <option value>縣市</option>
           </select>
-          <select className="sc-contentFont" name id>
+          <select className="sc-contentFont" name="homeUserArea" id="">
             <option value>區域</option>
           </select>
-          <input className="w-50" type="text" />
+          <input
+            className="w-50"
+            type="text"
+            name="homeUserAddress"
+            value={homeUserAddress}
+            onChange={(e) => {
+              setHomeUserAddress(e.target.value)
+            }}
+          />
         </div>
       </div>
     </>

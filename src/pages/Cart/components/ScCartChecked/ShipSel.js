@@ -1,11 +1,7 @@
-import React, {useEffect}  from 'react'
+import React from 'react'
 
 function ShipSel(props) {
-  const {setShipPrice, shipWay, setShipWay} = props
-  
-  useEffect(() => {
-    console.log(shipWay)
-  }, [shipWay])
+  const {setShipPrice} = props
 
   return (
     <>
@@ -16,11 +12,11 @@ function ShipSel(props) {
       <div className="d-flex align-items-center justify-content-start my-2">
         <input type="radio" className="ml-5" name="shipWay"
           value="便利商店"
-          onClick={()=>{
+          onChange={(e)=>{
             setShipPrice(60)
-            console.log(shipWay)}}
-          onChange={(e)=>{setShipWay(e.target.value)}}
-          checked={shipWay==="便利商店"}
+            localStorage.setItem('cartShip', JSON.stringify(e.target.value))
+          }}
+          checked={JSON.parse(localStorage.getItem('cartShip'))==="便利商店"}
         />
         {/* <div className="myRadio ml-5" 
           onClick={()=>{setShipPrice(60)}}
@@ -36,9 +32,11 @@ function ShipSel(props) {
         <label for="radioBtn2" className="custom-control-label"></label> */}
         <input type="radio" className="ml-5" name="shipWay"
           value="宅配"
-          onClick={()=>{setShipPrice(120)}}
-          onChange={(e)=>{setShipWay(e.target.value)}}
-          checked={shipWay==="宅配"}
+          onChange={(e)=>{
+            setShipPrice(120)
+            localStorage.setItem('cartShip', JSON.stringify(e.target.value))
+            }}
+          checked={JSON.parse(localStorage.getItem('cartShip'))==="宅配"}
         />
         {/* <div className="myRadio ml-5" 
           onClick={()=>{setShipPrice(120)}}

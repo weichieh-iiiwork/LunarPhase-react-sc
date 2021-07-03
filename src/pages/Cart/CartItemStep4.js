@@ -18,8 +18,8 @@ function CartItemStep4() {
           step={4}
         />
         {/*-------------- 第四頁 --------------*/}
-      <div className="container-fluid">
         <ScLabel />
+        <div className="container-fluid">
         <div className="col-10 mx-auto px-0 shadow-sm ">
           <ScContent2 
             showContent3={false}

@@ -18,8 +18,9 @@ function CartItemStep1() {
       <BgMountain />
       <ScStepRow step={1} />
       {/*-------------- 第一頁 --------------*/}
-      <div className="container-fluid">
-        <ScLabel />
+      <ScLabel />
+   
+        <div className="container-fluid">
         <div className="col-10 mx-auto px-0 shadow-sm ">
           <ScContent1 />
         </div>

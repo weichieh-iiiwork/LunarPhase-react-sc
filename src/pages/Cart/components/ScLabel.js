@@ -5,6 +5,7 @@ function ScLabel(props) {
   return (
     <>
       {/* label */}
+      <div className="container-fluid">
       <div className="col-10 mx-auto px-0">
         <div className="myLabelGroup d-flex">
           <div className="labelSquare">
@@ -26,6 +27,7 @@ function ScLabel(props) {
             <div className="labelTriangleWhite" />
           </div>
         </div>
+      </div>
       </div>
     </>
   )

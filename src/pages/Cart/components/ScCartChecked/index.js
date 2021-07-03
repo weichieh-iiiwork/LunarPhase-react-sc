@@ -3,7 +3,7 @@ import React, { useState } from 'react'
 import ScItemChecked from './ScItemChecked'
 import ShipSel from './ShipSel'
 import ScPriceRowCheck from './ScPriceRowCheck'
-import ScContent3 from './ScContent3/'
+import ScContent3 from './ScContent3'
 
 function ScContent2(props) {
   const { showContent3, showShipSel } = props

@@ -5,7 +5,7 @@ import SelPayment from './SelPayment'
 import CreditData from './CreditData'
 import SelCon from './SelCon'
 
-function ScContent3() {
+function ScCartChecked() {
   // 第三頁會新增顯示出來的區塊
 
   return(
@@ -19,4 +19,4 @@ function ScContent3() {
   )
 }
 
-export default ScContent3
+export default ScCartChecked

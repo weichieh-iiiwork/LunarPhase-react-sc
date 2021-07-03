@@ -3,7 +3,7 @@ import LunarPhaseHeader from '../../components/LunarPhaseHeader'
 import Breadcrumb from '../../components/Breadcrumb'
 
 import ScStepRow from './components/ScStepRow'
-import ScContent2 from './components/ScContent2/'
+import ScCartChecked from './components/ScCartChecked/'
 import BgMountain from './components/BgMountain'
 import ScBtn from './components/ScBtn'
 import ScLabel from './components/ScLabel'
@@ -19,7 +19,7 @@ function CartItemStep3() {
         <ScStepRow step={3} />
         {/*-------------- 第三頁 --------------*/}
         <ScLabel />
-        <ScContent2
+        <ScCartChecked
         showContent3={true} 
         showShipSel={true}
         />

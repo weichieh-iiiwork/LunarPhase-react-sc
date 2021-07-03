@@ -4,7 +4,7 @@ import Breadcrumb from '../../components/Breadcrumb'
 import BgMountain from './components/BgMountain'
 import ScStepRow from './components/ScStepRow'
 import ScLabel from './components/ScLabel'
-import ScContent2 from './components/ScContent2/'
+import ScCartChecked from './components/ScCartChecked/'
 
 function CartItemStep4() {
   return (
@@ -16,7 +16,7 @@ function CartItemStep4() {
       <ScStepRow step={4} />
       {/*-------------- 第四頁 --------------*/}
       <ScLabel />
-      <ScContent2 showContent3={false} showShipSel={false} />
+      <ScCartChecked showContent3={false} showShipSel={false} />
     </>
   )
 }

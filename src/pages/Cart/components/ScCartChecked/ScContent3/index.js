@@ -13,6 +13,12 @@ function ScCartChecked() {
   const [homeUserName, setHomeUserName] = useState('')
   const [homeUserPhone, setHomeUserPhone] = useState('')
   const [homeUserAddress, setHomeUserAddress] = useState('')
+  const [cardNum, setCardNum] = useState('')
+  const [cardName, setCardName] = useState('')
+  const [cardDate, setCardDate] = useState('')
+  const [cardCode, setCardCode] = useState('')
+ 
+
 
   return(
     <>
@@ -35,7 +41,16 @@ function ScCartChecked() {
         homeUserAddress={homeUserAddress}
         setHomeUserAddress={setHomeUserAddress}
       />
-      <CreditData/>
+      <CreditData
+        cardNum={cardNum}
+        setCardNum={setCardNum}
+        cardName={cardName}
+        setCardName={setCardName}
+        cardDate={cardDate}
+        setCardDate={setCardDate}
+        cardCode={cardCode}
+        setCardCode={setCardCode}
+      />
     </>
   )
 }

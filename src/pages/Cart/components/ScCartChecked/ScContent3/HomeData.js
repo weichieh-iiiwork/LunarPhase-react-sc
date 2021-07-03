@@ -1,4 +1,5 @@
-import React from 'react'
+import React, {useEffect} from 'react'
+// import disctricts from '../../../../../data/districts.json'
 
 function HomeData(props) {
   const {
@@ -10,6 +11,11 @@ function HomeData(props) {
     setHomeUserAddress,
   } = props
 
+  useEffect(() => {
+    console.log()
+    console.log()
+  }, [])
+
   return (
     <>
       {/* 收貨人資料 */}
@@ -19,7 +25,7 @@ function HomeData(props) {
       <div className="ml-5 d-flex flex-column">
         <label className="sc-inputLabel">姓名：</label>
         <input
-          className="w-25"
+          className="w-25 mb-4"
           type="text"
           name="homeUserName"
           value={homeUserName}
@@ -29,7 +35,7 @@ function HomeData(props) {
         />
         <label className="sc-inputLabel">連絡電話：</label>
         <input
-          className="w-25"
+          className="w-25 mb-4"
           type="text"
           name="homeUserPhone"
           value={homeUserPhone}
@@ -38,23 +44,23 @@ function HomeData(props) {
           }}
         />
         <label className="sc-inputLabel">寄送地址：</label>
-        <div>
+        <input
+          className="w-50 mb-4"
+          type="text"
+          name="homeUserAddress"
+          value={homeUserAddress}
+          onChange={(e) => {
+            setHomeUserAddress(e.target.value)
+          }}
+        />
+        {/* <div>
           <select className="sc-contentFont" name="homeUserCity" id="">
             <option value>縣市</option>
           </select>
           <select className="sc-contentFont" name="homeUserArea" id="">
             <option value>區域</option>
           </select>
-          <input
-            className="w-50"
-            type="text"
-            name="homeUserAddress"
-            value={homeUserAddress}
-            onChange={(e) => {
-              setHomeUserAddress(e.target.value)
-            }}
-          />
-        </div>
+        </div> */}
       </div>
     </>
   )

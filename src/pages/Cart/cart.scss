@@ -546,11 +546,14 @@ input[type=radio] {
 }
 select, input[type=text] {
   width: 12.5vw;
-  height: 5vh;
+  height: 45px;
   border-radius: 10px;
   margin-right: 20px;
   padding: 0 0 0 20px;
 }
+// input[type=text]:focus {
+    
+// }
 input {
   border: #707070 0.5px solid;
 }

@@ -1,4 +1,4 @@
-import React, { useState, useEffect} from 'react'
+import React, { useState, useEffect } from 'react'
 import ScPriceRow from './ScPriceRow'
 
 function ScItem(props) {
@@ -6,7 +6,6 @@ function ScItem(props) {
   const [mycartDisplay, setMycartDisplay] = useState([])
 
   function getCartFromLocalStorage() {
-
     const newCart = localStorage.getItem('cart') || '[]'
 
     console.log(JSON.parse(newCart))
@@ -18,7 +17,6 @@ function ScItem(props) {
 
   // componentDidUpdate
   useEffect(() => {
-
     // mycartDisplay運算
     let newMycartDisplay = []
 
@@ -70,7 +68,7 @@ function ScItem(props) {
 
     // 找尋是否有此筆item.id的對應資料
     const index = currentCart.findIndex((v) => v.id === item.id)
-    
+
     if (index > -1) {
       // 找到的話就透過splice來移除array中的那個物件
       // 再更新至localStorage cart之中並且更新Mycart
@@ -79,15 +77,17 @@ function ScItem(props) {
       setMycart(currentCart)
     }
   }
-  
 
   const display = (
     //   為何最外層還是要加上<></>
     // 商品列
-      <>
+    <>
       {mycartDisplay.map((item, index) => {
         return (
-        <div key={item.id} className="itemRow d-flex bdBottom align-items-center position-relative">
+          <div
+            key={item.id}
+            className="itemRow d-flex bdBottom align-items-center position-relative"
+          >
             <div className="col-6 d-flex align-items-center">
               <div className="myCheckbox selectOne ml-4" />
               <div className="itemPic ml-5" />
@@ -115,23 +115,25 @@ function ScItem(props) {
             </div>
             <div className="sc-priceFont col-2">{item.price}</div>
             <div className="sc-priceFont col-2">{item.amount * item.price}</div>
-            <div className="delOne position-absolute"
-                  onClick={()=>{delItem(item)}}>
+            <div
+              className="delOne position-absolute"
+              onClick={() => {
+                delItem(item)
+              }}
+            >
               <i className="fas fa-times p-3 scBtn " />
             </div>
-        </div>
+          </div>
         )
       })}
-      </>
+    </>
   )
 
-
-  return(
+  return (
     <>
-    {/* {dataLoading ? loading : display} */}
-    { display}
-    <ScPriceRow
-      mycartDisplay={mycartDisplay} />
+      {/* {dataLoading ? loading : display} */}
+      {display}
+      <ScPriceRow mycartDisplay={mycartDisplay} />
     </>
   )
 }

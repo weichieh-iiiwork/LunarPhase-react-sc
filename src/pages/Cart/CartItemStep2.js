@@ -8,7 +8,6 @@ import BgMountain from './components/BgMountain'
 import ScBtn from './components/ScBtn'
 import ScLabel from './components/ScLabel'
 
-
 //網址 /cart/item/step2
 function CartItemStep2() {
   return (
@@ -17,21 +16,15 @@ function CartItemStep2() {
       <Breadcrumb />
 
       <BgMountain />
-        <ScStepRow 
-          step={2}
-        />
-        {/*-------------- 第二頁 --------------*/}
-        <ScLabel />
-        <ScCartChecked 
-          showContent3={false}
-          showShipSel={true}
-        />
-        <ScBtn 
-          prevUrl={"/cart/item/step1"}
-          nextUrl={"/cart/item/step3"}
-          showStep1={true}
-        />
-      
+      <ScStepRow step={2} />
+      {/*-------------- 第二頁 --------------*/}
+      <ScLabel />
+      <ScCartChecked showContent3={false} showShipSel={true} />
+      <ScBtn
+        prevUrl={'/cart/item/step1'}
+        nextUrl={'/cart/item/step3'}
+        showStep1={true}
+      />
     </>
   )
 }

@@ -16,18 +16,15 @@ function CartItemStep3() {
       <Breadcrumb />
 
       <BgMountain />
-        <ScStepRow step={3} />
-        {/*-------------- 第三頁 --------------*/}
-        <ScLabel />
-        <ScCartChecked
-        showContent3={true} 
-        showShipSel={true}
-        />
-        <ScBtn
-          prevUrl={'/cart/item/step2'}
-          nextUrl={'/cart/item/step4'}
-          showStep1={true}
-        />
+      <ScStepRow step={3} />
+      {/*-------------- 第三頁 --------------*/}
+      <ScLabel />
+      <ScCartChecked showContent3={true} showShipSel={true} />
+      <ScBtn
+        prevUrl={'/cart/item/step2'}
+        nextUrl={'/cart/item/step4'}
+        showStep1={true}
+      />
     </>
   )
 }

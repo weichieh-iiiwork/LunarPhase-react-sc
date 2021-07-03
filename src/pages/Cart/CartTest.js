@@ -3,9 +3,9 @@ import LunarPhaseHeader from '../../components/LunarPhaseHeader'
 import ScStepRow from './components/ScStepRow'
 import ScLabel from './components/ScLabel'
 import ScBtn from './components/ScBtn'
-import ScBar from './components/ScContent1/ScBar'
-import ScFormTitle from './components/ScContent1/ScFormTitle'
-import ScPriceRow from './components/ScContent1/ScPriceRow'
+import ScBar from './components/ScCart/ScBar'
+import ScFormTitle from './components/ScCart/ScFormTitle'
+import ScPriceRow from './components/ScCart/ScPriceRow'
 
 function CartTest() {
   const [mycart, setMycart] = useState([])

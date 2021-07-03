@@ -4,7 +4,7 @@ import ScBar from './ScBar'
 import ScFormTitle from './ScFormTitle'
 import ScItem from './ScItem'
 
-function ScContent1(props) {
+function ScCart(props) {
   return (
     <>
       <div className="container-fluid">
@@ -18,4 +18,4 @@ function ScContent1(props) {
   )
 }
 
-export default ScContent1
+export default ScCart

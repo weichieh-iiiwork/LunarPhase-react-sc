@@ -20,15 +20,23 @@ function HomeData(props) {
   const displayAddress = (
     <>
       <label className="sc-inputLabel">寄送地址：</label>
-      <input
-        className="w-50 mb-4"
-        type="text"
-        name="homeUserAddress"
-        value={homeUserAddress}
-        onChange={(e) => {
-          setHomeUserAddress(e.target.value)
-        }}
-      />
+      <div>
+          <select className="sc-contentFont mb-4" name="homeUserCity" id="">
+            <option value>縣市</option>
+          </select>
+          <select className="sc-contentFont mb-4" name="homeUserArea" id="">
+            <option value>區域</option>
+          </select>
+          <input
+            className="w-50 mb-4"
+            type="text"
+            name="homeUserAddress"
+            value={homeUserAddress}
+            onChange={(e) => {
+              setHomeUserAddress(e.target.value)
+            }}
+          />
+        </div>
     </>
   )
 
@@ -62,14 +70,7 @@ function HomeData(props) {
         {/* 想透過判斷isCon來顯示地址 */}
         {/* {isCon ? {displayAddress}  : ""} */}
         {displayAddress}
-        {/* <div>
-          <select className="sc-contentFont" name="homeUserCity" id="">
-            <option value>縣市</option>
-          </select>
-          <select className="sc-contentFont" name="homeUserArea" id="">
-            <option value>區域</option>
-          </select>
-        </div> */}
+        
       </div>
     </>
   )

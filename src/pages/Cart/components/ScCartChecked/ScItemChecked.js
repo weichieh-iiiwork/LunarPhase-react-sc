@@ -43,6 +43,7 @@ function ScItemChecked(props) {
       }),
     })
     console.log('JSON',JSON.stringify(data))
+    // console.log('JSON parse',JSON.parse(JSON.stringify(data)).orderItems)
   
     const response = await fetch(request)
     const dataRes = await response.json()

@@ -53,7 +53,6 @@ function ScCartChecked(props) {
   // }
   // `id`, `orderId`, `orderItemsId`, `checkPrice`, `checkQty`, `checkSubtotal`, `created_at`, `updated_at`
   async function addOrderToSever(e) {
-    // e.preventDefault()
     const orderId = +new Date()
     let data = {
       orderItems: []
@@ -105,7 +104,6 @@ function ScCartChecked(props) {
     console.log('伺服器回傳的json資料', dataRes)
   
   }
-
 
   return (
     <>

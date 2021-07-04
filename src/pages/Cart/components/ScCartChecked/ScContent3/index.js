@@ -19,6 +19,7 @@ function ScCartChecked() {
   const [cardCode, setCardCode] = useState('')
 
 
+  
 
   return(
     <>

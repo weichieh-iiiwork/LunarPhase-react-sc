@@ -3,7 +3,7 @@ import React from 'react'
 function ScItemChecked(props) {
   const {isHidden, toggleIsHidden, orderItemsStr, amountSum, sum} = props
 
-// `id`, `orderId`, `orderItemsId`, `checkPrice`, `checkQty`, `checkSubtotal`, `created_at`, `updated_at`
+  // `id`, `orderId`, `orderItemsId`, `checkPrice`, `checkQty`, `checkSubtotal`, `created_at`, `updated_at`
   async function addOrderToSever(e) {
     // e.preventDefault()
     const orderId = +new Date()
@@ -51,7 +51,7 @@ function ScItemChecked(props) {
     console.log('伺服器回傳的json資料', dataRes)
   
   
-   }
+  }
   
 
   const displayItems = (

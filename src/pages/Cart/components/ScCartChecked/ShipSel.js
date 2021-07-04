@@ -8,8 +8,6 @@ function ShipSel(props) {
     setShipPrice,
     isCon,
     setIsCon,
-    isHome,
-    setIsHome,
   } = props
   let totalPrice = sum(orderItemsStr)
 
@@ -20,15 +18,14 @@ function ShipSel(props) {
       } else {
         return 0
       }
-    } else if (isHome) {
+    } 
+    else {
       if (price < 900) {
         return 120
       } else {
         return 0
       }
-    } else {
-      return 0
-    }
+    } 
   }
 
   const display = (
@@ -46,7 +43,6 @@ function ShipSel(props) {
           onChange={(e) => {
             setShipPrice(shipPriceCalc(totalPrice))
             setIsCon(true)
-            setIsHome(false)
             localStorage.setItem(
               'cartShipPrice',
               JSON.stringify(shipPriceCalc(totalPrice))
@@ -68,14 +64,13 @@ function ShipSel(props) {
           onChange={(e) => {
             setShipPrice(shipPriceCalc(totalPrice))
             setIsCon(false)
-            setIsHome(true)
             localStorage.setItem(
               'cartShipPrice',
               JSON.stringify(shipPriceCalc(totalPrice))
             )
             localStorage.setItem('cartShip', JSON.stringify(e.target.value))
           }}
-          checked={isHome}
+          checked={!isCon}
         />
         <label className="sc-contentFont mb-0 ml-3">
           宅配(未滿900元，運費120元)
@@ -85,7 +80,7 @@ function ShipSel(props) {
   ) 
 
   useEffect(() => {
-    // console.log(isCon, isHome, totalPrice, shipPrice)
+    // console.log(isCon, totalPrice, shipPrice)
   }, [])
 
   return <>

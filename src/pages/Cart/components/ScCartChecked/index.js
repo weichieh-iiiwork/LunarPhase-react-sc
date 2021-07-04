@@ -7,12 +7,11 @@ import ScContent3 from './ScContent3'
 import ScOrderId from './ScOrderId'
 import ScOrderData from './ScOrderData'
 
-function ScContent2(props) {
+function ScCartChecked(props) {
   const { showContent3, showShipSel, showContent4 } = props
-  const [isHidden, setIsHidden] = useState(true)
-  const [shipPrice, setShipPrice] = useState(0)
-  const [isCon, setIsCon] = useState(false)
-  const [isHome, setIsHome] = useState(false)
+  const [isHidden, setIsHidden] = useState(true) //下拉選單的顯示與否設定
+  const [shipPrice, setShipPrice] = useState(0) //設定運費
+  const [isCon, setIsCon] = useState(false) //物流是否為便利商店
 
   // 從localStorage取出購物車資訊，往子女元件傳遞
   const orderItems = localStorage.getItem('cart')
@@ -64,8 +63,6 @@ function ScContent2(props) {
               sum={sum}
               isCon={isCon}
               setIsCon={setIsCon}
-              isHome={isHome}
-              setIsHome={setIsHome}
             /> 
             : ''}
 
@@ -84,4 +81,4 @@ function ScContent2(props) {
   )
 }
 
-export default ScContent2
+export default ScCartChecked

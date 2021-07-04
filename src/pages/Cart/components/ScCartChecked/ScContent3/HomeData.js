@@ -1,5 +1,6 @@
 import React, {useEffect} from 'react'
-// import disctricts from '../../../../../data/districts.json'
+// import disctricts from '../../../../../data/townships.json'
+import ZipCode from './ZipCode'
 
 function HomeData(props) {
   const {
@@ -21,12 +22,13 @@ function HomeData(props) {
     <>
       <label className="sc-inputLabel">寄送地址：</label>
       <div>
-          <select className="sc-contentFont mb-4" name="homeUserCity" id="">
+          {/* <select className="sc-contentFont mb-4" name="homeUserCity" id="">
             <option value>縣市</option>
           </select>
           <select className="sc-contentFont mb-4" name="homeUserArea" id="">
             <option value>區域</option>
-          </select>
+          </select> */}
+          <ZipCode/>
           <input
             className="w-50 mb-4"
             type="text"
@@ -69,8 +71,7 @@ function HomeData(props) {
         />
         {/* 想透過判斷isCon來顯示地址 */}
         {/* {isCon ? {displayAddress}  : ""} */}
-        {displayAddress}
-        
+        {displayAddress}       
       </div>
     </>
   )

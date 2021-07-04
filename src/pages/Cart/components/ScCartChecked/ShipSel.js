@@ -8,24 +8,23 @@ function ShipSel(props) {
     setShipPrice,
     isCon,
     setIsCon,
+    shipType, setShipType
   } = props
   let totalPrice = sum(orderItemsStr)
 
-  const shipPriceCalc = (price) => {
-    if (isCon) {
-      if (price < 900) {
-        return 60
-      } else {
-        return 0
-      }
-    } 
-    else {
-      if (price < 900) {
-        return 120
-      } else {
-        return 0
-      }
-    } 
+  const conShipPrice=(price)=>{
+    if (price < 3000) {
+      return 60
+    } else {
+      return 0
+    }
+  }
+  const homeShipPrice=(price)=>{
+    if (price < 3000) {
+      return 120
+    } else {
+      return 0
+    }
   }
 
   const display = (
@@ -41,13 +40,14 @@ function ShipSel(props) {
           name="shipWay"
           value="便利商店"
           onChange={(e) => {
-            setShipPrice(shipPriceCalc(totalPrice))
             setIsCon(true)
+            setShipType("便利商店")
+            setShipPrice(conShipPrice(totalPrice))
             localStorage.setItem(
-              'cartShipPrice',
-              JSON.stringify(shipPriceCalc(totalPrice))
+              'ShipPrice',
+              JSON.stringify(conShipPrice(totalPrice))
             )
-            localStorage.setItem('cartShip', JSON.stringify(e.target.value))
+            localStorage.setItem('shipType', JSON.stringify(e.target.value))
           }}
           checked={isCon}
         />
@@ -62,13 +62,14 @@ function ShipSel(props) {
           name="shipWay"
           value="宅配"
           onChange={(e) => {
-            setShipPrice(shipPriceCalc(totalPrice))
             setIsCon(false)
+            setShipType("宅配")
+            setShipPrice(homeShipPrice(totalPrice))
             localStorage.setItem(
-              'cartShipPrice',
-              JSON.stringify(shipPriceCalc(totalPrice))
+              'ShipPrice',
+              JSON.stringify(homeShipPrice(totalPrice))
             )
-            localStorage.setItem('cartShip', JSON.stringify(e.target.value))
+            localStorage.setItem('shipType', JSON.stringify(e.target.value))
           }}
           checked={!isCon}
         />
@@ -80,8 +81,8 @@ function ShipSel(props) {
   ) 
 
   useEffect(() => {
-    // console.log(isCon, totalPrice, shipPrice)
-  }, [])
+    console.log(isCon,localStorage.getItem('ShipPrice'))
+  }, [isCon])
 
   return <>
     {display}

@@ -9,9 +9,14 @@ import ScOrderData from './ScOrderData'
 
 function ScCartChecked(props) {
   const { showContent3, showShipSel, showContent4 } = props
-  const [isHidden, setIsHidden] = useState(true) //下拉選單的顯示與否設定
-  const [shipPrice, setShipPrice] = useState(0) //設定運費
+  const [isHidden, setIsHidden] = useState(true) //下拉選單的顯示與否
   const [isCon, setIsCon] = useState(false) //物流是否為便利商店
+  const [shipPrice, setShipPrice] = useState(0) //運費
+  const [shipType, setShipType] = useState("") //物流方式
+  const [paymentWay, setPaymentWay] = useState("") //付款方式
+  const [homeUserName, setHomeUserName] = useState('') //收貨人姓名
+  const [homeUserPhone, setHomeUserPhone] = useState('') //收貨人電話
+  const [homeUserAddress, setHomeUserAddress] = useState('') //收貨地址
 
   // 從localStorage取出購物車資訊，往子女元件傳遞
   const orderItems = localStorage.getItem('cart')
@@ -40,6 +45,12 @@ function ScCartChecked(props) {
     setIsHidden(!isHidden)
   }
 
+  // data格式:{
+  // "orderItems":[{購物車第1筆商品},{購物車第2筆商品},...],
+  // "orderInfo":{
+  //    "orderId":1625385519035,"username":"jessica","orderPrice":2200,"paymentTypeId":5
+  //    }
+  // }
   // `id`, `orderId`, `orderItemsId`, `checkPrice`, `checkQty`, `checkSubtotal`, `created_at`, `updated_at`
   async function addOrderToSever(e) {
     // e.preventDefault()
@@ -57,12 +68,18 @@ function ScCartChecked(props) {
        }
        data.orderItems.push(tempObj)
      }
-    //  `orderId`, `username`, `orderPrice`, `paymentTypeId`, `created_at`, `updated_at`
+    //  `orderId`, `username`, `receiverName`, `receiverPhone`, `orderPrice`, `shippingType`, `shippingPrice`, `conAddress`, `homeAddress`, `paymentType`, `created_at`, `updated_at`
      data.orderInfo = {
-      orderId: orderId,
-      username: 'jessica',
-      orderPrice: sum(orderItemsStr),
-      paymentTypeId: 5,
+      orderId:orderId,
+      username:'jessica',
+      receiverName:homeUserName,
+      receiverPhone:homeUserPhone,
+      orderPrice: sum(orderItemsStr)+shipPrice,
+      shippingType:isCon,
+      shippingPrice:shipPrice,
+      conAddress:'',
+      homeAddress:homeUserAddress,
+      paymentType: paymentWay,
      }
 
   
@@ -118,16 +135,30 @@ function ScCartChecked(props) {
               sum={sum}
               isCon={isCon}
               setIsCon={setIsCon}
+              shipType={shipType}
+              setShipType={setShipType}
             /> 
             : ''}
 
-            {showContent3 ? <ScContent3 /> : ''}
+            {showContent3 ? 
+            <ScContent3 
+              isCon={isCon}
+              paymentWay={paymentWay}
+              setPaymentWay={setPaymentWay}
+              homeUserName={homeUserName}
+              setHomeUserName={setHomeUserName}
+              homeUserPhone={homeUserPhone}
+              setHomeUserPhone={setHomeUserPhone}
+              homeUserAddress={homeUserAddress}
+              setHomeUserAddress={setHomeUserAddress}
+
+            /> : ''}
             {showContent4 ? <ScOrderData/> : "" }
 
             <ScPriceRowCheck
               orderItemsStr={orderItemsStr}
               sum={sum}
-              // shipPrice={shipPrice}
+              shipPrice={shipPrice}
             />
           </div>
         </div>

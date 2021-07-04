@@ -5,7 +5,16 @@ import SelPayment from './SelPayment'
 import CreditData from './CreditData'
 import SelCon from './SelCon'
 
-function ScCartChecked() {
+function ScContent3(props) {
+   const {isCon}= props
+  // const {
+  //   paymentWay, setPaymentWay,
+  //   conUserName, setConUserName,
+  //   conUserPhone, setConUserPhone,
+  //   homeUserName, setHomeUserName
+
+
+  // } = props
   // 第三頁會新增顯示出來的區塊
   const [paymentWay, setPaymentWay] = useState("")
   const [conUserName, setConUserName] = useState('')
@@ -19,7 +28,7 @@ function ScCartChecked() {
   const [cardCode, setCardCode] = useState('')
 
 
-  
+
 
   return(
     <>
@@ -62,4 +71,4 @@ function ScCartChecked() {
   )
 }
 
-export default ScCartChecked
+export default ScContent3

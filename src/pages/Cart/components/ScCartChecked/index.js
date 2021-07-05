@@ -16,6 +16,7 @@ function ScCartChecked(props) {
   const [homeUserName, setHomeUserName] = useState('') //收貨人姓名
   const [homeUserPhone, setHomeUserPhone] = useState('') //收貨人電話
   const [homeUserAddress, setHomeUserAddress] = useState('') //收貨地址
+  const [orderId, setOrderId] = useState("")
 
   // 從localStorage取出購物車資訊，往子女元件傳遞
   const orderItems = localStorage.getItem('cart')
@@ -53,6 +54,7 @@ function ScCartChecked(props) {
   // `id`, `orderId`, `orderItemsId`, `checkPrice`, `checkQty`, `checkSubtotal`, `created_at`, `updated_at`
   async function addOrderToSever(e) {
     const orderId = +new Date()
+    setOrderId(orderId)
     let data = {
       orderItems: []
     }
@@ -109,7 +111,7 @@ function ScCartChecked(props) {
       {/* 訂單編號 */}
       <div className="pb-2 mb-3 titleDivider d-flex justify-content-start align-items-center">
         <div className="scTitle col-2">訂單編號</div>
-        <div className="sc-nameFont">1155664464</div>
+        <div className="sc-nameFont">{orderId}</div>
       </div>
     </>
   )

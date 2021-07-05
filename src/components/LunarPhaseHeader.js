@@ -46,7 +46,7 @@ function LunarPhaseHeader() {
             </li>
             <li>
               {/* <a href="#article">ARTICLE</a> */}
-              <Link to="/cart/test">購物車測試</Link>
+              <Link to="/cart/item/step1">購物車</Link>
               {/* <a href="/cart/test">購物車測試</a> */}
             </li>
             <li>

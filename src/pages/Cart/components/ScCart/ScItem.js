@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react'
-import ScPriceRow from './ScPriceRow'
 
 function ScItem(props) {
   const [mycart, setMycart] = useState([])
@@ -22,7 +21,6 @@ function ScItem(props) {
 
     //尋找mycartDisplay
     for (let i = 0; i < mycart.length; i++) {
-      //尋找mycartDisplay中有沒有此mycart[i].id
       const index = newMycartDisplay.findIndex(
         (value) => value.id === mycart[i].id
       )
@@ -78,8 +76,25 @@ function ScItem(props) {
     }
   }
 
-  const display = (
-    //   為何最外層還是要加上<></>
+  // 計算總價用的函式
+  const sum = (items) => {
+    let total = 0
+    for (let i = 0; i < items.length; i++) {
+      total += items[i].amount * items[i].price
+    }
+    return total
+  }
+
+   // 計算總商品數量的函式
+   const amountSum = (items) => {
+    let totalAmount = 0
+    for (let i = 0; i < items.length; i++) {
+      totalAmount += items[i].amount
+    }
+    return totalAmount
+  }
+
+  const displayItems = (
     // 商品列
     <>
       {mycartDisplay.map((item, index) => {
@@ -129,11 +144,31 @@ function ScItem(props) {
     </>
   )
 
+  const ScPriceRow = (
+    <>
+      {/* 總金額列 */}
+      <div className="w-100 priceRow px-0">
+        <div className=" col-10 bdBottom d-flex flex-column align-items-center py-5 mx-auto">
+          <div className="w-100 totalQtyFont my-2 px-0 py-3 bdBottom">
+            共<span>{amountSum(mycartDisplay)}</span>件商品
+          </div>
+          <div className="w-100 d-flex jus justify-content-end my-2 px-0">
+            <div className="totalPriceFont col-3 px-0">總計</div>
+            <div className="totalPriceFont-med col-3 px-0">
+              NT<span>{sum(mycartDisplay)}</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </>
+  )
+
+
   return (
     <>
-      {/* {dataLoading ? loading : display} */}
-      {display}
-      <ScPriceRow mycartDisplay={mycartDisplay} />
+      {/* {dataLoading ? loading : displayItems} */}
+      {displayItems}
+      {ScPriceRow}
     </>
   )
 }

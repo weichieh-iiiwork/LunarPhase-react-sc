@@ -1,17 +1,21 @@
 import React, {useEffect, useState} from 'react'
-import city2Con from '../../../../../data/711/711.json'
+import sevenCity from '../../../../../data/711/711.json'
+// 711.json
+// { "xx縣":[{store1},{store2}],"XX市":[{store1},{store2}] }
+
+
 
 function SelCon() {
     const [seletedConCity, setSeletedConCity] = useState('')
     const [seletedConStore, setSeletedConStore] = useState('')
-    // let stores = await import(`../../../../../data/711/${seletedConCity}.json`)
+    // let sevenStores = await import(`../../../../../data/711/${seletedConCity}.json`)
     
-    let stores = city2Con[seletedConCity];
+    let sevenStores = sevenCity[seletedConCity];
     useEffect(() => {
       console.log('seletedConCity',seletedConCity)
-        console.log('city2Con',city2Con)
-        console.log('stores',stores)
-      }, [stores])
+        console.log('sevenCity',sevenCity)
+        console.log('sevenStores',sevenStores)
+      }, [sevenStores])
     
   return (
     <>
@@ -30,7 +34,7 @@ function SelCon() {
               }}>
         <option value="-1">選擇縣市</option>
         {/* key直接用city是因為只要unique就好 */}
-        { Object.keys(city2Con).map(city => {
+        { Object.keys(sevenCity).map(city => {
             return(<option key={city} value={city}>{city}</option>)
         })}
 
@@ -41,9 +45,8 @@ function SelCon() {
             setSeletedConStore(e.target.value)
               }}>
         <option value="-1">選擇門市</option>
-        {/* Cannot read property 'map' of undefined */}
         { seletedConCity &&
-          stores.map((store,index)=>{
+          sevenStores.map((store,index)=>{
             return(<option key={index} value={store.POIName}>{store.POIName}店</option>) 
         })}
       </select>

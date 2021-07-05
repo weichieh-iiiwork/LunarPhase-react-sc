@@ -4,7 +4,6 @@ import ScItemChecked from './ScItemChecked'
 import ShipSel from './ShipSel'
 import ScPriceRowCheck from './ScPriceRowCheck'
 import ScContent3 from './ScContent3'
-import ScOrderData from './ScOrderData'
 
 function ScCartChecked(props) {
   const { showContent3, showShipSel, showContent4 } = props
@@ -54,7 +53,7 @@ function ScCartChecked(props) {
   // `id`, `orderId`, `orderItemsId`, `checkPrice`, `checkQty`, `checkSubtotal`, `created_at`, `updated_at`
   async function addOrderToSever(e) {
     const orderId = +new Date()
-    setOrderId(orderId)
+    setOrderId(orderId) //失敗
     let data = {
       orderItems: []
     }
@@ -116,6 +115,30 @@ function ScCartChecked(props) {
     </>
   )
 
+  const ScOrderData = (
+    <>
+      {/* 收件地址與資料 */}
+      <div className="pb-2 mb-3 mt-5 titleDivider">
+        <div className="scTitle col-5">收件地址與資料</div>
+      </div>
+      <div className="ml-5 d-flex mt-3">
+        <div className="orderPic">
+          <img src="/img/Cart/gift.svg" alt="" />
+        </div>
+        <div className="sc-contentFont ml-5">
+          姓名：黃XX
+          <br />
+          電話：(+886)09XXXXXXXX
+          <br />
+          超商：全家
+          <br />
+          地址：新莊中悅店 新北市新莊區中平路400號1樓
+          <br />
+        </div>
+      </div>
+    </>
+  )
+
   return (
     <>
       
@@ -162,7 +185,7 @@ function ScCartChecked(props) {
               setHomeUserAddress={setHomeUserAddress}
 
             /> : ''}
-            {showContent4 ? <ScOrderData/> : "" }
+            {showContent4 ? ScOrderData : "" }
 
             <ScPriceRowCheck
               orderItemsStr={orderItemsStr}

@@ -4,7 +4,7 @@ import Breadcrumb from '../../components/Breadcrumb'
 
 import ScStepRow from './components/ScStepRow'
 import ScCart from './components/ScCart/'
-import BgMountain from './components/BgMountain'
+
 import ScBtn from './components/ScBtn'
 import ScLabel from './components/ScLabel'
 
@@ -15,7 +15,6 @@ function CartItemStep1() {
       <LunarPhaseHeader />
       <Breadcrumb />
 
-      <BgMountain />
       <ScStepRow step={1} />
       {/*-------------- 第一頁 --------------*/}
       <ScLabel />

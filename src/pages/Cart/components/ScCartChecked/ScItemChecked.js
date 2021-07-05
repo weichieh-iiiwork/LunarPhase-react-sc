@@ -40,7 +40,6 @@ function ScItemChecked(props) {
     </>
   )
 
- 
   return (
     <>
       {/* 訂單商品 */}
@@ -55,6 +54,7 @@ function ScItemChecked(props) {
         {displayItems}
       </div>
       {displayText}
+      
       
     </>
   )

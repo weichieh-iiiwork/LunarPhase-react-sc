@@ -7,6 +7,12 @@ function ScStepRow(props) {
   const { step } = props
   return (
     <>
+      {/* 背景山 */}
+      <div className="bgMountainRow container-fluid p-0">
+        <div className="bgMountain position-absolute">
+          <img src="/../img/Cart/bgMountain.svg" alt="" />
+        </div>
+      </div>
       {/* 購物車流程 */}
       <div className="container-fluid">
         <div className="scStepRow col-10 px-0 d-flex mx-auto justify-content-center">

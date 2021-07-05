@@ -13,6 +13,8 @@ function CartItem() {
   const [homeUserName, setHomeUserName] = useState('') //收貨人姓名
   const [homeUserPhone, setHomeUserPhone] = useState('') //收貨人電話
   const [homeUserAddress, setHomeUserAddress] = useState('') //收貨地址
+  const [seletedConCity, setSeletedConCity] = useState('') //超商縣市
+  const [seletedConStore, setSeletedConStore] = useState('') //超商店家
 
   // 從localStorage取出購物車資訊，往子女元件傳遞
   const orderItems = localStorage.getItem('cart')
@@ -68,7 +70,7 @@ function CartItem() {
       orderPrice: sum(orderItemsStr) + shipPrice,
       shippingType: shipType,
       shippingPrice: shipPrice,
-      conAddress: '',
+      conAddress: seletedConCity+seletedConStore,
       homeAddress: homeUserAddress,
       paymentType: paymentWay,
     }
@@ -101,7 +103,8 @@ function CartItem() {
     console.log('isCon',isCon)
     console.log('shipPrice',shipPrice)
     console.log('shipType',typeof(shipType),shipType,'shipPrice',shipPrice)
-  }, [step, isCon, shipPrice, shipType])
+    console.log('seletedConCity',seletedConCity,'seletedConStore',seletedConStore)
+  }, [step, isCon, shipPrice, shipType,seletedConCity,seletedConStore])
 
   if(step===1) {
     return(
@@ -128,6 +131,10 @@ function CartItem() {
         setHomeUserPhone={setHomeUserPhone}
         homeUserAddress={homeUserAddress}
         setHomeUserAddress={setHomeUserAddress}
+        seletedConCity={seletedConCity}
+        setSeletedConCity={setSeletedConCity}
+        seletedConStore={seletedConStore}
+        setSeletedConStore={setSeletedConStore}
         sum={sum}
         amountSum={amountSum}
         addOrderToSever={addOrderToSever}
@@ -154,6 +161,10 @@ function CartItem() {
         setHomeUserPhone={setHomeUserPhone}
         homeUserAddress={homeUserAddress}
         setHomeUserAddress={setHomeUserAddress}
+        seletedConCity={seletedConCity}
+        setSeletedConCity={setSeletedConCity}
+        seletedConStore={seletedConStore}
+        setSeletedConStore={setSeletedConStore}
         sum={sum}
         amountSum={amountSum}
         addOrderToSever={addOrderToSever}
@@ -178,6 +189,10 @@ function CartItem() {
         setHomeUserPhone={setHomeUserPhone}
         homeUserAddress={homeUserAddress}
         setHomeUserAddress={setHomeUserAddress}
+        seletedConCity={seletedConCity}
+        setSeletedConCity={setSeletedConCity}
+        seletedConStore={seletedConStore}
+        setSeletedConStore={setSeletedConStore}
         sum={sum}
         amountSum={amountSum}
         addOrderToSever={addOrderToSever}

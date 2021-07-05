@@ -11,21 +11,16 @@ function ScContent3(props) {
     homeUserName, setHomeUserName,
     homeUserPhone, setHomeUserPhone,
     homeUserAddress, setHomeUserAddress,
+    seletedConCity, setSeletedConCity,
+    seletedConStore, setSeletedConStore,
   } = props
 
   const [cardNum, setCardNum] = useState('')
   const [cardName, setCardName] = useState('')
   const [cardDate, setCardDate] = useState('')
   const [cardCode, setCardCode] = useState('')
-  const [seletedConCity, setSeletedConCity] = useState('')
-  const [seletedConStore, setSeletedConStore] = useState('')
 
   let sevenStores = sevenCity[seletedConCity];
-  // useEffect(() => {
-  //   console.log('seletedConCity',seletedConCity)
-  //     console.log('sevenCity',sevenCity)
-  //     console.log('sevenStores',sevenStores)
-  //   }, [sevenStores])
 
   const SelCon = (
     <>
@@ -50,12 +45,14 @@ function ScContent3(props) {
 
       </select>
       <select className="scSelect sc-contentFont ml-5 my-3 w-25" name="conStore" 
+        // value={`${seletedConStore}店`}
         value={seletedConStore}
         onChange={(e) => {
-            setSeletedConStore(e.target.value)
+            setSeletedConStore(e.target.value+"店")
               }}>
         <option value="-1">選擇門市</option>
-        { seletedConCity &&
+        { 
+          seletedConCity &&
           sevenStores.map((store,index)=>{
             return(<option key={index} value={store.POIName}>{store.POIName}店</option>) 
         })}

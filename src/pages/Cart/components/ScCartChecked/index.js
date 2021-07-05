@@ -21,6 +21,8 @@ function ScCartChecked(props) {
     setHomeUserPhone,
     homeUserAddress,
     setHomeUserAddress,
+    seletedConCity, setSeletedConCity,
+    seletedConStore, setSeletedConStore,
     sum,
     amountSum,
     addOrderToSever,
@@ -116,6 +118,10 @@ function ScCartChecked(props) {
               setHomeUserPhone={setHomeUserPhone}
               homeUserAddress={homeUserAddress}
               setHomeUserAddress={setHomeUserAddress}
+              seletedConCity={seletedConCity}
+              setSeletedConCity={setSeletedConCity}
+              seletedConStore={seletedConStore}
+              setSeletedConStore={setSeletedConStore}
 
             /> : ''}
             {showContent4 ? ScOrderData : "" }

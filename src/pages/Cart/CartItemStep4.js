@@ -22,6 +22,8 @@ function CartItemStep4(props) {
     setHomeUserPhone,
     homeUserAddress,
     setHomeUserAddress,
+    seletedConCity, setSeletedConCity,
+    seletedConStore, setSeletedConStore,
     sum,
     amountSum,
     addOrderToSever,
@@ -52,6 +54,10 @@ function CartItemStep4(props) {
         setHomeUserPhone={setHomeUserPhone}
         homeUserAddress={homeUserAddress}
         setHomeUserAddress={setHomeUserAddress}
+        seletedConCity={seletedConCity}
+        setSeletedConCity={setSeletedConCity}
+        seletedConStore={seletedConStore}
+        setSeletedConStore={setSeletedConStore}
         sum={sum}
         amountSum={amountSum}
         addOrderToSever={addOrderToSever}

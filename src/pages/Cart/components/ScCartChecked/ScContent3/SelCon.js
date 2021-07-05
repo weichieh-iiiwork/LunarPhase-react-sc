@@ -29,6 +29,7 @@ function SelCon() {
             setSeletedConCity(e.target.value)
               }}>
         <option value="-1">選擇縣市</option>
+        {/* key直接用city是因為只要unique就好 */}
         { Object.keys(city2Con).map(city => {
             return(<option key={city} value={city}>{city}</option>)
         })}

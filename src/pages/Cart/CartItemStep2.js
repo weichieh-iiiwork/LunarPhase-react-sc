@@ -7,8 +7,9 @@ import ScCartChecked from './components/ScCartChecked'
 import ScBtn from './components/ScBtn'
 import ScLabel from './components/ScLabel'
 
-//網址 /cart/item/step2
-function CartItemStep2() {
+//網址 /cart/item
+function CartItemStep2(props) {
+  const { prevStep, nextStep } = props
   return (
     <>
       <LunarPhaseHeader />
@@ -23,8 +24,8 @@ function CartItemStep2() {
         showContent4={false}
       />
       <ScBtn
-        prevUrl={'/cart/item/step1'}
-        nextUrl={'/cart/item/step3'}
+        prevStep={prevStep}
+        nextStep={nextStep} 
         showStep1={true}
         showStep2={true}
       />

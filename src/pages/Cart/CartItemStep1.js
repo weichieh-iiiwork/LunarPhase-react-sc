@@ -9,7 +9,8 @@ import ScBtn from './components/ScBtn'
 import ScLabel from './components/ScLabel'
 
 //網址 /cart/item/step1
-function CartItemStep1() {
+function CartItemStep1(props) {
+  const { nextStep } = props
   return (
     <>
       <LunarPhaseHeader />
@@ -20,8 +21,7 @@ function CartItemStep1() {
       <ScLabel />
       <ScCart />
       <ScBtn
-        prevUrl={'/cart/item/step1'}
-        nextUrl={'/cart/item/step2'}
+        nextStep={nextStep} 
         showStep1={false}
         showStep2={true}
       />

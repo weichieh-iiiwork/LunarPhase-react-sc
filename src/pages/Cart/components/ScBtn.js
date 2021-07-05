@@ -1,8 +1,8 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
+// import { Link } from 'react-router-dom'
 
 function ScBtn(props) {
-  const {prevUrl, nextUrl, showStep1, showStep2 } = props
+  const {showStep1, showStep2, prevStep, nextStep } = props
   return (
     <>
       {/* 按鈕列 */}
@@ -10,6 +10,21 @@ function ScBtn(props) {
         <div className="d-flex btnRow justify-content-between mb-2">
           <div className="bg-green p-4 fitContent">
           {showStep1 ? 
+            <button className="btn-soft-green"
+            onClick={prevStep}>上一步</button>
+             :
+              ""
+          }    
+          </div>
+          <div className="bg-green p-4 fitContent">
+          {showStep2 ? 
+            <button className="btn-soft-green"
+            onClick={nextStep}>下一步</button>
+             :
+              ""
+          }
+
+          {/* {showStep1 ? 
             (<Link to={prevUrl}>
               <button className="btn-soft-green">上一步</button>
             </Link>) :
@@ -22,7 +37,7 @@ function ScBtn(props) {
               <button className="btn-soft-green">下一步</button>
             </Link>) :
               ""
-          }  
+          }   */}
             
           </div>
         </div>

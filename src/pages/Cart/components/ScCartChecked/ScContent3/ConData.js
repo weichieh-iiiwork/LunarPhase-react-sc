@@ -13,7 +13,7 @@ function ConData(props) {
         <label className="sc-inputLabel">
           姓名：
         </label>
-        <input className="w-25 mb-4" type="text" name="conUserName"
+        <input className="scInput w-25 mb-4" type="text" name="conUserName"
           value={conUserName}
           onChange={(e) => {
             setConUserName(e.target.value)
@@ -22,7 +22,7 @@ function ConData(props) {
         <label className="sc-inputLabel">
           連絡電話：
         </label>
-        <input className="w-25 mb-4" type="text" name="conUserPhone"
+        <input className="scInput w-25 mb-4" type="text" name="conUserPhone"
           value={conUserPhone}
           onChange={(e) => {
             setConUserPhone(e.target.value)

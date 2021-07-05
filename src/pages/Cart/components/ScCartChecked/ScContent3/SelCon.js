@@ -1,17 +1,19 @@
 import React, {useEffect, useState} from 'react'
-import city from '../../../../../data/711/宜蘭縣.json'
-import allCity from '../../../../../data/711/city.json'
+// import city from '../../../../../data/711/宜蘭縣.json'
+import city2Con from '../../../../../data/711/711.json'
 
 function SelCon() {
     const [seletedConCity, setSeletedConCity] = useState('')
     const [seletedConStore, setSeletedConStore] = useState('')
 
-    useEffect(() => {
-        console.log(city.stores[0].POIName)
-        console.log(allCity[0])
-      }, [])
     
-
+    
+    // const stores = await import(`../../../../../data/711/${seletedConCity}.json`)
+    let stores = city2Con[seletedConCity] ;
+    useEffect(() => {
+        console.log(city2Con[0])
+        console.log('stores',stores)
+      }, [stores])
     
   return (
     <>
@@ -23,26 +25,28 @@ function SelCon() {
         <h5 className="mx-2">711</h5>
         <h5 className="mx-2">全家</h5>
       </div>
-      <select className="sc-contentFont ml-5 my-3 w-25" name="conCity" 
+      <select className="scSelect sc-contentFont ml-5 my-3 w-25" name="conCity" 
         value={seletedConCity}
         onChange={(e) => {
             setSeletedConCity(e.target.value)
               }}>
-        <option value="選擇縣市">選擇縣市</option>
-        {allCity.map((city,index) => {
-            return(<option key={index} value={city}>{city}</option>) 
+        <option value="-1">選擇縣市</option>
+        { Object.keys(city2Con).map(city => {
+            return(<option key={city} value={city}>{city}</option>)
         })}
 
       </select>
-      <select className="sc-contentFont ml-5 my-3 w-25" name="conStore" 
+      <select className="scSelect sc-contentFont ml-5 my-3 w-25" name="conStore" 
         value={seletedConStore}
         onChange={(e) => {
             setSeletedConStore(e.target.value)
               }}>
-        <option value="0">選擇門市</option>
-        {city.stores.map((store,index)=>{
+        <option value="-1">選擇門市</option>
+        {/* Cannot read property 'map' of undefined */}
+        {/* { seletedConCity > -1 &&
+          city2Con[seletedConCity].map((store,index)=>{
             return(<option key={index} value={store.POIName}>{store.POIName}店</option>) 
-        })}
+        })} */}
       </select>
     </>
   )

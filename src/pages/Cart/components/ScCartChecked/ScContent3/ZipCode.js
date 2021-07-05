@@ -17,7 +17,7 @@ function ZipCode() {
           // 重置township的值
           setTownship(-1)
         }}
-        className="sc-contentFont mb-4"
+        className="scSelect sc-contentFont mb-4"
         name="homeUserCity"
         >
         <option value="-1">選擇縣市</option>
@@ -33,7 +33,7 @@ function ZipCode() {
           // 將字串轉成數字
           setTownship(+e.target.value)
         }}
-        className="sc-contentFont mb-4" name="homeUserArea" id="">
+        className="scSelect sc-contentFont mb-4" name="homeUserArea" id="">
         <option value="-1">選擇區域</option>
         {country > -1 &&
           townships[country].map((value, index) => (

@@ -36,7 +36,7 @@ function ShipSel(props) {
       <div className="d-flex align-items-center justify-content-start my-2">
         <input
           type="radio"
-          className="ml-5"
+          className="scInput ml-5"
           name="shipWay"
           value="便利商店"
           onChange={(e) => {
@@ -58,7 +58,7 @@ function ShipSel(props) {
       <div className="d-flex align-items-center justify-content-start my-2">
         <input
           type="radio"
-          className="ml-5"
+          className="scInput ml-5"
           name="shipWay"
           value="宅配"
           onChange={(e) => {

@@ -540,11 +540,11 @@ $labelName: 20px;
 .scOrderItem>.bd2:nth-of-type(even) {
     background-color: rgba(205,205,210,0.35);
 }
-input[type=radio] {
+.scInput[type=radio] {
     width: 25px;
     height: 25px;
 }
-select, input[type=text] {
+.scSelect, .scInput[type=text] {
   width: 12.5vw;
   height: 45px;
   border-radius: 10px;
@@ -554,6 +554,6 @@ select, input[type=text] {
 // input[type=text]:focus {
     
 // }
-input {
+.scInput {
   border: #707070 0.5px solid;
 }

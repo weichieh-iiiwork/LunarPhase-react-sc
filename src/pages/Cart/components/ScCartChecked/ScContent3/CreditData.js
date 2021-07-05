@@ -24,7 +24,7 @@ function CreditData(props) {
         <div className="col-6 d-flex flex-column">
           <label className="sc-inputLabel">信用卡號碼：</label>
           <input
-            className="w-100 mb-4"
+            className="scInput w-100 mb-4"
             type="text"
             name="cardNum"
             value={cardNum}
@@ -34,7 +34,7 @@ function CreditData(props) {
           />
           <label className="sc-inputLabel">持卡人姓名：</label>
           <input
-            className="w-100 mb-4"
+            className="scInput w-100 mb-4"
             type="text"
             name="cardName"
             value={cardName}
@@ -46,7 +46,7 @@ function CreditData(props) {
             <div className="d-flex flex-column mr-1">
               <label className="sc-inputLabel">有效日期：</label>
               <input
-                className="w-100 mb-4"
+                className="scInput w-100 mb-4"
                 type="text"
                 name="cardDate"
                 value={cardDate}
@@ -57,7 +57,7 @@ function CreditData(props) {
             </div>
             <div className="d-flex flex-column ml-1">
               <label className="sc-inputLabel">安全碼：</label>
-              <input className="w-100 mb-4" type="text" 
+              <input className="scInput w-100 mb-4" type="text" 
                 name="cardCode"
                 value={cardCode}
                 onChange={(e) => {

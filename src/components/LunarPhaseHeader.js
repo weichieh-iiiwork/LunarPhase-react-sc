@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
 function LunarPhaseHeader() {
 
@@ -27,9 +28,12 @@ function LunarPhaseHeader() {
               <p className="small mx-0">(0)</p>
             </div>
             <div className="ml-2">
-              <a href="/cart/item/step1" className="mx-0">
+            <Link to="/cart/item/step1" className="mx-0">
+              <i className="fas fa-shopping-cart" />
+            </Link>
+              {/* <a href="/cart/item/step1" className="mx-0">
                 <i className="fas fa-shopping-cart" />
-              </a>
+              </a> */}
               <p className="small mx-0">(0)</p>
             </div>
           </div>
@@ -42,7 +46,8 @@ function LunarPhaseHeader() {
             </li>
             <li>
               {/* <a href="#article">ARTICLE</a> */}
-              <a href="/cart/test">購物車測試</a>
+              <Link to="/cart/test">購物車測試</Link>
+              {/* <a href="/cart/test">購物車測試</a> */}
             </li>
             <li>
               <a href="#order">ORDER</a>

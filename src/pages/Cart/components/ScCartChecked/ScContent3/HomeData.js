@@ -30,7 +30,7 @@ function HomeData(props) {
           </select> */}
           <ZipCode/>
           <input
-            className="w-50 mb-4"
+            className="scInput w-50 mb-4"
             type="text"
             name="homeUserAddress"
             value={homeUserAddress}
@@ -51,7 +51,7 @@ function HomeData(props) {
       <div className="ml-5 d-flex flex-column">
         <label className="sc-inputLabel">姓名：</label>
         <input
-          className="w-25 mb-4"
+          className="scInput w-25 mb-4"
           type="text"
           name="homeUserName"
           value={homeUserName}
@@ -61,7 +61,7 @@ function HomeData(props) {
         />
         <label className="sc-inputLabel">連絡電話：</label>
         <input
-          className="w-25 mb-4"
+          className="scInput w-25 mb-4"
           type="text"
           name="homeUserPhone"
           value={homeUserPhone}

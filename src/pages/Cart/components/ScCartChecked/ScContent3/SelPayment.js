@@ -10,7 +10,7 @@ function SelPayment(props) {
       </div>
       <div className="d-flex">
         <div className="d-flex align-items-center justify-content-start my-2">
-          <input type="radio" className="ml-5" name="paymentWay"
+          <input type="radio" className="scInput ml-5" name="paymentWay"
             value="貨到付款"
             onChange={(e)=>{setPaymentWay(e.target.value)}}
           
@@ -19,7 +19,7 @@ function SelPayment(props) {
           <label className="sc-contentFont mb-0 ml-3">貨到付款</label>
         </div>
         <div className="d-flex align-items-center justify-content-start my-2">
-          <input type="radio" className="ml-5" name="paymentWay"
+          <input type="radio" className="scInput ml-5" name="paymentWay"
             value="信用卡"
             onChange={(e)=>{setPaymentWay(e.target.value)}}
           />

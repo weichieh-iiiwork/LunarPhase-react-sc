@@ -3,7 +3,6 @@ import LunarPhaseHeader from '../../components/LunarPhaseHeader'
 import ScStepRow from './components/ScStepRow'
 import ScLabel from './components/ScLabel'
 import ScBtn from './components/ScBtn'
-import ScBar from './components/ScCart/ScBar'
 import ScFormTitle from './components/ScCart/ScFormTitle'
 import ScPriceRow from './components/ScCart/ScPriceRow'
 
@@ -158,7 +157,6 @@ function CartTest() {
       >建立訂單</button>
       <ScLabel />
       <div className="col-10 mx-auto px-0 shadow-sm ">
-        <ScBar />
         <ScFormTitle />
         {dataLoading ? loading : display}
         <ScPriceRow />

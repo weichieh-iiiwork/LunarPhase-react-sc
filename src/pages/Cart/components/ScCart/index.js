@@ -1,9 +1,8 @@
 import React from 'react'
-
-import ScFormTitle from './ScFormTitle'
 import ScItem from './ScItem'
 
 function ScCart(props) {
+
   const ScBar = (
     <>
       {/* 全選bar */}
@@ -16,13 +15,27 @@ function ScCart(props) {
     </>
   )
 
+  const ScFormTitle = (
+    <>
+      {/* 列表標題 */}
+      <div className="d-flex sc-formTitle bdBottom py-1">
+        <div className="col-6 d-flex ">
+          <div className="firstTitle">商品項目</div>
+        </div>
+        <div className="col-2">數量</div>
+        <div className="col-2">單價</div>
+        <div className="col-2">總價</div>
+      </div>
+    </>
+  )
+
 
   return (
     <>
       <div className="container-fluid">
         <div className="col-10 mx-auto px-0 shadow-sm ">
           {ScBar}
-          <ScFormTitle />
+          {ScFormTitle} 
           <ScItem />
         </div>
       </div>

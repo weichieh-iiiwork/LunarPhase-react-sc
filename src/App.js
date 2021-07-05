@@ -12,7 +12,6 @@ import CartItemStep2 from './pages/Cart/CartItemStep2'
 import CartItemStep3 from './pages/Cart/CartItemStep3'
 import CartItemStep4 from './pages/Cart/CartItemStep4'
 import ProductList from './pages/Product/ProductList'
-import CartTest from './pages/Cart/CartTest'
 
 
 
@@ -38,9 +37,7 @@ function App() {
           </Route>
           
           {/* 測試購物車存資料到localStorage */}
-          <Route path="/cart/test">
-            <CartTest/>
-          </Route>
+          
           <Route path="/productlist">
             <ProductList/>
           </Route>

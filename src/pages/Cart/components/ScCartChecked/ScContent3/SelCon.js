@@ -1,17 +1,15 @@
 import React, {useEffect, useState} from 'react'
-// import city from '../../../../../data/711/宜蘭縣.json'
 import city2Con from '../../../../../data/711/711.json'
 
 function SelCon() {
     const [seletedConCity, setSeletedConCity] = useState('')
     const [seletedConStore, setSeletedConStore] = useState('')
-
+    // let stores = await import(`../../../../../data/711/${seletedConCity}.json`)
     
-    
-    // const stores = await import(`../../../../../data/711/${seletedConCity}.json`)
-    let stores = city2Con[seletedConCity] ;
+    let stores = city2Con[seletedConCity];
     useEffect(() => {
-        console.log(city2Con[0])
+      console.log('seletedConCity',seletedConCity)
+        console.log('city2Con',city2Con)
         console.log('stores',stores)
       }, [stores])
     
@@ -43,10 +41,10 @@ function SelCon() {
               }}>
         <option value="-1">選擇門市</option>
         {/* Cannot read property 'map' of undefined */}
-        {/* { seletedConCity > -1 &&
-          city2Con[seletedConCity].map((store,index)=>{
+        { seletedConCity &&
+          stores.map((store,index)=>{
             return(<option key={index} value={store.POIName}>{store.POIName}店</option>) 
-        })} */}
+        })}
       </select>
     </>
   )

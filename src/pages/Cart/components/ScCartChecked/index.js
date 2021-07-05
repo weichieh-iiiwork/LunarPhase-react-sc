@@ -4,7 +4,6 @@ import ScItemChecked from './ScItemChecked'
 import ShipSel from './ShipSel'
 import ScPriceRowCheck from './ScPriceRowCheck'
 import ScContent3 from './ScContent3'
-import ScOrderId from './ScOrderId'
 import ScOrderData from './ScOrderData'
 
 function ScCartChecked(props) {
@@ -105,6 +104,16 @@ function ScCartChecked(props) {
   
   }
 
+  const ScOrderId = (
+    <>
+      {/* 訂單編號 */}
+      <div className="pb-2 mb-3 titleDivider d-flex justify-content-start align-items-center">
+        <div className="scTitle col-2">訂單編號</div>
+        <div className="sc-nameFont">1155664464</div>
+      </div>
+    </>
+  )
+
   return (
     <>
       
@@ -116,7 +125,7 @@ function ScCartChecked(props) {
             onClick={()=>{addOrderToSever()}}
             >模擬加入訂單</button>
           <div className="sc-Wrap d-flex flex-column justify-content-around">
-            {showContent4 ? <ScOrderId/> : "" }        
+            {showContent4 ? ScOrderId : "" }        
             <ScItemChecked
               isHidden={isHidden}
               setIsHidden={setIsHidden}

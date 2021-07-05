@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from 'react'
-import HomeData from './HomeData'
 import CreditData from './CreditData'
 import sevenCity from '../../../../../data/711/711.json'
+import ZipCode from './ZipCode'
 // 711.json
 // { "xx縣":[{store1},{store2}],"XX市":[{store1},{store2}] }
 
@@ -92,20 +92,64 @@ function ScContent3(props) {
     </>
   )
 
+  const HomeDataAddress = (
+    <>
+      <label className="sc-inputLabel">寄送地址：</label>
+      <div>
+          <ZipCode/>
+          <input
+            className="scInput w-50 mb-4"
+            type="text"
+            name="homeUserAddress"
+            value={homeUserAddress}
+            onChange={(e) => {
+              setHomeUserAddress(e.target.value)
+            }}
+          />
+        </div>
+    </>
+  )
+  const HomeData = (
+    <>
+      {/* 收貨人資料 */}
+      <div className="pb-2 mb-3 mt-5 titleDivider">
+        <div className="scTitle col-5">收貨人資料</div>
+      </div>
+      <div className="ml-5 d-flex flex-column">
+        <label className="sc-inputLabel">姓名：</label>
+        <input
+          className="scInput w-25 mb-4"
+          type="text"
+          name="homeUserName"
+          value={homeUserName}
+          onChange={(e) => {
+            setHomeUserName(e.target.value)
+          }}
+        />
+        <label className="sc-inputLabel">連絡電話：</label>
+        <input
+          className="scInput w-25 mb-4"
+          type="text"
+          name="homeUserPhone"
+          value={homeUserPhone}
+          onChange={(e) => {
+            setHomeUserPhone(e.target.value)
+          }}
+        />
+        {/* 想透過判斷isCon來顯示地址 */}
+        {/* {isCon ? {HomeDataAddress}  : ""} */}
+        {HomeDataAddress}       
+      </div>
+    </>
+  )
+
+
 
   return(
     <>
       {SelCon}
       {SelPayment}
-      <HomeData
-        isCon={isCon}
-        homeUserName={homeUserName}
-        setHomeUserName={setHomeUserName}
-        homeUserPhone={homeUserPhone}
-        setHomeUserPhone={setHomeUserPhone}
-        homeUserAddress={homeUserAddress}
-        setHomeUserAddress={setHomeUserAddress}
-      />
+      {HomeData}     
       <CreditData
         cardNum={cardNum}
         setCardNum={setCardNum}

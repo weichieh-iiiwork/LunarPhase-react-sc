@@ -1,9 +1,6 @@
 import React, {useEffect, useState} from 'react'
-// import ConData from './ConData'
 import HomeData from './HomeData'
-import SelPayment from './SelPayment'
 import CreditData from './CreditData'
-// import SelCon from './SelCon'
 import sevenCity from '../../../../../data/711/711.json'
 // 711.json
 // { "xx縣":[{store1},{store2}],"XX市":[{store1},{store2}] }
@@ -65,24 +62,41 @@ function ScContent3(props) {
         })}
       </select>
     </>
-
   )
 
+  const SelPayment = (
+    <>
+      {/* 付款方式 */}
+      <div className="pb-2 mb-3 mt-5 titleDivider">
+        <div className="scTitle col-5">付款方式</div>
+      </div>
+      <div className="d-flex">
+        <div className="d-flex align-items-center justify-content-start my-2">
+          <input type="radio" className="scInput ml-5" name="paymentWay"
+            value="貨到付款"
+            onChange={(e)=>{setPaymentWay(e.target.value)}}
+          
+          />
+          {/* <div className="myRadio ml-5"></div> */}
+          <label className="sc-contentFont mb-0 ml-3">貨到付款</label>
+        </div>
+        <div className="d-flex align-items-center justify-content-start my-2">
+          <input type="radio" className="scInput ml-5" name="paymentWay"
+            value="信用卡"
+            onChange={(e)=>{setPaymentWay(e.target.value)}}
+          />
+          {/* <div className="myRadio ml-5"></div> */}
+          <label className="sc-contentFont mb-0 ml-3">信用卡</label>
+        </div>       
+      </div>
+    </>
+  )
 
 
   return(
     <>
       {SelCon}
-      <SelPayment
-        paymentWay={paymentWay}
-        setPaymentWay={setPaymentWay}
-      />
-      {/* <ConData
-        conUserName={conUserName}
-        setConUserName={setConUserName}
-        conUserPhone={conUserPhone}
-        setConUserPhone={setConUserPhone}
-      /> */}
+      {SelPayment}
       <HomeData
         isCon={isCon}
         homeUserName={homeUserName}

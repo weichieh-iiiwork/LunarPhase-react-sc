@@ -9,7 +9,27 @@ import ScLabel from './components/ScLabel'
 
 //網址 /cart/item
 function CartItemStep2(props) {
-  const { prevStep, nextStep } = props
+  const { 
+    prevStep, nextStep,
+    isCon,
+    setIsCon,
+    shipPrice,
+    setShipPrice,
+    shipType,
+    setShipType,
+    paymentWay,
+    setPaymentWay,
+    homeUserName,
+    setHomeUserName,
+    homeUserPhone,
+    setHomeUserPhone,
+    homeUserAddress,
+    setHomeUserAddress,
+    sum,
+    amountSum,
+    addOrderToSever,
+    orderItemsStr
+  } = props
   return (
     <>
       <LunarPhaseHeader />
@@ -22,6 +42,24 @@ function CartItemStep2(props) {
         showContent3={false}
         showShipSel={true}
         showContent4={false}
+        isCon={isCon}
+        setIsCon={setIsCon}
+        shipPrice={shipPrice}
+        setShipPrice={setShipPrice}
+        shipType={shipType}
+        setShipType={setShipType}
+        paymentWay={paymentWay}
+        setPaymentWay={setPaymentWay}
+        homeUserName={homeUserName}
+        setHomeUserName={setHomeUserName}
+        homeUserPhone={homeUserPhone}
+        setHomeUserPhone={setHomeUserPhone}
+        homeUserAddress={homeUserAddress}
+        setHomeUserAddress={setHomeUserAddress}
+        sum={sum}
+        amountSum={amountSum}
+        addOrderToSever={addOrderToSever}
+        orderItemsStr={orderItemsStr}
       />
       <ScBtn
         prevStep={prevStep}

@@ -136,11 +136,15 @@ function ScContent3(props) {
           }}
         />
         {/* 想透過判斷isCon來顯示地址 */}
-        {/* {isCon ? {HomeDataAddress}  : ""} */}
-        {HomeDataAddress}       
+        { !isCon && {HomeDataAddress} }
+        
+        {/* {isCon ? "" : {HomeDataAddress} } */}
+        {/* {HomeDataAddress}        */}
       </div>
     </>
   )
+
+  
 
 const CreditData = (
   <>

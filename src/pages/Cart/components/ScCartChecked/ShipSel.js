@@ -50,6 +50,7 @@ function ShipSel(props) {
             localStorage.setItem('shipType', JSON.stringify(e.target.value))
           }}
           checked={isCon}
+          // checked={shipType==="便利商店"}
         />
         <label className="sc-contentFont mb-0 ml-3">
           便利商店(未滿900元，運費60元)
@@ -72,6 +73,7 @@ function ShipSel(props) {
             localStorage.setItem('shipType', JSON.stringify(e.target.value))
           }}
           checked={!isCon}
+          // checked={shipType==="宅配"}
         />
         <label className="sc-contentFont mb-0 ml-3">
           宅配(未滿900元，運費120元)
@@ -80,9 +82,6 @@ function ShipSel(props) {
     </>
   ) 
 
-  useEffect(() => {
-    console.log(isCon,localStorage.getItem('ShipPrice'))
-  }, [isCon])
 
   return <>
     {display}

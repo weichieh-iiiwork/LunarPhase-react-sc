@@ -6,6 +6,7 @@ import CartItemStep4 from './CartItemStep4'
 
 function CartItem() {
   const [step, setStep] = useState(1);
+  const [isCon, setIsCon] = useState(false) //物流是否為便利商店
   const [shipPrice, setShipPrice] = useState(0) //運費
   const [shipType, setShipType] = useState('') //物流方式
   const [paymentWay, setPaymentWay] = useState('') //付款方式
@@ -97,7 +98,8 @@ function CartItem() {
 
   useEffect(() => {
     console.log('step',step)
-  }, [step])
+    console.log('isCon',isCon)
+  }, [step, isCon])
 
   if(step===1) {
     return(
@@ -110,6 +112,8 @@ function CartItem() {
       <CartItemStep2 
         prevStep={() => setStep(1)}
         nextStep={() => setStep(3)} 
+        isCon={isCon}
+        setIsCon={setIsCon}
         shipPrice={shipPrice}
         setShipPrice={setShipPrice}
         shipType={shipType}
@@ -133,7 +137,9 @@ function CartItem() {
     return(
       <CartItemStep3 
         prevStep={() => setStep(2)}
-        nextStep={() => setStep(4)}
+        nextStep={() => { addOrderToSever(); return setStep(4)}}
+        isCon={isCon}
+        setIsCon={setIsCon}
         shipPrice={shipPrice}
         setShipPrice={setShipPrice}
         shipType={shipType}
@@ -156,6 +162,8 @@ function CartItem() {
 	if (step === 4){
     return(
       <CartItemStep4 
+        isCon={isCon}
+        setIsCon={setIsCon}
         shipPrice={shipPrice}
         setShipPrice={setShipPrice}
         shipType={shipType}

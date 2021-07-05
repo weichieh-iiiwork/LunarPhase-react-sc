@@ -90,8 +90,8 @@ function ScContent3(props) {
       </div>
     </>
   )
-
-  const HomeDataAddress = (
+  // 要注意寫法
+  const HomeDataAddress = ()=>(
     <>
       <label className="sc-inputLabel">寄送地址：</label>
       <div>
@@ -108,6 +108,7 @@ function ScContent3(props) {
         </div>
     </>
   )
+
   const HomeData = (
     <>
       {/* 收貨人資料 */}
@@ -135,11 +136,8 @@ function ScContent3(props) {
             setHomeUserPhone(e.target.value)
           }}
         />
-        {/* 想透過判斷isCon來顯示地址 */}
-        { !isCon && {HomeDataAddress} }
-        
-        {/* {isCon ? "" : {HomeDataAddress} } */}
-        {/* {HomeDataAddress}        */}
+        {/* 透過判斷isCon來顯示地址 */}
+        { !isCon && <HomeDataAddress/> }
       </div>
     </>
   )

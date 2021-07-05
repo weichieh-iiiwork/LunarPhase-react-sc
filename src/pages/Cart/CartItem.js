@@ -99,7 +99,9 @@ function CartItem() {
   useEffect(() => {
     console.log('step',step)
     console.log('isCon',isCon)
-  }, [step, isCon])
+    console.log('shipPrice',shipPrice)
+    console.log('shipType',typeof(shipType),shipType,'shipPrice',shipPrice)
+  }, [step, isCon, shipPrice, shipType])
 
   if(step===1) {
     return(

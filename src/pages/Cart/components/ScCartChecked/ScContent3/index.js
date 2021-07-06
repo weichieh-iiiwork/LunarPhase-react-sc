@@ -1,6 +1,8 @@
 import React, {useEffect, useState} from 'react'
 import sevenCity from '../../../../../data/711/711.json'
 import ZipCode from './ZipCode'
+import Credit from './Credit'
+
 // 711.json
 // { "xx縣":[{store1},{store2}],"XX市":[{store1},{store2}] }
 
@@ -13,6 +15,7 @@ function ScContent3(props) {
     homeUserAddress, setHomeUserAddress,
     seletedConCity, setSeletedConCity,
     seletedConStore, setSeletedConStore,
+    selectedConAddress, setSeletedConAddress
   } = props
 
   const [cardNum, setCardNum] = useState('')
@@ -21,6 +24,7 @@ function ScContent3(props) {
   const [cardCode, setCardCode] = useState('')
 
   let sevenStores = sevenCity[seletedConCity];
+  // setSeletedConAddress(sevenStores[seletedConStore].Address)
 
   const SelCon = (
     <>
@@ -48,13 +52,15 @@ function ScContent3(props) {
         // value={`${seletedConStore}店`}
         value={seletedConStore}
         onChange={(e) => {
-            setSeletedConStore(e.target.value+"店")
+            // console.log(JSON.parse(e.target.value))
+            setSeletedConStore(JSON.parse(e.target.value).store)
+            setSeletedConAddress(JSON.parse(e.target.value).address)
               }}>
         <option value="-1">選擇門市</option>
         { 
           seletedConCity &&
           sevenStores.map((store,index)=>{
-            return(<option key={index} value={store.POIName}>{store.POIName}店</option>) 
+            return(<option key={index} value={`{"store":"${store.POIName}店", "address":"${store.Address}"} `}>{store.POIName}店</option>) 
         })}
       </select>
     </>
@@ -139,13 +145,13 @@ function ScContent3(props) {
     </>
   )
 
-  
+ 
 
 const CreditData = (
   <>
       {/* 信用卡資料 */}
       <div className="pb-2 mb-3 mt-5 titleDivider">
-        <div className="scTitle col-5">收貨人資料</div>
+        <div className="scTitle col-5">信用卡資料</div>
       </div>
       <div className="d-flex">
         <div className="col-6">
@@ -206,7 +212,8 @@ const CreditData = (
       {SelCon}
       {SelPayment}
       {HomeData}     
-      {CreditData}
+      {/* {CreditData} */}
+      <Credit/>
     </>
   )
 }

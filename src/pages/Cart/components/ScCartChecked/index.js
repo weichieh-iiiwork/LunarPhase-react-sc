@@ -23,11 +23,12 @@ function ScCartChecked(props) {
     setHomeUserAddress,
     seletedConCity, setSeletedConCity,
     seletedConStore, setSeletedConStore,
+    selectedConAddress, setSeletedConAddress,
     sum,
     amountSum,
     addOrderToSever,
-    orderItemsStr
-  
+    orderItemsStr,
+    scOrderId
   } = props
   const [isHidden, setIsHidden] = useState(true) //下拉選單的顯示與否
   
@@ -45,10 +46,26 @@ function ScCartChecked(props) {
       {/* 訂單編號 */}
       <div className="pb-2 mb-3 titleDivider d-flex justify-content-start align-items-center">
         <div className="scTitle col-2">訂單編號</div>
-        <div className="sc-nameFont">{11111111}</div>
+        <div className="sc-nameFont">{scOrderId}</div>
       </div>
     </>
   )
+
+  const OrderCon = ()=> (
+    <>
+      超商：711 {seletedConCity}{seletedConStore}
+      <br />
+      地址：{selectedConAddress}
+      <br />
+    </>
+  )
+  const OrderHome = ()=> (
+    <>
+      地址：{homeUserAddress}
+      <br />
+    </>
+  )
+
 
   const ScOrderData = (
     <>
@@ -61,14 +78,12 @@ function ScCartChecked(props) {
           <img src="/img/Cart/gift.svg" alt="" />
         </div>
         <div className="sc-contentFont ml-5">
-          姓名：黃XX
+          姓名：{homeUserName}
           <br />
-          電話：(+886)09XXXXXXXX
+          電話：{homeUserPhone}
           <br />
-          超商：全家
-          <br />
-          地址：新莊中悅店 新北市新莊區中平路400號1樓
-          <br />
+          { isCon && <OrderCon/> }
+          { !isCon && <OrderHome/> }
         </div>
       </div>
     </>
@@ -122,7 +137,8 @@ function ScCartChecked(props) {
               setSeletedConCity={setSeletedConCity}
               seletedConStore={seletedConStore}
               setSeletedConStore={setSeletedConStore}
-
+              selectedConAddress={selectedConAddress}
+              setSeletedConAddress={setSeletedConAddress}
             /> : ''}
             {showContent4 ? ScOrderData : "" }
 

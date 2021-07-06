@@ -24,10 +24,12 @@ function CartItemStep4(props) {
     setHomeUserAddress,
     seletedConCity, setSeletedConCity,
     seletedConStore, setSeletedConStore,
+    selectedConAddress, setSeletedConAddress,
     sum,
     amountSum,
     addOrderToSever,
-    orderItemsStr
+    orderItemsStr,
+    scOrderId
   } = props
   return (
     <>
@@ -58,10 +60,13 @@ function CartItemStep4(props) {
         setSeletedConCity={setSeletedConCity}
         seletedConStore={seletedConStore}
         setSeletedConStore={setSeletedConStore}
+        selectedConAddress={selectedConAddress}
+        setSeletedConAddress={setSeletedConAddress}
         sum={sum}
         amountSum={amountSum}
         addOrderToSever={addOrderToSever}
         orderItemsStr={orderItemsStr}
+        scOrderId={scOrderId}
       />
       <ScBtn
         showStep1={false}

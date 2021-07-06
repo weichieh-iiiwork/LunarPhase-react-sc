@@ -10,9 +10,9 @@ function CartItem() {
   const [shipPrice, setShipPrice] = useState(0) //運費
   const [shipType, setShipType] = useState('') //物流方式
   const [paymentWay, setPaymentWay] = useState('') //付款方式
-  const [homeUserName, setHomeUserName] = useState('') //收貨人姓名
-  const [homeUserPhone, setHomeUserPhone] = useState('') //收貨人電話
-  const [homeUserAddress, setHomeUserAddress] = useState('') //收貨地址
+  // const [homeUserName, setHomeUserName] = useState('') //收貨人姓名
+  // const [homeUserPhone, setHomeUserPhone] = useState('') //收貨人電話
+  // const [homeUserAddress, setHomeUserAddress] = useState('') //收貨地址
   const [country, setCountry] = useState('')
   const [township, setTownship] = useState('')
   const [seletedConCity, setSeletedConCity] = useState('') //超商縣市
@@ -25,9 +25,9 @@ function CartItem() {
   const orderItemsStr = JSON.parse(orderItems)
 
   const [inputs, setInputs] = useState({
-    name: '', //收貨人姓名
-    phone: '', //收貨人電話
-    homeAddress: '', //收貨地址
+    name: '', //收貨人姓名  ok
+    phone: '', //收貨人電話  ok
+    homeAddress: '', //收貨地址  ok
     country:'', //收貨地址(縣市)
     township:'', //收貨地址(區域)
     conAddress:'', //超商地址
@@ -35,7 +35,6 @@ function CartItem() {
     conStore:'', //超商(店家)
     shipPrice:0, //運費
     shipType:'', //物流方式
-    paymentWay:'', //付款方式
   })
 
   const onChangeForField = (fieldName) => (event) => {
@@ -157,16 +156,16 @@ function CartItem() {
         setShipType={setShipType}
         paymentWay={paymentWay}
         setPaymentWay={setPaymentWay}
-        homeUserName={homeUserName}
-        setHomeUserName={setHomeUserName}
-        homeUserPhone={homeUserPhone}
-        setHomeUserPhone={setHomeUserPhone}
+        // homeUserName={homeUserName}
+        // setHomeUserName={setHomeUserName}
+        // homeUserPhone={homeUserPhone}
+        // setHomeUserPhone={setHomeUserPhone}
         country={country}
         setCountry={setCountry}
         township={township}
         setTownship={setTownship}
-        homeUserAddress={homeUserAddress}
-        setHomeUserAddress={setHomeUserAddress}
+        // homeUserAddress={homeUserAddress}
+        // setHomeUserAddress={setHomeUserAddress}
         seletedConCity={seletedConCity}
         setSeletedConCity={setSeletedConCity}
         seletedConStore={seletedConStore}
@@ -198,16 +197,16 @@ function CartItem() {
         setShipType={setShipType}
         paymentWay={paymentWay}
         setPaymentWay={setPaymentWay}
-        homeUserName={homeUserName}
-        setHomeUserName={setHomeUserName}
-        homeUserPhone={homeUserPhone}
-        setHomeUserPhone={setHomeUserPhone}
+        // homeUserName={homeUserName}
+        // setHomeUserName={setHomeUserName}
+        // homeUserPhone={homeUserPhone}
+        // setHomeUserPhone={setHomeUserPhone}
         country={country}
         setCountry={setCountry}
         township={township}
         setTownship={setTownship}
-        homeUserAddress={homeUserAddress}
-        setHomeUserAddress={setHomeUserAddress}
+        // homeUserAddress={homeUserAddress}
+        // setHomeUserAddress={setHomeUserAddress}
         seletedConCity={seletedConCity}
         setSeletedConCity={setSeletedConCity}
         seletedConStore={seletedConStore}
@@ -237,16 +236,16 @@ function CartItem() {
         setShipType={setShipType}
         paymentWay={paymentWay}
         setPaymentWay={setPaymentWay}
-        homeUserName={homeUserName}
-        setHomeUserName={setHomeUserName}
-        homeUserPhone={homeUserPhone}
-        setHomeUserPhone={setHomeUserPhone}
+        // homeUserName={homeUserName}
+        // setHomeUserName={setHomeUserName}
+        // homeUserPhone={homeUserPhone}
+        // setHomeUserPhone={setHomeUserPhone}
         country={country}
         setCountry={setCountry}
         township={township}
         setTownship={setTownship}
-        homeUserAddress={homeUserAddress}
-        setHomeUserAddress={setHomeUserAddress}
+        // homeUserAddress={homeUserAddress}
+        // setHomeUserAddress={setHomeUserAddress}
         seletedConCity={seletedConCity}
         setSeletedConCity={setSeletedConCity}
         seletedConStore={seletedConStore}

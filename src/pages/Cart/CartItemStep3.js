@@ -19,7 +19,7 @@ function CartItemStep3(props) {
     shipType,
     setShipType,
     paymentWay,
-    // setPaymentWay,
+    setPaymentWay,
     // homeUserName,
     // setHomeUserName,
     // homeUserPhone,
@@ -58,7 +58,7 @@ function CartItemStep3(props) {
         shipType={shipType}
         setShipType={setShipType}
         paymentWay={paymentWay}
-        // setPaymentWay={setPaymentWay}
+        setPaymentWay={setPaymentWay}
         // homeUserName={homeUserName}
         // setHomeUserName={setHomeUserName}
         // homeUserPhone={homeUserPhone}

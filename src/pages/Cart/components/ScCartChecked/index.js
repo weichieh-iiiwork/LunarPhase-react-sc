@@ -7,6 +7,7 @@ import ScContent3 from './ScContent3'
 
 function ScCartChecked(props) {
   const { 
+    inputs, setInputs,onChangeForField,
     isCon, setIsCon,
     showContent3, showShipSel, showContent4,
     shipPrice,
@@ -15,12 +16,12 @@ function ScCartChecked(props) {
     setShipType,
     paymentWay,
     setPaymentWay,
-    homeUserName,
-    setHomeUserName,
-    homeUserPhone,
-    setHomeUserPhone,
-    homeUserAddress,
-    setHomeUserAddress,
+    // homeUserName,
+    // setHomeUserName,
+    // homeUserPhone,
+    // setHomeUserPhone,
+    // homeUserAddress,
+    // setHomeUserAddress,
     country, setCountry, township, setTownship,
     seletedConCity, setSeletedConCity,
     seletedConStore, setSeletedConStore,
@@ -62,7 +63,7 @@ function ScCartChecked(props) {
   )
   const OrderHome = ()=> (
     <>
-      地址：{homeUserAddress}
+      地址：{inputs.homeAddress}
       <br />
     </>
   )
@@ -79,9 +80,9 @@ function ScCartChecked(props) {
           <img src="/img/Cart/gift.svg" alt="" />
         </div>
         <div className="sc-contentFont ml-5">
-          姓名：{homeUserName}
+          姓名：{inputs.name}
           <br />
-          電話：{homeUserPhone}
+          電話：{inputs.phone}
           <br />
           { isCon && <OrderCon/> }
           { !isCon && <OrderHome/> }
@@ -97,9 +98,6 @@ function ScCartChecked(props) {
         <div className="col-10 mx-auto px-0 shadow-sm ">
           {/*  bar  */}
           <div className="d-flex select-bar align-items-center"></div>
-          <button
-            onClick={()=>{addOrderToSever()}}
-            >模擬加入訂單</button>
           <div className="sc-Wrap d-flex flex-column justify-content-around">
             {showContent4 ? ScOrderId : "" }        
             <ScItemChecked
@@ -112,6 +110,10 @@ function ScCartChecked(props) {
             />
             {showShipSel ? 
             <ShipSel 
+              inputs={inputs}
+              setInputs={setInputs}
+              onChangeForField={onChangeForField}
+              
               setShipPrice={setShipPrice}
               shipPrice={shipPrice} 
               orderItemsStr={orderItemsStr}
@@ -125,19 +127,23 @@ function ScCartChecked(props) {
 
             {showContent3 ? 
             <ScContent3 
+              inputs={inputs}
+              setInputs={setInputs}
+              onChangeForField={onChangeForField}
+
               isCon={isCon}
               paymentWay={paymentWay}
               setPaymentWay={setPaymentWay}
-              homeUserName={homeUserName}
-              setHomeUserName={setHomeUserName}
-              homeUserPhone={homeUserPhone}
-              setHomeUserPhone={setHomeUserPhone}
+              // homeUserName={homeUserName}
+              // setHomeUserName={setHomeUserName}
+              // homeUserPhone={homeUserPhone}
+              // setHomeUserPhone={setHomeUserPhone}
               country={country}
               setCountry={setCountry}
               township={township}
               setTownship={setTownship}
-              homeUserAddress={homeUserAddress}
-              setHomeUserAddress={setHomeUserAddress}
+              // homeUserAddress={homeUserAddress}
+              // setHomeUserAddress={setHomeUserAddress}
               seletedConCity={seletedConCity}
               setSeletedConCity={setSeletedConCity}
               seletedConStore={seletedConStore}
@@ -148,6 +154,8 @@ function ScCartChecked(props) {
             {showContent4 ? ScOrderData : "" }
 
             <ScPriceRowCheck
+              inputs={inputs}
+
               orderItemsStr={orderItemsStr}
               sum={sum}
               shipPrice={shipPrice}

@@ -24,6 +24,27 @@ function CartItem() {
   const orderItems = localStorage.getItem('cart')
   const orderItemsStr = JSON.parse(orderItems)
 
+  const [inputs, setInputs] = useState({
+    name: '', //收貨人姓名
+    phone: '', //收貨人電話
+    homeAddress: '', //收貨地址
+    country:'', //收貨地址(縣市)
+    township:'', //收貨地址(區域)
+    conAddress:'', //超商地址
+    conCity: '', //超商(縣市)
+    conStore:'', //超商(店家)
+    shipPrice:0, //運費
+    shipType:'', //物流方式
+    paymentWay:'', //付款方式
+  })
+
+  const onChangeForField = (fieldName) => (event) => {
+    setInputs((state) => ({
+      ...state,
+      [fieldName]: event.target.value,
+    }))
+  }
+
   /*
    data格式:{
    "orderItems":[{購物車第1筆商品},{購物車第2筆商品},...],
@@ -70,14 +91,14 @@ function CartItem() {
     data.orderInfo = {
       orderId: orderId,
       username: 'jessica',
-      receiverName: homeUserName,
-      receiverPhone: homeUserPhone,
+      receiverName: inputs.name,
+      receiverPhone: inputs.phone,
       orderPrice: sum(orderItemsStr) + shipPrice,
       shippingType: shipType,
       shippingPrice: shipPrice,
       conStore: seletedConCity+seletedConStore,
       conAddress: selectedConAddress,
-      homeAddress: homeUserAddress,
+      homeAddress: inputs.homeAddress,
       paymentType: paymentWay,
     }
 
@@ -124,6 +145,10 @@ function CartItem() {
       <CartItemStep2 
         prevStep={() => setStep(1)}
         nextStep={() => setStep(3)} 
+        inputs={inputs}
+        setInputs={setInputs}
+        onChangeForField={onChangeForField}
+
         isCon={isCon}
         setIsCon={setIsCon}
         shipPrice={shipPrice}
@@ -161,6 +186,10 @@ function CartItem() {
       <CartItemStep3 
         prevStep={() => setStep(2)}
         nextStep={() => { addOrderToSever(); return setStep(4)}}
+        inputs={inputs}
+        setInputs={setInputs}
+        onChangeForField={onChangeForField}
+
         isCon={isCon}
         setIsCon={setIsCon}
         shipPrice={shipPrice}
@@ -196,6 +225,10 @@ function CartItem() {
 	if (step === 4){
     return(
       <CartItemStep4 
+        inputs={inputs}
+        setInputs={setInputs}
+        onChangeForField={onChangeForField}
+
         isCon={isCon}
         setIsCon={setIsCon}
         shipPrice={shipPrice}

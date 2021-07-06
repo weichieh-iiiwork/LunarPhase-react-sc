@@ -8,11 +8,12 @@ import Credit from './Credit'
 
 function ScContent3(props) {
   const {
+    inputs, setInputs,onChangeForField,
     isCon,
     paymentWay, setPaymentWay,
-    homeUserName, setHomeUserName,
-    homeUserPhone, setHomeUserPhone,
-    homeUserAddress, setHomeUserAddress,
+    // homeUserName, setHomeUserName,
+    // homeUserPhone, setHomeUserPhone,
+    // homeUserAddress, setHomeUserAddress,
     seletedConCity, setSeletedConCity,
     seletedConStore, setSeletedConStore,
     selectedConAddress, setSeletedConAddress,
@@ -108,11 +109,15 @@ function ScContent3(props) {
           <input
             className="scInput w-50 mb-4"
             type="text"
-            name="homeUserAddress"
-            value={homeUserAddress}
-            onChange={(e) => {
-              setHomeUserAddress(e.target.value)
-            }}
+            name="homeAddress"
+            value={inputs.homeAddress}
+            onChange={onChangeForField('homeAddress')}
+            placeholder="地址"
+            // name="homeUserAddress"
+            // value={homeUserAddress}
+            // onChange={(e) => {
+            //   setHomeUserAddress(e.target.value)
+            // }}
           />
         </div>
     </>
@@ -129,21 +134,25 @@ function ScContent3(props) {
         <input
           className="scInput w-25 mb-4"
           type="text"
-          name="homeUserName"
-          value={homeUserName}
-          onChange={(e) => {
-            setHomeUserName(e.target.value)
-          }}
+          name="name"
+          value={inputs.name}
+          onChange={onChangeForField('name')}
+          placeholder="姓名"
+          // onChange={(e) => {
+          //   setHomeUserName(e.target.value)
+          // }}
         />
         <label className="sc-inputLabel">連絡電話：</label>
         <input
           className="scInput w-25 mb-4"
           type="text"
-          name="homeUserPhone"
-          value={homeUserPhone}
-          onChange={(e) => {
-            setHomeUserPhone(e.target.value)
-          }}
+          name="phone"
+          value={inputs.phone}
+          onChange={onChangeForField('phone')}
+          placeholder="聯絡電話"
+          // onChange={(e) => {
+          //   setHomeUserPhone(e.target.value)
+          // }}
         />
         {/* 透過判斷isCon來顯示地址 */}
         { !isCon && <HomeDataAddress/> }

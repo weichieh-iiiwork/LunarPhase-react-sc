@@ -11,6 +11,7 @@ import ScLabel from './components/ScLabel'
 function CartItemStep2(props) {
   const { 
     prevStep, nextStep,
+    inputs, setInputs,onChangeForField,
     isCon,
     setIsCon,
     shipPrice,
@@ -19,12 +20,12 @@ function CartItemStep2(props) {
     setShipType,
     paymentWay,
     setPaymentWay,
-    homeUserName,
-    setHomeUserName,
-    homeUserPhone,
-    setHomeUserPhone,
-    homeUserAddress,
-    setHomeUserAddress,
+    // homeUserName,
+    // setHomeUserName,
+    // homeUserPhone,
+    // setHomeUserPhone,
+    // homeUserAddress,
+    // setHomeUserAddress,
     country, setCountry, township, setTownship,
     seletedConCity, setSeletedConCity,
     seletedConStore, setSeletedConStore,
@@ -46,6 +47,10 @@ function CartItemStep2(props) {
         showContent3={false}
         showShipSel={true}
         showContent4={false}
+        inputs={inputs}
+        setInputs={setInputs}
+        onChangeForField={onChangeForField}
+
         isCon={isCon}
         setIsCon={setIsCon}
         shipPrice={shipPrice}
@@ -54,16 +59,16 @@ function CartItemStep2(props) {
         setShipType={setShipType}
         paymentWay={paymentWay}
         setPaymentWay={setPaymentWay}
-        homeUserName={homeUserName}
-        setHomeUserName={setHomeUserName}
-        homeUserPhone={homeUserPhone}
-        setHomeUserPhone={setHomeUserPhone}
+        // homeUserName={homeUserName}
+        // setHomeUserName={setHomeUserName}
+        // homeUserPhone={homeUserPhone}
+        // setHomeUserPhone={setHomeUserPhone}
         country={country}
         setCountry={setCountry}
         township={township}
         setTownship={setTownship}
-        homeUserAddress={homeUserAddress}
-        setHomeUserAddress={setHomeUserAddress}
+        // homeUserAddress={homeUserAddress}
+        // setHomeUserAddress={setHomeUserAddress}
         seletedConCity={seletedConCity}
         setSeletedConCity={setSeletedConCity}
         seletedConStore={seletedConStore}

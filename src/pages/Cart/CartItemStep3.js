@@ -11,6 +11,7 @@ import ScLabel from './components/ScLabel'
 function CartItemStep3(props) {
   const { 
     prevStep, nextStep,
+    inputs, setInputs,onChangeForField,
     isCon,
     setIsCon,
     shipPrice,
@@ -18,13 +19,13 @@ function CartItemStep3(props) {
     shipType,
     setShipType,
     paymentWay,
-    setPaymentWay,
-    homeUserName,
-    setHomeUserName,
-    homeUserPhone,
-    setHomeUserPhone,
-    homeUserAddress,
-    setHomeUserAddress,
+    // setPaymentWay,
+    // homeUserName,
+    // setHomeUserName,
+    // homeUserPhone,
+    // setHomeUserPhone,
+    // homeUserAddress,
+    // setHomeUserAddress,
     country, setCountry, township, setTownship,
     seletedConCity, setSeletedConCity,
     seletedConStore, setSeletedConStore,
@@ -46,6 +47,10 @@ function CartItemStep3(props) {
         showContent3={true}
         showShipSel={true}
         showContent4={false}
+        inputs={inputs}
+        setInputs={setInputs}
+        onChangeForField={onChangeForField}
+
         isCon={isCon}
         setIsCon={setIsCon}
         shipPrice={shipPrice}
@@ -53,17 +58,17 @@ function CartItemStep3(props) {
         shipType={shipType}
         setShipType={setShipType}
         paymentWay={paymentWay}
-        setPaymentWay={setPaymentWay}
-        homeUserName={homeUserName}
-        setHomeUserName={setHomeUserName}
-        homeUserPhone={homeUserPhone}
-        setHomeUserPhone={setHomeUserPhone}
+        // setPaymentWay={setPaymentWay}
+        // homeUserName={homeUserName}
+        // setHomeUserName={setHomeUserName}
+        // homeUserPhone={homeUserPhone}
+        // setHomeUserPhone={setHomeUserPhone}
         country={country}
         setCountry={setCountry}
         township={township}
         setTownship={setTownship}
-        homeUserAddress={homeUserAddress}
-        setHomeUserAddress={setHomeUserAddress}
+        // homeUserAddress={homeUserAddress}
+        // setHomeUserAddress={setHomeUserAddress}
         seletedConCity={seletedConCity}
         setSeletedConCity={setSeletedConCity}
         seletedConStore={seletedConStore}

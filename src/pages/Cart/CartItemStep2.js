@@ -25,6 +25,7 @@ function CartItemStep2(props) {
     setHomeUserPhone,
     homeUserAddress,
     setHomeUserAddress,
+    country, setCountry, township, setTownship,
     seletedConCity, setSeletedConCity,
     seletedConStore, setSeletedConStore,
     selectedConAddress, setSeletedConAddress,
@@ -57,6 +58,10 @@ function CartItemStep2(props) {
         setHomeUserName={setHomeUserName}
         homeUserPhone={homeUserPhone}
         setHomeUserPhone={setHomeUserPhone}
+        country={country}
+        setCountry={setCountry}
+        township={township}
+        setTownship={setTownship}
         homeUserAddress={homeUserAddress}
         setHomeUserAddress={setHomeUserAddress}
         seletedConCity={seletedConCity}

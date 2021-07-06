@@ -13,6 +13,8 @@ function CartItem() {
   const [homeUserName, setHomeUserName] = useState('') //收貨人姓名
   const [homeUserPhone, setHomeUserPhone] = useState('') //收貨人電話
   const [homeUserAddress, setHomeUserAddress] = useState('') //收貨地址
+  const [country, setCountry] = useState('')
+  const [township, setTownship] = useState('')
   const [seletedConCity, setSeletedConCity] = useState('') //超商縣市
   const [seletedConStore, setSeletedConStore] = useState('') //超商店家
   const [selectedConAddress, setSeletedConAddress] = useState('') //超商地址
@@ -64,7 +66,7 @@ function CartItem() {
       }
       data.orderItems.push(tempObj)
     }
-    //  `orderId`, `username`, `receiverName`, `receiverPhone`, `orderPrice`, `shippingType`, `shippingPrice`, `conAddress`, `homeAddress`, `paymentType`, `created_at`, `updated_at`
+    //  `orderId`, `username`, `receiverName`, `receiverPhone`, `orderPrice`, `shippingType`, `shippingPrice`, `conStore`, `conAddress`, `homeAddress`, `paymentType`, `created_at`, `updated_at`
     data.orderInfo = {
       orderId: orderId,
       username: 'jessica',
@@ -73,7 +75,8 @@ function CartItem() {
       orderPrice: sum(orderItemsStr) + shipPrice,
       shippingType: shipType,
       shippingPrice: shipPrice,
-      conAddress: seletedConCity+seletedConStore,
+      conStore: seletedConCity+seletedConStore,
+      conAddress: selectedConAddress,
       homeAddress: homeUserAddress,
       paymentType: paymentWay,
     }
@@ -107,7 +110,8 @@ function CartItem() {
     console.log('shipPrice',shipPrice)
     console.log('shipType',typeof(shipType),shipType,'shipPrice',shipPrice)
     console.log('seletedConCity',seletedConCity,'seletedConStore',seletedConStore,'selectedConAddress',selectedConAddress)
-  }, [step, isCon, shipPrice, shipType,seletedConCity,seletedConStore,selectedConAddress])
+    console.log('country',country,'township',township)
+  }, [step, isCon, shipPrice, shipType,seletedConCity,seletedConStore,selectedConAddress,country,township])
 
   if(step===1) {
     return(
@@ -132,6 +136,10 @@ function CartItem() {
         setHomeUserName={setHomeUserName}
         homeUserPhone={homeUserPhone}
         setHomeUserPhone={setHomeUserPhone}
+        country={country}
+        setCountry={setCountry}
+        township={township}
+        setTownship={setTownship}
         homeUserAddress={homeUserAddress}
         setHomeUserAddress={setHomeUserAddress}
         seletedConCity={seletedConCity}
@@ -165,6 +173,10 @@ function CartItem() {
         setHomeUserName={setHomeUserName}
         homeUserPhone={homeUserPhone}
         setHomeUserPhone={setHomeUserPhone}
+        country={country}
+        setCountry={setCountry}
+        township={township}
+        setTownship={setTownship}
         homeUserAddress={homeUserAddress}
         setHomeUserAddress={setHomeUserAddress}
         seletedConCity={seletedConCity}
@@ -196,6 +208,10 @@ function CartItem() {
         setHomeUserName={setHomeUserName}
         homeUserPhone={homeUserPhone}
         setHomeUserPhone={setHomeUserPhone}
+        country={country}
+        setCountry={setCountry}
+        township={township}
+        setTownship={setTownship}
         homeUserAddress={homeUserAddress}
         setHomeUserAddress={setHomeUserAddress}
         seletedConCity={seletedConCity}

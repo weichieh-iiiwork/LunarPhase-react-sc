@@ -21,6 +21,7 @@ function ScCartChecked(props) {
     setHomeUserPhone,
     homeUserAddress,
     setHomeUserAddress,
+    country, setCountry, township, setTownship,
     seletedConCity, setSeletedConCity,
     seletedConStore, setSeletedConStore,
     selectedConAddress, setSeletedConAddress,
@@ -131,6 +132,10 @@ function ScCartChecked(props) {
               setHomeUserName={setHomeUserName}
               homeUserPhone={homeUserPhone}
               setHomeUserPhone={setHomeUserPhone}
+              country={country}
+              setCountry={setCountry}
+              township={township}
+              setTownship={setTownship}
               homeUserAddress={homeUserAddress}
               setHomeUserAddress={setHomeUserAddress}
               seletedConCity={seletedConCity}

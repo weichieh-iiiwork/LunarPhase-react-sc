@@ -15,7 +15,8 @@ function ScContent3(props) {
     homeUserAddress, setHomeUserAddress,
     seletedConCity, setSeletedConCity,
     seletedConStore, setSeletedConStore,
-    selectedConAddress, setSeletedConAddress
+    selectedConAddress, setSeletedConAddress,
+    country, setCountry, township, setTownship,
   } = props
 
   const [cardNum, setCardNum] = useState('')
@@ -98,7 +99,12 @@ function ScContent3(props) {
     <>
       <label className="sc-inputLabel">寄送地址：</label>
       <div>
-          <ZipCode/>
+          <ZipCode
+            country={country}
+            setCountry={setCountry}
+            township={township}
+            setTownship={setTownship}
+          />
           <input
             className="scInput w-50 mb-4"
             type="text"

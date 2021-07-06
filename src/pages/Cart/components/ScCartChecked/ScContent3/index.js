@@ -8,7 +8,7 @@ import Credit from './Credit'
 
 function ScContent3(props) {
   const {
-    inputs, setInputs,onChangeForField,
+    inputs, onChangeForField,
     isCon,
     paymentWay, setPaymentWay,
     seletedConCity, setSeletedConCity,
@@ -107,7 +107,7 @@ function ScContent3(props) {
             type="text"
             name="homeAddress"
             value={inputs.homeAddress}
-            onChange={onChangeForField('homeAddress')}
+            onChange={onChangeForField}
             placeholder="地址"
           />
         </div>
@@ -127,7 +127,7 @@ function ScContent3(props) {
           type="text"
           name="name"
           value={inputs.name}
-          onChange={onChangeForField('name')}
+          onChange={onChangeForField}
           placeholder="姓名"
         />
         <label className="sc-inputLabel">連絡電話：</label>
@@ -136,7 +136,7 @@ function ScContent3(props) {
           type="text"
           name="phone"
           value={inputs.phone}
-          onChange={onChangeForField('phone')}
+          onChange={onChangeForField}
           placeholder="聯絡電話"
         />
         {/* 透過判斷isCon來顯示地址 */}

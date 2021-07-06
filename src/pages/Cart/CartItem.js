@@ -35,12 +35,22 @@ function CartItem() {
     // shipType:'', //物流方式
   })
 
-  const onChangeForField = (fieldName) => (event) => {
-    setInputs((state) => ({
-      ...state,
-      [fieldName]: event.target.value,
-    }))
+  // 處理每個欄位的變動
+  const onChangeForField = (e) => {
+    // 更新輸入欄位
+    const updatedInputs = {
+      ...inputs,
+      [e.target.name]: e.target.value,
+    }
+
+    setInputs(updatedInputs)
   }
+  // const onChangeForField = (fieldName) => (e) => {
+  //   setInputs((state) => ({
+  //     ...state,
+  //     [fieldName]: e.target.value,
+  //   }))
+  // }
 
   /*
    data格式:{

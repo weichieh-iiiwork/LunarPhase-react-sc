@@ -12,6 +12,7 @@ function CartItemStep3(props) {
   const { 
     prevStep, nextStep,
     inputs, setInputs,onChangeForField,
+    handleSubmit,handleChange,handleInvalid,fieldErrors,
     isCon,
     setIsCon,
     shipPrice,
@@ -44,6 +45,10 @@ function CartItemStep3(props) {
         inputs={inputs}
         setInputs={setInputs}
         onChangeForField={onChangeForField}
+        handleSubmit={handleSubmit}
+        handleChange={handleChange}
+        handleInvalid={handleInvalid}
+        fieldErrors={fieldErrors}
 
         isCon={isCon}
         setIsCon={setIsCon}

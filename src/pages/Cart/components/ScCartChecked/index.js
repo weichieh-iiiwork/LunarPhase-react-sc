@@ -4,10 +4,12 @@ import ScItemChecked from './ScItemChecked'
 import ShipSel from './ShipSel'
 import ScPriceRowCheck from './ScPriceRowCheck'
 import ScContent3 from './ScContent3'
+import { countries, townships, postcodes } from '../../../../data/townships'
 
 function ScCartChecked(props) {
   const { 
     inputs, setInputs,onChangeForField,
+    handleSubmit,handleChange,handleInvalid,fieldErrors,
     isCon, setIsCon,
     showContent3, showShipSel, showContent4,
     shipPrice,
@@ -48,7 +50,7 @@ function ScCartChecked(props) {
 
   const OrderCon = ()=> (
     <>
-      超商：711 {seletedConCity}{seletedConStore}
+      超商：711 {seletedConCity}{seletedConStore}店
       <br />
       地址：{selectedConAddress}
       <br />
@@ -56,7 +58,7 @@ function ScCartChecked(props) {
   )
   const OrderHome = ()=> (
     <>
-      地址：{inputs.homeAddress}
+      地址：{(country > -1  && township>-1)&& (postcodes[country][township]+countries[country]+townships[country][township]+inputs.homeAddress)}
       <br />
     </>
   )
@@ -123,6 +125,10 @@ function ScCartChecked(props) {
               inputs={inputs}
               setInputs={setInputs}
               onChangeForField={onChangeForField}
+              handleSubmit={handleSubmit}
+              handleChange={handleChange}
+              handleInvalid={handleInvalid}
+              fieldErrors={fieldErrors}
 
               isCon={isCon}
               paymentWay={paymentWay}

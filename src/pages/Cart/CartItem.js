@@ -34,6 +34,11 @@ function CartItem() {
     // shipPrice:0, //運費
     // shipType:'', //物流方式
   })
+  const [fieldErrors, setFieldErrors] = useState({
+    name: '', //收貨人姓名  ok
+    phone: '', //收貨人電話  ok
+    homeAddress: '', //收貨地址  ok
+  })
 
   // 處理每個欄位的變動
   const onChangeForField = (e) => {
@@ -45,6 +50,51 @@ function CartItem() {
 
     setInputs(updatedInputs)
   }
+
+
+  // 有錯誤的訊息會觸發在這裡
+  const handleInvalid = (e) => {
+    e.preventDefault()
+
+    const updatedFieldErrors = {
+      ...fieldErrors,
+      [e.target.name]: e.target.validationMessage,
+    }
+
+    setFieldErrors(updatedFieldErrors)
+  }
+  const handleChange = (e) => {
+    console.log('更動欄位：', e.target.name)
+
+    // 該欄位錯誤訊息清空
+    const updatedFieldErrors = {
+      ...fieldErrors,
+      [e.target.name]: '',
+    }
+
+    setFieldErrors(updatedFieldErrors)
+  }
+  // 處理表單送出
+  const handleSubmit = (e) => {
+    // 阻擋表單送出預設行為
+    e.preventDefault()
+
+    // FormData: 沒有外觀的表單
+    const data = new FormData(e.target)
+
+    console.log(data.get('email'))
+    console.log(data.get('password'))
+
+    // 利用狀態來得到輸入的值
+    console.log(inputs)
+
+    // ex. 送出表單資料到伺服器
+    // fetch('/api/form-submit-url', {
+    //   method: 'POST',
+    //   body: data,
+    // })
+  }
+
   // const onChangeForField = (fieldName) => (e) => {
   //   setInputs((state) => ({
   //     ...state,
@@ -105,7 +155,7 @@ function CartItem() {
       shippingPrice: shipPrice,
       conStore: seletedConCity+seletedConStore,
       conAddress: selectedConAddress,
-      homeAddress: postcodes[country][township]+countries[country]+townships[country][township]+inputs.homeAddress,
+      homeAddress: (country > -1  && township>-1)&& (postcodes[country][township]+countries[country]+townships[country][township]+inputs.homeAddress) ,
       paymentType: paymentWay,
     }
 
@@ -155,6 +205,10 @@ function CartItem() {
         inputs={inputs}
         setInputs={setInputs}
         onChangeForField={onChangeForField}
+        handleSubmit={handleSubmit}
+        handleChange={handleChange}
+        handleInvalid={handleInvalid}
+        fieldErrors={fieldErrors}
 
         isCon={isCon}
         setIsCon={setIsCon}
@@ -164,16 +218,10 @@ function CartItem() {
         setShipType={setShipType}
         paymentWay={paymentWay}
         setPaymentWay={setPaymentWay}
-        // homeUserName={homeUserName}
-        // setHomeUserName={setHomeUserName}
-        // homeUserPhone={homeUserPhone}
-        // setHomeUserPhone={setHomeUserPhone}
         country={country}
         setCountry={setCountry}
         township={township}
         setTownship={setTownship}
-        // homeUserAddress={homeUserAddress}
-        // setHomeUserAddress={setHomeUserAddress}
         seletedConCity={seletedConCity}
         setSeletedConCity={setSeletedConCity}
         seletedConStore={seletedConStore}
@@ -196,6 +244,9 @@ function CartItem() {
         inputs={inputs}
         setInputs={setInputs}
         onChangeForField={onChangeForField}
+        handleSubmit={handleSubmit}
+        handleChange={handleChange}
+        handleInvalid={handleInvalid}
 
         isCon={isCon}
         setIsCon={setIsCon}
@@ -205,16 +256,10 @@ function CartItem() {
         setShipType={setShipType}
         paymentWay={paymentWay}
         setPaymentWay={setPaymentWay}
-        // homeUserName={homeUserName}
-        // setHomeUserName={setHomeUserName}
-        // homeUserPhone={homeUserPhone}
-        // setHomeUserPhone={setHomeUserPhone}
         country={country}
         setCountry={setCountry}
         township={township}
         setTownship={setTownship}
-        // homeUserAddress={homeUserAddress}
-        // setHomeUserAddress={setHomeUserAddress}
         seletedConCity={seletedConCity}
         setSeletedConCity={setSeletedConCity}
         seletedConStore={seletedConStore}
@@ -235,6 +280,9 @@ function CartItem() {
         inputs={inputs}
         setInputs={setInputs}
         onChangeForField={onChangeForField}
+        handleSubmit={handleSubmit}
+        handleChange={handleChange}
+        handleInvalid={handleInvalid}
 
         isCon={isCon}
         setIsCon={setIsCon}
@@ -244,16 +292,10 @@ function CartItem() {
         setShipType={setShipType}
         paymentWay={paymentWay}
         setPaymentWay={setPaymentWay}
-        // homeUserName={homeUserName}
-        // setHomeUserName={setHomeUserName}
-        // homeUserPhone={homeUserPhone}
-        // setHomeUserPhone={setHomeUserPhone}
         country={country}
         setCountry={setCountry}
         township={township}
         setTownship={setTownship}
-        // homeUserAddress={homeUserAddress}
-        // setHomeUserAddress={setHomeUserAddress}
         seletedConCity={seletedConCity}
         setSeletedConCity={setSeletedConCity}
         seletedConStore={seletedConStore}

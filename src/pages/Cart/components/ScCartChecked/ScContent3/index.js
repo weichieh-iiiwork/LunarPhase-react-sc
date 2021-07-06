@@ -11,9 +11,6 @@ function ScContent3(props) {
     inputs, setInputs,onChangeForField,
     isCon,
     paymentWay, setPaymentWay,
-    // homeUserName, setHomeUserName,
-    // homeUserPhone, setHomeUserPhone,
-    // homeUserAddress, setHomeUserAddress,
     seletedConCity, setSeletedConCity,
     seletedConStore, setSeletedConStore,
     selectedConAddress, setSeletedConAddress,
@@ -26,7 +23,7 @@ function ScContent3(props) {
   const [cardCode, setCardCode] = useState('')
 
   let sevenStores = sevenCity[seletedConCity];
-  // setSeletedConAddress(sevenStores[seletedConStore].Address)
+  // value={`{"store":"${store.POIName}店", "address":"${store.Address}"} `}
 
   const SelCon = (
     <>
@@ -51,18 +48,17 @@ function ScContent3(props) {
 
       </select>
       <select className="scSelect sc-contentFont ml-5 my-3 w-25" name="conStore" 
-        // value={`${seletedConStore}店`}
         value={seletedConStore}
         onChange={(e) => {
-            // console.log(JSON.parse(e.target.value))
-            setSeletedConStore(JSON.parse(e.target.value).store)
-            setSeletedConAddress(JSON.parse(e.target.value).address)
+          console.log(e.target.getAttribute('data-address'))
+            setSeletedConStore(e.target.value)
+            setSeletedConAddress(e.target.dataset.address)
               }}>
         <option value="-1">選擇門市</option>
         { 
           seletedConCity &&
-          sevenStores.map((store,index)=>{
-            return(<option key={index} value={`{"store":"${store.POIName}店", "address":"${store.Address}"} `}>{store.POIName}店</option>) 
+          sevenStores.map((store,index)=>{           
+            return(<option key={index} value={store.POIName} data-address={store.Address}>{store.POIName}店</option>) 
         })}
       </select>
     </>
@@ -113,11 +109,6 @@ function ScContent3(props) {
             value={inputs.homeAddress}
             onChange={onChangeForField('homeAddress')}
             placeholder="地址"
-            // name="homeUserAddress"
-            // value={homeUserAddress}
-            // onChange={(e) => {
-            //   setHomeUserAddress(e.target.value)
-            // }}
           />
         </div>
     </>
@@ -138,9 +129,6 @@ function ScContent3(props) {
           value={inputs.name}
           onChange={onChangeForField('name')}
           placeholder="姓名"
-          // onChange={(e) => {
-          //   setHomeUserName(e.target.value)
-          // }}
         />
         <label className="sc-inputLabel">連絡電話：</label>
         <input
@@ -150,9 +138,6 @@ function ScContent3(props) {
           value={inputs.phone}
           onChange={onChangeForField('phone')}
           placeholder="聯絡電話"
-          // onChange={(e) => {
-          //   setHomeUserPhone(e.target.value)
-          // }}
         />
         {/* 透過判斷isCon來顯示地址 */}
         { !isCon && <HomeDataAddress/> }

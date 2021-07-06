@@ -16,19 +16,12 @@ function ScCartChecked(props) {
     setShipType,
     paymentWay,
     setPaymentWay,
-    // homeUserName,
-    // setHomeUserName,
-    // homeUserPhone,
-    // setHomeUserPhone,
-    // homeUserAddress,
-    // setHomeUserAddress,
     country, setCountry, township, setTownship,
     seletedConCity, setSeletedConCity,
     seletedConStore, setSeletedConStore,
     selectedConAddress, setSeletedConAddress,
     sum,
     amountSum,
-    addOrderToSever,
     orderItemsStr,
     scOrderId
   } = props
@@ -134,16 +127,10 @@ function ScCartChecked(props) {
               isCon={isCon}
               paymentWay={paymentWay}
               setPaymentWay={setPaymentWay}
-              // homeUserName={homeUserName}
-              // setHomeUserName={setHomeUserName}
-              // homeUserPhone={homeUserPhone}
-              // setHomeUserPhone={setHomeUserPhone}
               country={country}
               setCountry={setCountry}
               township={township}
               setTownship={setTownship}
-              // homeUserAddress={homeUserAddress}
-              // setHomeUserAddress={setHomeUserAddress}
               seletedConCity={seletedConCity}
               setSeletedConCity={setSeletedConCity}
               seletedConStore={seletedConStore}

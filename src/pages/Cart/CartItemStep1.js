@@ -8,7 +8,7 @@ import ScCart from './components/ScCart/'
 import ScBtn from './components/ScBtn'
 import ScLabel from './components/ScLabel'
 
-//網址 /cart/item/step1
+//網址 /cart/item
 function CartItemStep1(props) {
   const { nextStep } = props
   return (

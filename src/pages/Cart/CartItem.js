@@ -3,6 +3,7 @@ import CartItemStep1 from './CartItemStep1'
 import CartItemStep2 from './CartItemStep2'
 import CartItemStep3 from './CartItemStep3'
 import CartItemStep4 from './CartItemStep4'
+import { countries, townships, postcodes } from '../../data/townships'
 
 function CartItem() {
   const [step, setStep] = useState(1);
@@ -10,11 +11,8 @@ function CartItem() {
   const [shipPrice, setShipPrice] = useState(0) //運費
   const [shipType, setShipType] = useState('') //物流方式
   const [paymentWay, setPaymentWay] = useState('') //付款方式
-  // const [homeUserName, setHomeUserName] = useState('') //收貨人姓名
-  // const [homeUserPhone, setHomeUserPhone] = useState('') //收貨人電話
-  // const [homeUserAddress, setHomeUserAddress] = useState('') //收貨地址
-  const [country, setCountry] = useState('')
-  const [township, setTownship] = useState('')
+  const [country, setCountry] = useState(-1)
+  const [township, setTownship] = useState(-1)
   const [seletedConCity, setSeletedConCity] = useState('') //超商縣市
   const [seletedConStore, setSeletedConStore] = useState('') //超商店家
   const [selectedConAddress, setSeletedConAddress] = useState('') //超商地址
@@ -28,13 +26,13 @@ function CartItem() {
     name: '', //收貨人姓名  ok
     phone: '', //收貨人電話  ok
     homeAddress: '', //收貨地址  ok
-    country:'', //收貨地址(縣市)
-    township:'', //收貨地址(區域)
-    conAddress:'', //超商地址
-    conCity: '', //超商(縣市)
-    conStore:'', //超商(店家)
-    shipPrice:0, //運費
-    shipType:'', //物流方式
+    // country:'', //收貨地址(縣市)
+    // township:'', //收貨地址(區域)
+    // conAddress:'', //超商地址
+    // conCity: '', //超商(縣市)
+    // conStore:'', //超商(店家)
+    // shipPrice:0, //運費
+    // shipType:'', //物流方式
   })
 
   const onChangeForField = (fieldName) => (event) => {
@@ -97,7 +95,7 @@ function CartItem() {
       shippingPrice: shipPrice,
       conStore: seletedConCity+seletedConStore,
       conAddress: selectedConAddress,
-      homeAddress: inputs.homeAddress,
+      homeAddress: postcodes[country][township]+countries[country]+townships[country][township]+inputs.homeAddress,
       paymentType: paymentWay,
     }
 

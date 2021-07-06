@@ -20,12 +20,6 @@ function CartItemStep3(props) {
     setShipType,
     paymentWay,
     setPaymentWay,
-    // homeUserName,
-    // setHomeUserName,
-    // homeUserPhone,
-    // setHomeUserPhone,
-    // homeUserAddress,
-    // setHomeUserAddress,
     country, setCountry, township, setTownship,
     seletedConCity, setSeletedConCity,
     seletedConStore, setSeletedConStore,
@@ -59,16 +53,10 @@ function CartItemStep3(props) {
         setShipType={setShipType}
         paymentWay={paymentWay}
         setPaymentWay={setPaymentWay}
-        // homeUserName={homeUserName}
-        // setHomeUserName={setHomeUserName}
-        // homeUserPhone={homeUserPhone}
-        // setHomeUserPhone={setHomeUserPhone}
         country={country}
         setCountry={setCountry}
         township={township}
         setTownship={setTownship}
-        // homeUserAddress={homeUserAddress}
-        // setHomeUserAddress={setHomeUserAddress}
         seletedConCity={seletedConCity}
         setSeletedConCity={setSeletedConCity}
         seletedConStore={seletedConStore}

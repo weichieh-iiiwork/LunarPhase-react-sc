@@ -12,8 +12,6 @@ function ScContent3(props) {
     handleSubmit,handleChange,handleInvalid,fieldErrors,
     isCon,
     paymentWay, setPaymentWay,
-    seletedConCity, setSeletedConCity,
-    seletedConStore, setSeletedConStore,
     selectedConAddress, setSeletedConAddress,
     country, setCountry, township, setTownship,
   } = props
@@ -23,9 +21,14 @@ function ScContent3(props) {
   const [cardDate, setCardDate] = useState('')
   const [cardCode, setCardCode] = useState('')
 
-  let sevenStores = sevenCity[seletedConCity];
+  // let sevenStores = sevenCity[seletedConCity];
+  let sevenStores = sevenCity[inputs.conCity];
   
   // value={`{"store":"${store.POIName}店", "address":"${store.Address}"} `}
+  const addData = (e) => {
+    setSeletedConAddress(e.target.options[e.target.selectedIndex].getAttribute('data-address'))
+
+  }
 
   const SelCon = (
     <>
@@ -38,10 +41,9 @@ function ScContent3(props) {
         <h5 className="mx-2">全家</h5>
       </div>
       <select className="scSelect sc-contentFont ml-5 my-3 w-25" name="conCity" 
-        value={seletedConCity}
-        onChange={(e) => {
-            setSeletedConCity(e.target.value)
-              }}>
+        value={inputs.conCity}
+        onChange={onChangeForField }
+              >  
         <option value="-1">選擇縣市</option>
         {/* key直接用city是因為只要unique就好 */}
         { Object.keys(sevenCity).map(city => {
@@ -51,15 +53,14 @@ function ScContent3(props) {
       </select>
       
       <select className="scSelect sc-contentFont ml-5 my-3 w-25" name="conStore" 
-        value={seletedConStore}
-        onChange={(e) => {
-          console.log(e.target.getAttribute('data-address'))
-            setSeletedConStore(e.target.value)
-            setSeletedConAddress(e.target.options[e.target.selectedIndex].getAttribute('data-address'))
-              }}>
+        value={inputs.conStore}
+        onChange={onChangeForField}
+        onClick={addData}
+        
+        >
         <option value="-1">選擇門市</option>
         { 
-          seletedConCity &&
+          inputs.conCity &&
           sevenStores.map((store,index)=>{           
             return(<option key={index} value={store.POIName} data-address={store.Address}>{store.POIName}店</option>) 
         })}

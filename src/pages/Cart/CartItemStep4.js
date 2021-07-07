@@ -20,8 +20,6 @@ function CartItemStep4(props) {
     paymentWay,
     setPaymentWay,
     country, setCountry, township, setTownship,
-    seletedConCity, setSeletedConCity,
-    seletedConStore, setSeletedConStore,
     selectedConAddress, setSeletedConAddress,
     sum,
     amountSum,
@@ -67,10 +65,6 @@ function CartItemStep4(props) {
         setCountry={setCountry}
         township={township}
         setTownship={setTownship}
-        seletedConCity={seletedConCity}
-        setSeletedConCity={setSeletedConCity}
-        seletedConStore={seletedConStore}
-        setSeletedConStore={setSeletedConStore}
         selectedConAddress={selectedConAddress}
         setSeletedConAddress={setSeletedConAddress}
         sum={sum}

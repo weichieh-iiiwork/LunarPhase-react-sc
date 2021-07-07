@@ -19,8 +19,6 @@ function ScCartChecked(props) {
     paymentWay,
     setPaymentWay,
     country, setCountry, township, setTownship,
-    seletedConCity, setSeletedConCity,
-    seletedConStore, setSeletedConStore,
     selectedConAddress, setSeletedConAddress,
     sum,
     amountSum,
@@ -50,7 +48,7 @@ function ScCartChecked(props) {
 
   const OrderCon = ()=> (
     <>
-      超商：711 {seletedConCity}{seletedConStore}店
+      超商：711 {inputs.conCity}{inputs.conStore}店
       <br />
       地址：{selectedConAddress}
       <br />
@@ -137,10 +135,6 @@ function ScCartChecked(props) {
               setCountry={setCountry}
               township={township}
               setTownship={setTownship}
-              seletedConCity={seletedConCity}
-              setSeletedConCity={setSeletedConCity}
-              seletedConStore={seletedConStore}
-              setSeletedConStore={setSeletedConStore}
               selectedConAddress={selectedConAddress}
               setSeletedConAddress={setSeletedConAddress}
             /> : ''}

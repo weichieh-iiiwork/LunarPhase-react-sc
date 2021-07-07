@@ -13,8 +13,8 @@ function CartItem() {
   const [paymentWay, setPaymentWay] = useState('') //付款方式
   const [country, setCountry] = useState(-1)
   const [township, setTownship] = useState(-1)
-  const [seletedConCity, setSeletedConCity] = useState('') //超商縣市
-  const [seletedConStore, setSeletedConStore] = useState('') //超商店家
+  // const [seletedConCity, setSeletedConCity] = useState('') //超商縣市
+  // const [seletedConStore, setSeletedConStore] = useState('') //超商店家
   const [selectedConAddress, setSeletedConAddress] = useState('') //超商地址
   const [scOrderId, setScOrderId] = useState(0) //訂單編號
 
@@ -29,8 +29,8 @@ function CartItem() {
     // country:'', //收貨地址(縣市)
     // township:'', //收貨地址(區域)
     // conAddress:'', //超商地址
-    // conCity: '', //超商(縣市)
-    // conStore:'', //超商(店家)
+    conCity: '', //超商(縣市)
+    conStore:'', //超商(店家)
     // shipPrice:0, //運費
     // shipType:'', //物流方式
   })
@@ -38,9 +38,11 @@ function CartItem() {
     scname: '', //收貨人姓名  ok
     phone: '', //收貨人電話  ok
     homeAddress: '', //收貨地址  ok
+    conCity: '', //超商(縣市)
+    conStore:'', //超商(店家)
   })
 
-  // 處理每個欄位的變動
+  // 處理每個欄位的變動 //handleFieldChange
   const onChangeForField = (e) => {
     // 更新輸入欄位
     const updatedInputs = {
@@ -51,7 +53,38 @@ function CartItem() {
     setInputs(updatedInputs)
   }
 
+  // 處理表單送出
+  const handleSubmit = (e) => {
+    // 阻擋表單送出預設行為
+    e.preventDefault()
 
+    // FormData: 沒有外觀的表單
+    const data = new FormData(e.target)
+
+    console.log('scname',data.get('scname'))
+    console.log('phone',data.get('phone'))
+
+    // 利用狀態來得到輸入的值
+    console.log('inputs',inputs)
+
+    // ex. 送出表單資料到伺服器
+    // fetch('/api/form-submit-url', {
+    //   method: 'POST',
+    //   body: data,
+    // })
+  }
+  // form有更動會觸發這個函式
+  const handleChange = (e) => {
+      console.log('更動欄位：', e.target.name)
+
+      // 該欄位錯誤訊息清空
+      const updatedFieldErrors = {
+        ...fieldErrors,
+        [e.target.name]: '',
+      }
+
+      setFieldErrors(updatedFieldErrors)
+  }
   // 有錯誤的訊息會觸發在這裡
   const handleInvalid = (e) => {
     e.preventDefault()
@@ -62,37 +95,6 @@ function CartItem() {
     }
 
     setFieldErrors(updatedFieldErrors)
-  }
-  const handleChange = (e) => {
-    console.log('更動欄位：', e.target.name)
-
-    // 該欄位錯誤訊息清空
-    const updatedFieldErrors = {
-      ...fieldErrors,
-      [e.target.name]: '',
-    }
-
-    setFieldErrors(updatedFieldErrors)
-  }
-  // 處理表單送出
-  const handleSubmit = (e) => {
-    // 阻擋表單送出預設行為
-    e.preventDefault()
-
-    // FormData: 沒有外觀的表單
-    const data = new FormData(e.target)
-
-    console.log(data.get('scname'))
-    console.log(data.get('phone'))
-
-    // 利用狀態來得到輸入的值
-    console.log(inputs)
-
-    // ex. 送出表單資料到伺服器
-    // fetch('/api/form-submit-url', {
-    //   method: 'POST',
-    //   body: data,
-    // })
   }
 
   // const onChangeForField = (fieldName) => (e) => {
@@ -153,7 +155,8 @@ function CartItem() {
       orderPrice: sum(orderItemsStr) + shipPrice,
       shippingType: shipType,
       shippingPrice: shipPrice,
-      conStore: seletedConCity+seletedConStore,
+      // conStore: seletedConCity+seletedConStore,
+      conStore: inputs.conCity+inputs.conStore,
       conAddress: selectedConAddress,
       homeAddress: (country > -1  && township>-1)&& (postcodes[country][township]+countries[country]+townships[country][township]+inputs.homeAddress) ,
       paymentType: paymentWay,
@@ -187,26 +190,20 @@ function CartItem() {
     console.log('isCon',isCon)
     console.log('shipPrice',shipPrice)
     console.log('shipType',typeof(shipType),shipType,'shipPrice',shipPrice)
-    console.log('seletedConCity',seletedConCity,'seletedConStore',seletedConStore,'selectedConAddress',selectedConAddress)
+    console.log('selectedConAddress',selectedConAddress)
     console.log('country',country,'township',township)
-  }, [step, isCon, shipPrice, shipType,seletedConCity,seletedConStore,selectedConAddress,country,township])
+  }, [step, isCon, shipPrice, shipType,selectedConAddress,country,township])
 
-  if(step===1) {
-    return(
-      <CartItemStep1
-       nextStep={() => setStep(2)}
-       setStep={setStep}
-       />
-    ) 
-  }
-  if (step === 2){
-    return(
-      <form
-        onSubmit={handleSubmit}
-        onChange={handleChange}
-        onInvalid={handleInvalid}
-      >
-      <CartItemStep2 
+  const switchSteps = (step) =>{
+    switch(step){
+      case 1:
+        return <CartItemStep1 
+        nextStep={() => setStep(2)}
+        setStep={setStep}
+      />
+      break
+      case 2:
+        return <CartItemStep2 
         prevStep={() => setStep(1)}
         nextStep={() => setStep(3)} 
         setStep={setStep}
@@ -231,10 +228,6 @@ function CartItem() {
         setCountry={setCountry}
         township={township}
         setTownship={setTownship}
-        seletedConCity={seletedConCity}
-        setSeletedConCity={setSeletedConCity}
-        seletedConStore={seletedConStore}
-        setSeletedConStore={setSeletedConStore}
         selectedConAddress={selectedConAddress}
         setSeletedConAddress={setSeletedConAddress}
         sum={sum}
@@ -243,17 +236,9 @@ function CartItem() {
         orderItemsStr={orderItemsStr}
         scOrderId={scOrderId}
       />
-      </form>
-    ) 
-  } 
-  if (step === 3){
-    return(
-      <form
-        onSubmit={handleSubmit}
-        onChange={handleChange}
-        onInvalid={handleInvalid}
-      >
-      <CartItemStep3 
+       break
+      case 3:
+        return <CartItemStep3 
         prevStep={() => setStep(2)}
         nextStep={() => { addOrderToSever(); return setStep(4)}}
         setStep={setStep}
@@ -277,10 +262,6 @@ function CartItem() {
         setCountry={setCountry}
         township={township}
         setTownship={setTownship}
-        seletedConCity={seletedConCity}
-        setSeletedConCity={setSeletedConCity}
-        seletedConStore={seletedConStore}
-        setSeletedConStore={setSeletedConStore}
         selectedConAddress={selectedConAddress}
         setSeletedConAddress={setSeletedConAddress}
         sum={sum}
@@ -289,17 +270,9 @@ function CartItem() {
         orderItemsStr={orderItemsStr} 
         scOrderId={scOrderId}
       />
-      </form>
-    ) 
-  } 
-	if (step === 4){
-    return(
-      <form
-        onSubmit={handleSubmit}
-        onChange={handleChange}
-        onInvalid={handleInvalid}
-      >
-      <CartItemStep4 
+       break
+       case 4:
+      return <CartItemStep4 
         setStep={setStep}
         inputs={inputs}
         setInputs={setInputs}
@@ -321,10 +294,6 @@ function CartItem() {
         setCountry={setCountry}
         township={township}
         setTownship={setTownship}
-        seletedConCity={seletedConCity}
-        setSeletedConCity={setSeletedConCity}
-        seletedConStore={seletedConStore}
-        setSeletedConStore={setSeletedConStore}
         selectedConAddress={selectedConAddress}
         setSeletedConAddress={setSeletedConAddress}
         sum={sum}
@@ -333,9 +302,151 @@ function CartItem() {
         orderItemsStr={orderItemsStr}
         scOrderId={scOrderId}
       />
-      </form>
-    ) 
-  } 
+       
+       default:
+       return ""
+      }
+  }
+  return (<form
+    onSubmit={handleSubmit}
+    onChange={handleChange}
+    onInvalid={handleInvalid}
+  >
+   {switchSteps(step)}
+  </form>)
+  // if(step===1) {
+  //   return(
+  //     <CartItemStep1
+  //      nextStep={() => setStep(2)}
+  //      setStep={setStep}
+  //      />
+  //   ) 
+  // }
+  // if (step === 2){
+  //   return(
+      
+  //     <CartItemStep2 
+  //       prevStep={() => setStep(1)}
+  //       nextStep={() => setStep(3)} 
+  //       setStep={setStep}
+  //       inputs={inputs}
+  //       setInputs={setInputs}
+  //       onChangeForField={onChangeForField}
+  //       handleSubmit={handleSubmit}
+  //       handleChange={handleChange}
+  //       handleInvalid={handleInvalid}
+  //       fieldErrors={fieldErrors}
+  //       setFieldErrors={setFieldErrors}
+
+  //       isCon={isCon}
+  //       setIsCon={setIsCon}
+  //       shipPrice={shipPrice}
+  //       setShipPrice={setShipPrice}
+  //       shipType={shipType}
+  //       setShipType={setShipType}
+  //       paymentWay={paymentWay}
+  //       setPaymentWay={setPaymentWay}
+  //       country={country}
+  //       setCountry={setCountry}
+  //       township={township}
+  //       setTownship={setTownship}
+  //       seletedConCity={seletedConCity}
+  //       setSeletedConCity={setSeletedConCity}
+  //       seletedConStore={seletedConStore}
+  //       setSeletedConStore={setSeletedConStore}
+  //       selectedConAddress={selectedConAddress}
+  //       setSeletedConAddress={setSeletedConAddress}
+  //       sum={sum}
+  //       amountSum={amountSum}
+  //       addOrderToSever={addOrderToSever}
+  //       orderItemsStr={orderItemsStr}
+  //       scOrderId={scOrderId}
+  //     />
+     
+  //   ) 
+  // } 
+  // if (step === 3){
+  //   return(
+      
+  //     <CartItemStep3 
+  //       prevStep={() => setStep(2)}
+  //       nextStep={() => { addOrderToSever(); return setStep(4)}}
+  //       setStep={setStep}
+  //       inputs={inputs}
+  //       setInputs={setInputs}
+  //       onChangeForField={onChangeForField}
+  //       handleSubmit={handleSubmit}
+  //       handleChange={handleChange}
+  //       handleInvalid={handleInvalid}
+  //       fieldErrors={fieldErrors}
+
+  //       isCon={isCon}
+  //       setIsCon={setIsCon}
+  //       shipPrice={shipPrice}
+  //       setShipPrice={setShipPrice}
+  //       shipType={shipType}
+  //       setShipType={setShipType}
+  //       paymentWay={paymentWay}
+  //       setPaymentWay={setPaymentWay}
+  //       country={country}
+  //       setCountry={setCountry}
+  //       township={township}
+  //       setTownship={setTownship}
+  //       seletedConCity={seletedConCity}
+  //       setSeletedConCity={setSeletedConCity}
+  //       seletedConStore={seletedConStore}
+  //       setSeletedConStore={setSeletedConStore}
+  //       selectedConAddress={selectedConAddress}
+  //       setSeletedConAddress={setSeletedConAddress}
+  //       sum={sum}
+  //       amountSum={amountSum}
+  //       addOrderToSever={addOrderToSever}
+  //       orderItemsStr={orderItemsStr} 
+  //       scOrderId={scOrderId}
+  //     />
+      
+  //   ) 
+  // } 
+	// if (step === 4){
+  //   return(
+      
+  //     <CartItemStep4 
+  //       setStep={setStep}
+  //       inputs={inputs}
+  //       setInputs={setInputs}
+  //       onChangeForField={onChangeForField}
+  //       handleSubmit={handleSubmit}
+  //       handleChange={handleChange}
+  //       handleInvalid={handleInvalid}
+  //       fieldErrors={fieldErrors}
+
+  //       isCon={isCon}
+  //       setIsCon={setIsCon}
+  //       shipPrice={shipPrice}
+  //       setShipPrice={setShipPrice}
+  //       shipType={shipType}
+  //       setShipType={setShipType}
+  //       paymentWay={paymentWay}
+  //       setPaymentWay={setPaymentWay}
+  //       country={country}
+  //       setCountry={setCountry}
+  //       township={township}
+  //       setTownship={setTownship}
+  //       seletedConCity={seletedConCity}
+  //       setSeletedConCity={setSeletedConCity}
+  //       seletedConStore={seletedConStore}
+  //       setSeletedConStore={setSeletedConStore}
+  //       selectedConAddress={selectedConAddress}
+  //       setSeletedConAddress={setSeletedConAddress}
+  //       sum={sum}
+  //       amountSum={amountSum}
+  //       addOrderToSever={addOrderToSever}
+  //       orderItemsStr={orderItemsStr}
+  //       scOrderId={scOrderId}
+  //     />
+      
+  //   ) 
+  // } 
 
 }
 

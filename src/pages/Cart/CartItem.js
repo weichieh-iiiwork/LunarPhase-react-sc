@@ -23,7 +23,7 @@ function CartItem() {
   const orderItemsStr = JSON.parse(orderItems)
 
   const [inputs, setInputs] = useState({
-    name: '', //收貨人姓名  ok
+    scname: '', //收貨人姓名  ok
     phone: '', //收貨人電話  ok
     homeAddress: '', //收貨地址  ok
     // country:'', //收貨地址(縣市)
@@ -35,7 +35,7 @@ function CartItem() {
     // shipType:'', //物流方式
   })
   const [fieldErrors, setFieldErrors] = useState({
-    name: '', //收貨人姓名  ok
+    scname: '', //收貨人姓名  ok
     phone: '', //收貨人電話  ok
     homeAddress: '', //收貨地址  ok
   })
@@ -82,8 +82,8 @@ function CartItem() {
     // FormData: 沒有外觀的表單
     const data = new FormData(e.target)
 
-    console.log(data.get('email'))
-    console.log(data.get('password'))
+    console.log(data.get('scname'))
+    console.log(data.get('phone'))
 
     // 利用狀態來得到輸入的值
     console.log(inputs)
@@ -148,7 +148,7 @@ function CartItem() {
     data.orderInfo = {
       orderId: orderId,
       username: 'jessica',
-      receiverName: inputs.name,
+      receiverName: inputs.scname,
       receiverPhone: inputs.phone,
       orderPrice: sum(orderItemsStr) + shipPrice,
       shippingType: shipType,

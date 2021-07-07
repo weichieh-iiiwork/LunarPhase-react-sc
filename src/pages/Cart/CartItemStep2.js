@@ -35,6 +35,11 @@ function CartItemStep2(props) {
       <LunarPhaseHeader />
       <Breadcrumb />
 
+    {/* <form
+        onSubmit={handleSubmit}
+        onChange={handleChange}
+        onInvalid={handleInvalid}
+      > */}
       <ScStepRow step={2} />
       {/*-------------- 第二頁 --------------*/}
       <ScLabel />
@@ -79,6 +84,7 @@ function CartItemStep2(props) {
         showStep1={true}
         showStep2={true}
       />
+      {/* </form> */}
     </>
   )
 }

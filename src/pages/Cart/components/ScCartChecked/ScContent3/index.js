@@ -96,6 +96,7 @@ function ScContent3(props) {
   // 要注意寫法
   const HomeDataAddress = ()=>(
     <>
+    
       <label className="sc-inputLabel">寄送地址：</label>
       <div>
           <ZipCode
@@ -111,8 +112,10 @@ function ScContent3(props) {
             value={inputs.homeAddress}
             onChange={onChangeForField}
             placeholder="地址"
+            // autoFocus="true"
           />
         </div>
+      
     </>
   )
 
@@ -123,22 +126,26 @@ function ScContent3(props) {
       <div className="pb-2 mb-3 mt-5 titleDivider">
         <div className="scTitle col-5">收貨人資料</div>
       </div>
+      
       <div className="ml-5 d-flex flex-column">
         <label className="sc-inputLabel">姓名：</label>
         <input
           className="scInput w-25 mb-4"
           type="text"
-          name="name"
-          value={inputs.name}
+          name="scname"
+          value={inputs.scname}
           onChange={onChangeForField}
           placeholder="姓名"
-          required
+          // required
+          // autoFocus="true"
         />
-        {/* {fieldErrors.name && (
+        {/* {fieldErrors.scname && (
             <small className="text-danger form-text">
-              {fieldErrors.name}
+              {fieldErrors.scname}
             </small>
           )} */}
+        
+        
         <label className="sc-inputLabel">連絡電話：</label>
         <input
           className="scInput w-25 mb-4"
@@ -147,13 +154,15 @@ function ScContent3(props) {
           value={inputs.phone}
           onChange={onChangeForField}
           placeholder="聯絡電話"
-          required
+          // required
+          // autoFocus="true"
         />
         {/* {fieldErrors.phone && (
             <small className="text-danger form-text">
               {fieldErrors.phone}
             </small>
           )} */}
+        
         {/* 透過判斷isCon來顯示地址 */}
         { !isCon && <HomeDataAddress/> }
       </div>
@@ -224,17 +233,13 @@ const CreditData = (
 
   return(
     <>
-    {/* <form
-        onSubmit={handleSubmit}
-        onChange={handleChange}
-        onInvalid={handleInvalid}
-      > */}
+
         {SelCon}
         {SelPayment}
         {HomeData}     
         {/* {CreditData} */}
         <Credit/>
-      {/* </form> */}
+
     </>
   )
 }

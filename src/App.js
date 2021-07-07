@@ -13,6 +13,7 @@ import Home from './pages/Home'
 // import CartItemStep4 from './pages/Cart/CartItemStep4'
 import ProductList from './pages/Product/ProductList'
 import CartItem from './pages/Cart/CartItem'
+import Form from './pages/Form'
 
 
 
@@ -26,6 +27,9 @@ function App() {
         <Switch>
           <Route path="/cart/item">
             <CartItem />
+          </Route>
+          <Route path="/form">
+            <Form/>
           </Route>
       
           

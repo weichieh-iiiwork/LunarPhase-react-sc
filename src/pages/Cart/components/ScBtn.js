@@ -2,7 +2,7 @@ import React from 'react'
 // import { Link } from 'react-router-dom'
 
 function ScBtn(props) {
-  const {showStep1, showStep2, prevStep, nextStep, addOrderToSever } = props
+  const {showStep1, showStep2, prevStep, nextStep, addOrderToSever, handleSubmit,handleChange,handleInvalid,fieldErrors, } = props
   return (
     <>
       {/* 按鈕列 */}

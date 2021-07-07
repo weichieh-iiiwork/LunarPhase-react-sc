@@ -10,7 +10,7 @@ import ScLabel from './components/ScLabel'
 //網址 /cart/item
 function CartItemStep3(props) {
   const { 
-    prevStep, nextStep,
+    prevStep, nextStep, setStep,
     inputs, setInputs,onChangeForField,
     handleSubmit,handleChange,handleInvalid,fieldErrors,
     isCon,
@@ -40,7 +40,9 @@ function CartItemStep3(props) {
         onChange={handleChange}
         onInvalid={handleInvalid}
       > */}
-      <ScStepRow step={3} />
+      <ScStepRow step={3} 
+        setStep={setStep}
+      />
       {/*-------------- 第三頁 --------------*/}
       <ScLabel />
       <ScCartChecked

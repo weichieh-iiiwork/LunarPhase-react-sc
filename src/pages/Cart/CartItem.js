@@ -194,7 +194,9 @@ function CartItem() {
   if(step===1) {
     return(
       <CartItemStep1
-       nextStep={() => setStep(2)}/>
+       nextStep={() => setStep(2)}
+       setStep={setStep}
+       />
     ) 
   }
   if (step === 2){
@@ -202,6 +204,7 @@ function CartItem() {
       <CartItemStep2 
         prevStep={() => setStep(1)}
         nextStep={() => setStep(3)} 
+        setStep={setStep}
         inputs={inputs}
         setInputs={setInputs}
         onChangeForField={onChangeForField}
@@ -241,6 +244,7 @@ function CartItem() {
       <CartItemStep3 
         prevStep={() => setStep(2)}
         nextStep={() => { addOrderToSever(); return setStep(4)}}
+        setStep={setStep}
         inputs={inputs}
         setInputs={setInputs}
         onChangeForField={onChangeForField}
@@ -277,6 +281,7 @@ function CartItem() {
 	if (step === 4){
     return(
       <CartItemStep4 
+        setStep={setStep}
         inputs={inputs}
         setInputs={setInputs}
         onChangeForField={onChangeForField}

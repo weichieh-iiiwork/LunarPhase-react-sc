@@ -1,10 +1,11 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
 // #10 <i className=`stepCircle ${condition ? 'stepActive' : ''}` />
 // #10 <i className=`stepCircle ${this.props.step === 1 ? 'stepActive' : ''}` />
 
 function ScStepRow(props) {
-  const { step } = props
+  const { step, setStep } = props
   return (
     <>
       {/* 背景山 */}
@@ -23,7 +24,8 @@ function ScStepRow(props) {
               <i className="stepArrow right" />
             </div>
             <div className="stepFont">
-              <a href="/cart/item/step1">確認購物車</a>
+              <Link to="#"
+              onClick={()=>{setStep(1)}}>確認購物車</Link>
             </div>
           </div>
           <div className="step">
@@ -33,7 +35,8 @@ function ScStepRow(props) {
               <i className="stepArrow right" />
             </div>
             <div className="stepFont">
-              <a href="/cart/item/step2">物流選擇</a>
+              <Link to="#"
+              onClick={()=>{setStep(2)}}>物流選擇</Link>
             </div>
           </div>
           <div className="step">
@@ -43,7 +46,8 @@ function ScStepRow(props) {
               <i className="stepArrow right" />
             </div>
             <div className="stepFont">
-              <a href="/cart/item/step3">填寫資料</a>
+              <Link to="#"
+              onClick={()=>{setStep(3)}}>填寫資料</Link>
             </div>
           </div>
           <div className="step">
@@ -51,7 +55,7 @@ function ScStepRow(props) {
               <i className={`stepCircle ${step === 4 ? 'stepActive' : ''}`} />
             </div>
             <div className="stepFont">
-              <a href="/cart/item/step4">完成訂購</a>
+              <Link to="#">完成訂購</Link>
             </div>
           </div>
         </div>

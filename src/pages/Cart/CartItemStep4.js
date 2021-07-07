@@ -8,6 +8,7 @@ import ScBtn from './components/ScBtn'
 
 function CartItemStep4(props) {
   const { 
+    setStep,
     inputs, setInputs,onChangeForField,
     handleSubmit,handleChange,handleInvalid,fieldErrors,
     isCon,
@@ -37,7 +38,9 @@ function CartItemStep4(props) {
         onChange={handleChange}
         onInvalid={handleInvalid}
       > */}
-      <ScStepRow step={4} />
+      <ScStepRow step={4} 
+        setStep={setStep}
+      />
       {/*-------------- 第四頁 --------------*/}
       <ScLabel />
       <ScCartChecked

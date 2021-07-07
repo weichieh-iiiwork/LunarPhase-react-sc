@@ -75,7 +75,7 @@ function ScCartChecked(props) {
           <img src="/img/Cart/gift.svg" alt="" />
         </div>
         <div className="sc-contentFont ml-5">
-          姓名：{inputs.name}
+          姓名：{inputs.scname}
           <br />
           電話：{inputs.phone}
           <br />

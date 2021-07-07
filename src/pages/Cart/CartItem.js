@@ -13,8 +13,6 @@ function CartItem() {
   const [paymentWay, setPaymentWay] = useState('') //付款方式
   const [country, setCountry] = useState(-1)
   const [township, setTownship] = useState(-1)
-  // const [seletedConCity, setSeletedConCity] = useState('') //超商縣市
-  // const [seletedConStore, setSeletedConStore] = useState('') //超商店家
   const [selectedConAddress, setSeletedConAddress] = useState('') //超商地址
   const [scOrderId, setScOrderId] = useState(0) //訂單編號
 
@@ -33,6 +31,7 @@ function CartItem() {
     conStore:'', //超商(店家)
     // shipPrice:0, //運費
     // shipType:'', //物流方式
+    // orderIdNum:'',
   })
   const [fieldErrors, setFieldErrors] = useState({
     scname: '', //收貨人姓名  ok
@@ -40,6 +39,7 @@ function CartItem() {
     homeAddress: '', //收貨地址  ok
     conCity: '', //超商(縣市)
     conStore:'', //超商(店家)
+    // orderIdNum:'',
   })
 
   // 處理每個欄位的變動 //handleFieldChange
@@ -132,6 +132,8 @@ function CartItem() {
 
   async function addOrderToSever(e) {
     const orderId = +new Date()
+    // setInputs({...inputs,
+    //   [inputs.orderIdNum]: orderId,})
     setScOrderId(orderId)
     let data = {
       orderItems: [],
@@ -149,6 +151,7 @@ function CartItem() {
     //  `orderId`, `username`, `receiverName`, `receiverPhone`, `orderPrice`, `shippingType`, `shippingPrice`, `conStore`, `conAddress`, `homeAddress`, `paymentType`, `created_at`, `updated_at`
     data.orderInfo = {
       orderId: orderId,
+      // orderId: inputs.orderIdNum,
       username: 'jessica',
       receiverName: inputs.scname,
       receiverPhone: inputs.phone,

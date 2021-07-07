@@ -13,7 +13,7 @@ function Breadcrumb() {
             </div>
           </div>
           <div className="search-box">
-            <form className="search">
+            <div className="search">
               <input
                 className="search-input"
                 type="text"
@@ -22,7 +22,7 @@ function Breadcrumb() {
               <button className="search-button" href="#/">
                 <i className="fas fa-search" />
               </button>
-            </form>
+            </div>
           </div>
         </div>
       </div>

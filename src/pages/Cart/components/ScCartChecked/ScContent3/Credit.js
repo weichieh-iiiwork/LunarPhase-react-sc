@@ -35,7 +35,7 @@ export default class Credit extends React.Component {
             />
           </div>
           <div className="col-6 d-flex flex-column">
-          <form>
+          
             <label className="sc-inputLabel">信用卡號碼：</label>
             <input
               type="text"
@@ -74,7 +74,7 @@ export default class Credit extends React.Component {
                 />
                 </div>
             </div>
-          </form>
+          
 
           </div>
         </div>

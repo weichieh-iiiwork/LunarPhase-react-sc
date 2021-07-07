@@ -136,14 +136,14 @@ function ScContent3(props) {
           value={inputs.scname}
           onChange={onChangeForField}
           placeholder="姓名"
-          // required
+          required
           // autoFocus="true"
         />
-        {/* {fieldErrors.scname && (
+        {fieldErrors.scname && (
             <small className="text-danger form-text">
               {fieldErrors.scname}
             </small>
-          )} */}
+          )}
         
         
         <label className="sc-inputLabel">連絡電話：</label>
@@ -154,14 +154,14 @@ function ScContent3(props) {
           value={inputs.phone}
           onChange={onChangeForField}
           placeholder="聯絡電話"
-          // required
+          required
           // autoFocus="true"
         />
-        {/* {fieldErrors.phone && (
+        {fieldErrors.phone && (
             <small className="text-danger form-text">
               {fieldErrors.phone}
             </small>
-          )} */}
+          )}
         
         {/* 透過判斷isCon來顯示地址 */}
         { !isCon && <HomeDataAddress/> }

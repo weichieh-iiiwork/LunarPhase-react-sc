@@ -201,9 +201,105 @@ function CartItem() {
   }
   if (step === 2){
     return(
+      <form
+        onSubmit={handleSubmit}
+        onChange={handleChange}
+        onInvalid={handleInvalid}
+      >
       <CartItemStep2 
         prevStep={() => setStep(1)}
         nextStep={() => setStep(3)} 
+        setStep={setStep}
+        inputs={inputs}
+        setInputs={setInputs}
+        onChangeForField={onChangeForField}
+        handleSubmit={handleSubmit}
+        handleChange={handleChange}
+        handleInvalid={handleInvalid}
+        fieldErrors={fieldErrors}
+        setFieldErrors={setFieldErrors}
+
+        isCon={isCon}
+        setIsCon={setIsCon}
+        shipPrice={shipPrice}
+        setShipPrice={setShipPrice}
+        shipType={shipType}
+        setShipType={setShipType}
+        paymentWay={paymentWay}
+        setPaymentWay={setPaymentWay}
+        country={country}
+        setCountry={setCountry}
+        township={township}
+        setTownship={setTownship}
+        seletedConCity={seletedConCity}
+        setSeletedConCity={setSeletedConCity}
+        seletedConStore={seletedConStore}
+        setSeletedConStore={setSeletedConStore}
+        selectedConAddress={selectedConAddress}
+        setSeletedConAddress={setSeletedConAddress}
+        sum={sum}
+        amountSum={amountSum}
+        addOrderToSever={addOrderToSever}
+        orderItemsStr={orderItemsStr}
+        scOrderId={scOrderId}
+      />
+      </form>
+    ) 
+  } 
+  if (step === 3){
+    return(
+      <form
+        onSubmit={handleSubmit}
+        onChange={handleChange}
+        onInvalid={handleInvalid}
+      >
+      <CartItemStep3 
+        prevStep={() => setStep(2)}
+        nextStep={() => { addOrderToSever(); return setStep(4)}}
+        setStep={setStep}
+        inputs={inputs}
+        setInputs={setInputs}
+        onChangeForField={onChangeForField}
+        handleSubmit={handleSubmit}
+        handleChange={handleChange}
+        handleInvalid={handleInvalid}
+        fieldErrors={fieldErrors}
+
+        isCon={isCon}
+        setIsCon={setIsCon}
+        shipPrice={shipPrice}
+        setShipPrice={setShipPrice}
+        shipType={shipType}
+        setShipType={setShipType}
+        paymentWay={paymentWay}
+        setPaymentWay={setPaymentWay}
+        country={country}
+        setCountry={setCountry}
+        township={township}
+        setTownship={setTownship}
+        seletedConCity={seletedConCity}
+        setSeletedConCity={setSeletedConCity}
+        seletedConStore={seletedConStore}
+        setSeletedConStore={setSeletedConStore}
+        selectedConAddress={selectedConAddress}
+        setSeletedConAddress={setSeletedConAddress}
+        sum={sum}
+        amountSum={amountSum}
+        addOrderToSever={addOrderToSever}
+        orderItemsStr={orderItemsStr} 
+        scOrderId={scOrderId}
+      />
+      </form>
+    ) 
+  } 
+	if (step === 4){
+    return(
+      <form
+        onSubmit={handleSubmit}
+        onChange={handleChange}
+        onInvalid={handleInvalid}
+      >
+      <CartItemStep4 
         setStep={setStep}
         inputs={inputs}
         setInputs={setInputs}
@@ -237,82 +333,7 @@ function CartItem() {
         orderItemsStr={orderItemsStr}
         scOrderId={scOrderId}
       />
-    ) 
-  } 
-  if (step === 3){
-    return(
-      <CartItemStep3 
-        prevStep={() => setStep(2)}
-        nextStep={() => { addOrderToSever(); return setStep(4)}}
-        setStep={setStep}
-        inputs={inputs}
-        setInputs={setInputs}
-        onChangeForField={onChangeForField}
-        handleSubmit={handleSubmit}
-        handleChange={handleChange}
-        handleInvalid={handleInvalid}
-
-        isCon={isCon}
-        setIsCon={setIsCon}
-        shipPrice={shipPrice}
-        setShipPrice={setShipPrice}
-        shipType={shipType}
-        setShipType={setShipType}
-        paymentWay={paymentWay}
-        setPaymentWay={setPaymentWay}
-        country={country}
-        setCountry={setCountry}
-        township={township}
-        setTownship={setTownship}
-        seletedConCity={seletedConCity}
-        setSeletedConCity={setSeletedConCity}
-        seletedConStore={seletedConStore}
-        setSeletedConStore={setSeletedConStore}
-        selectedConAddress={selectedConAddress}
-        setSeletedConAddress={setSeletedConAddress}
-        sum={sum}
-        amountSum={amountSum}
-        addOrderToSever={addOrderToSever}
-        orderItemsStr={orderItemsStr} 
-        scOrderId={scOrderId}
-      />
-    ) 
-  } 
-	if (step === 4){
-    return(
-      <CartItemStep4 
-        setStep={setStep}
-        inputs={inputs}
-        setInputs={setInputs}
-        onChangeForField={onChangeForField}
-        handleSubmit={handleSubmit}
-        handleChange={handleChange}
-        handleInvalid={handleInvalid}
-
-        isCon={isCon}
-        setIsCon={setIsCon}
-        shipPrice={shipPrice}
-        setShipPrice={setShipPrice}
-        shipType={shipType}
-        setShipType={setShipType}
-        paymentWay={paymentWay}
-        setPaymentWay={setPaymentWay}
-        country={country}
-        setCountry={setCountry}
-        township={township}
-        setTownship={setTownship}
-        seletedConCity={seletedConCity}
-        setSeletedConCity={setSeletedConCity}
-        seletedConStore={seletedConStore}
-        setSeletedConStore={setSeletedConStore}
-        selectedConAddress={selectedConAddress}
-        setSeletedConAddress={setSeletedConAddress}
-        sum={sum}
-        amountSum={amountSum}
-        addOrderToSever={addOrderToSever}
-        orderItemsStr={orderItemsStr}
-        scOrderId={scOrderId}
-      />
+      </form>
     ) 
   } 
 

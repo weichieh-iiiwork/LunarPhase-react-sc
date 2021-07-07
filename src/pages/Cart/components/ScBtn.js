@@ -19,7 +19,7 @@ function ScBtn(props) {
           <div className="bg-green p-4 fitContent">
           {showStep2 ? 
             <button 
-            // type="submit"
+            type="submit"
             className="btn-soft-green"
             onClick={
               nextStep

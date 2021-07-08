@@ -54,16 +54,18 @@ function CartItem() {
   const handleSubmit = (e) => {
     setStartToChecked(true)
     const newErrors = []
-    if (inputs.scname.trim()) {
+    if (!inputs.scname.trim()) {
       newErrors.push('scname')
       setErrors(newErrors)
     }
-    if (inputs.phone.trim()) {
+    if (!inputs.phone.trim()) {
       newErrors.push('phone')
       setErrors(newErrors)
     }
-    if(newErrors.length!==0){
-      return setStep(3)
+    debugger
+    if (newErrors.length === 0) {
+      setStep(4);
+      addOrderToSever();
     }
   }
 
@@ -74,9 +76,9 @@ function CartItem() {
     return errors.includes(fieldName) ? 'is-invalid' : 'is-valid'
   }
 
-  useEffect(() => {
-    handleSubmit()
-  }, [inputs])
+  // useEffect(() => {
+  //   handleSubmit()
+  // }, [inputs])
 
 
   // const [fieldErrors, setFieldErrors] = useState({
@@ -242,7 +244,7 @@ function CartItem() {
       case 3:
         return <CartItemStep3 
         prevStep={() => setStep(2)}
-        nextStep={() => { addOrderToSever(); return setStep(4)}}
+        nextStep={() => {handleSubmit() }}
         setStep={setStep}
         inputs={inputs}
         setInputs={setInputs}

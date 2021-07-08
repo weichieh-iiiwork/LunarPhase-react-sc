@@ -85,6 +85,7 @@ function Form() {
     {/* 錯誤訊息顯示在欄位的下方，
     但錯誤訊息依然是瀏覽器的預設錯誤訊息
     ，只是統一css風格 */}
+    <div>
     {chg ? 
     <BsBookmark
       size="22px"
@@ -100,7 +101,7 @@ function Form() {
       }}
     />
     }
-    
+    </div>
       <form
         onSubmit={handleSubmit}
         onChange={handleChange}

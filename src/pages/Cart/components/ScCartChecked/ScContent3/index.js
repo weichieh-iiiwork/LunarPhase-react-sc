@@ -80,6 +80,7 @@ function ScContent3(props) {
         <div className="col-3 d-flex align-items-center justify-content-center ml-5">
         {(inputs.conType==="711") ? <img className="w-75" src="/img/Cart/711_logo.svg" alt="" /> : ""}
         {(inputs.conType==="全家") ? <img className="w-75" src="/img/Cart/family_logo.svg" alt="" /> : ""}
+        {(inputs.conType==="OK") ? <img className="w-75" src="/img/Cart/OK_logo.svg" alt="" /> : ""}
           {/* <img className="w-75" src="/img/Cart/711_logo.svg" alt="" /> */}
           {/* <img className="w-75" src="/img/Cart/family_logo.svg" alt="" /> */}
           

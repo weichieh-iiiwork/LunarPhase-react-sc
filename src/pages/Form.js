@@ -1,9 +1,11 @@
 import React, { useState } from 'react'
 import { BsBookmark } from 'react-icons/bs'
+import { FcBookmark } from 'react-icons/fc'
 
 function Form() {
 
   const [addToCollection, setAddToCollection] = useState("22px")
+  const [chg, setChg] = useState(1)
   // 養成習慣，先定義有哪些欄位屬性
   const [fields, setFields] = useState({
     username: '',
@@ -83,18 +85,22 @@ function Form() {
     {/* 錯誤訊息顯示在欄位的下方，
     但錯誤訊息依然是瀏覽器的預設錯誤訊息
     ，只是統一css風格 */}
+    {chg ? 
     <BsBookmark
-      size={addToCollection}
+      size="22px"
       onMouseDown={() => {
-        setAddToCollection("99px")
+        setChg(0)
       }}
-      onMouseUp={() => {
-        setAddToCollection("22px")
-      }}
-      // onClick={() => {
-      //   setAddToCollection("99px")
-      // }}
     />
+    :
+    <FcBookmark
+      size="22px"
+      onMouseDown={() => {
+        setChg(1)
+      }}
+    />
+    }
+    
       <form
         onSubmit={handleSubmit}
         onChange={handleChange}

@@ -62,7 +62,7 @@ function CartItem() {
       newErrors.push('phone')
       setErrors(newErrors)
     }
-    if(errors.length!==0){
+    if(newErrors.length!==0){
       return setStep(3)
     }
   }

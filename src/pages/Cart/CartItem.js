@@ -6,7 +6,7 @@ import CartItemStep4 from './CartItemStep4'
 import { countries, townships, postcodes } from '../../data/townships'
 
 function CartItem() {
-  const [step, setStep] = useState(1);
+  const [step, setStep] = useState(1)
   const [isCon, setIsCon] = useState(false) //物流是否為便利商店
   const [shipPrice, setShipPrice] = useState(0) //運費
   const [shipType, setShipType] = useState('') //物流方式
@@ -24,24 +24,22 @@ function CartItem() {
     scname: '', //收貨人姓名  ok
     phone: '', //收貨人電話  ok
     homeAddress: '', //收貨地址  ok
+    conType:'',
+    conCity: '', //超商(縣市)
+    conStore:'', //超商(店家)
     // country:'', //收貨地址(縣市)
     // township:'', //收貨地址(區域)
     // conAddress:'', //超商地址
-    conCity: '', //超商(縣市)
-    conStore:'', //超商(店家)
     // shipPrice:0, //運費
     // shipType:'', //物流方式
     // orderIdNum:'',
   })
-  const [fieldErrors, setFieldErrors] = useState({
-    scname: '', //收貨人姓名  ok
-    phone: '', //收貨人電話  ok
-    homeAddress: '', //收貨地址  ok
-    conCity: '', //超商(縣市)
-    conStore:'', //超商(店家)
-    // orderIdNum:'',
-  })
 
+
+  // 切換開始作檢查的旗標
+  const [startToChecked, setStartToChecked] = useState(false)
+  // 錯誤陣列，記錄有錯誤的欄位名稱
+  const [errors, setErrors] = useState([])
   // 處理每個欄位的變動 //handleFieldChange
   const onChangeForField = (e) => {
     // 更新輸入欄位
@@ -49,53 +47,53 @@ function CartItem() {
       ...inputs,
       [e.target.name]: e.target.value,
     }
-
     setInputs(updatedInputs)
   }
 
   // 處理表單送出
   const handleSubmit = (e) => {
-    // 阻擋表單送出預設行為
-    e.preventDefault()
-
-    // FormData: 沒有外觀的表單
-    const data = new FormData(e.target)
-
-    console.log('scname',data.get('scname'))
-    console.log('phone',data.get('phone'))
-
-    // 利用狀態來得到輸入的值
-    console.log('inputs',inputs)
-
-    // ex. 送出表單資料到伺服器
-    // fetch('/api/form-submit-url', {
-    //   method: 'POST',
-    //   body: data,
-    // })
-  }
-  // form有更動會觸發這個函式
-  const handleChange = (e) => {
-      console.log('更動欄位：', e.target.name)
-
-      // 該欄位錯誤訊息清空
-      const updatedFieldErrors = {
-        ...fieldErrors,
-        [e.target.name]: '',
-      }
-
-      setFieldErrors(updatedFieldErrors)
-  }
-  // 有錯誤的訊息會觸發在這裡
-  const handleInvalid = (e) => {
-    e.preventDefault()
-
-    const updatedFieldErrors = {
-      ...fieldErrors,
-      [e.target.name]: e.target.validationMessage,
+    setStartToChecked(true)
+    const newErrors = []
+    if (inputs.scname.trim()) {
+      newErrors.push('scname')
+      setErrors(newErrors)
     }
-
-    setFieldErrors(updatedFieldErrors)
+    if (inputs.phone.trim()) {
+      newErrors.push('phone')
+      setErrors(newErrors)
+    }
+    if(errors.length!==0){
+      return setStep(3)
+    }
   }
+
+   // 切換合法不合法的css與提示字詞 //fieldValidCSS
+   const handleInvalid = (fieldName) => {
+    if (!startToChecked) return ''
+
+    return errors.includes(fieldName) ? 'is-invalid' : 'is-valid'
+  }
+
+  useEffect(() => {
+    handleSubmit()
+  }, [inputs])
+
+
+  // const [fieldErrors, setFieldErrors] = useState({
+  //   scname: '', //收貨人姓名  ok
+  //   phone: '', //收貨人電話  ok
+  //   homeAddress: '', //收貨地址  ok
+  //   conType:'',
+  //   conCity: '', //超商(縣市)
+  //   conStore:'', //超商(店家)
+  //   // orderIdNum:'',
+  // })
+
+
+
+  // form有更動會觸發這個函式
+  // const handleChange = (e) => {
+  //     console.log('更動欄位：', e.target.name)
 
   // const onChangeForField = (fieldName) => (e) => {
   //   setInputs((state) => ({
@@ -159,7 +157,7 @@ function CartItem() {
       shippingType: shipType,
       shippingPrice: shipPrice,
       // conStore: seletedConCity+seletedConStore,
-      conStore: inputs.conCity+inputs.conStore,
+      conStore: inputs.conType+inputs.conCity+inputs.conStore,
       conAddress: selectedConAddress,
       homeAddress: (country > -1  && township>-1)&& (postcodes[country][township]+countries[country]+townships[country][township]+inputs.homeAddress) ,
       paymentType: paymentWay,
@@ -195,7 +193,8 @@ function CartItem() {
     console.log('shipType',typeof(shipType),shipType,'shipPrice',shipPrice)
     console.log('selectedConAddress',selectedConAddress)
     console.log('country',country,'township',township)
-  }, [step, isCon, shipPrice, shipType,selectedConAddress,country,township])
+    console.log('errors',errors)
+  }, [step, isCon, shipPrice, shipType,selectedConAddress,country,township,errors])
 
   const switchSteps = (step) =>{
     switch(step){
@@ -208,16 +207,16 @@ function CartItem() {
       case 2:
         return <CartItemStep2 
         prevStep={() => setStep(1)}
-        nextStep={() => setStep(3)} 
+        nextStep={() => { return setStep(3)}} 
         setStep={setStep}
         inputs={inputs}
         setInputs={setInputs}
         onChangeForField={onChangeForField}
         handleSubmit={handleSubmit}
-        handleChange={handleChange}
+        // handleChange={handleChange}
         handleInvalid={handleInvalid}
-        fieldErrors={fieldErrors}
-        setFieldErrors={setFieldErrors}
+        // fieldErrors={fieldErrors}
+        // setFieldErrors={setFieldErrors}
 
         isCon={isCon}
         setIsCon={setIsCon}
@@ -249,9 +248,9 @@ function CartItem() {
         setInputs={setInputs}
         onChangeForField={onChangeForField}
         handleSubmit={handleSubmit}
-        handleChange={handleChange}
+        // handleChange={handleChange}
         handleInvalid={handleInvalid}
-        fieldErrors={fieldErrors}
+        // fieldErrors={fieldErrors}
 
         isCon={isCon}
         setIsCon={setIsCon}
@@ -281,9 +280,9 @@ function CartItem() {
         setInputs={setInputs}
         onChangeForField={onChangeForField}
         handleSubmit={handleSubmit}
-        handleChange={handleChange}
+        // handleChange={handleChange}
         handleInvalid={handleInvalid}
-        fieldErrors={fieldErrors}
+        // fieldErrors={fieldErrors}
 
         isCon={isCon}
         setIsCon={setIsCon}
@@ -310,146 +309,7 @@ function CartItem() {
        return ""
       }
   }
-  return (<form
-    onSubmit={handleSubmit}
-    onChange={handleChange}
-    onInvalid={handleInvalid}
-  >
-   {switchSteps(step)}
-  </form>)
-  // if(step===1) {
-  //   return(
-  //     <CartItemStep1
-  //      nextStep={() => setStep(2)}
-  //      setStep={setStep}
-  //      />
-  //   ) 
-  // }
-  // if (step === 2){
-  //   return(
-      
-  //     <CartItemStep2 
-  //       prevStep={() => setStep(1)}
-  //       nextStep={() => setStep(3)} 
-  //       setStep={setStep}
-  //       inputs={inputs}
-  //       setInputs={setInputs}
-  //       onChangeForField={onChangeForField}
-  //       handleSubmit={handleSubmit}
-  //       handleChange={handleChange}
-  //       handleInvalid={handleInvalid}
-  //       fieldErrors={fieldErrors}
-  //       setFieldErrors={setFieldErrors}
-
-  //       isCon={isCon}
-  //       setIsCon={setIsCon}
-  //       shipPrice={shipPrice}
-  //       setShipPrice={setShipPrice}
-  //       shipType={shipType}
-  //       setShipType={setShipType}
-  //       paymentWay={paymentWay}
-  //       setPaymentWay={setPaymentWay}
-  //       country={country}
-  //       setCountry={setCountry}
-  //       township={township}
-  //       setTownship={setTownship}
-  //       seletedConCity={seletedConCity}
-  //       setSeletedConCity={setSeletedConCity}
-  //       seletedConStore={seletedConStore}
-  //       setSeletedConStore={setSeletedConStore}
-  //       selectedConAddress={selectedConAddress}
-  //       setSeletedConAddress={setSeletedConAddress}
-  //       sum={sum}
-  //       amountSum={amountSum}
-  //       addOrderToSever={addOrderToSever}
-  //       orderItemsStr={orderItemsStr}
-  //       scOrderId={scOrderId}
-  //     />
-     
-  //   ) 
-  // } 
-  // if (step === 3){
-  //   return(
-      
-  //     <CartItemStep3 
-  //       prevStep={() => setStep(2)}
-  //       nextStep={() => { addOrderToSever(); return setStep(4)}}
-  //       setStep={setStep}
-  //       inputs={inputs}
-  //       setInputs={setInputs}
-  //       onChangeForField={onChangeForField}
-  //       handleSubmit={handleSubmit}
-  //       handleChange={handleChange}
-  //       handleInvalid={handleInvalid}
-  //       fieldErrors={fieldErrors}
-
-  //       isCon={isCon}
-  //       setIsCon={setIsCon}
-  //       shipPrice={shipPrice}
-  //       setShipPrice={setShipPrice}
-  //       shipType={shipType}
-  //       setShipType={setShipType}
-  //       paymentWay={paymentWay}
-  //       setPaymentWay={setPaymentWay}
-  //       country={country}
-  //       setCountry={setCountry}
-  //       township={township}
-  //       setTownship={setTownship}
-  //       seletedConCity={seletedConCity}
-  //       setSeletedConCity={setSeletedConCity}
-  //       seletedConStore={seletedConStore}
-  //       setSeletedConStore={setSeletedConStore}
-  //       selectedConAddress={selectedConAddress}
-  //       setSeletedConAddress={setSeletedConAddress}
-  //       sum={sum}
-  //       amountSum={amountSum}
-  //       addOrderToSever={addOrderToSever}
-  //       orderItemsStr={orderItemsStr} 
-  //       scOrderId={scOrderId}
-  //     />
-      
-  //   ) 
-  // } 
-	// if (step === 4){
-  //   return(
-      
-  //     <CartItemStep4 
-  //       setStep={setStep}
-  //       inputs={inputs}
-  //       setInputs={setInputs}
-  //       onChangeForField={onChangeForField}
-  //       handleSubmit={handleSubmit}
-  //       handleChange={handleChange}
-  //       handleInvalid={handleInvalid}
-  //       fieldErrors={fieldErrors}
-
-  //       isCon={isCon}
-  //       setIsCon={setIsCon}
-  //       shipPrice={shipPrice}
-  //       setShipPrice={setShipPrice}
-  //       shipType={shipType}
-  //       setShipType={setShipType}
-  //       paymentWay={paymentWay}
-  //       setPaymentWay={setPaymentWay}
-  //       country={country}
-  //       setCountry={setCountry}
-  //       township={township}
-  //       setTownship={setTownship}
-  //       seletedConCity={seletedConCity}
-  //       setSeletedConCity={setSeletedConCity}
-  //       seletedConStore={seletedConStore}
-  //       setSeletedConStore={setSeletedConStore}
-  //       selectedConAddress={selectedConAddress}
-  //       setSeletedConAddress={setSeletedConAddress}
-  //       sum={sum}
-  //       amountSum={amountSum}
-  //       addOrderToSever={addOrderToSever}
-  //       orderItemsStr={orderItemsStr}
-  //       scOrderId={scOrderId}
-  //     />
-      
-  //   ) 
-  // } 
+  return switchSteps(step)
 
 }
 

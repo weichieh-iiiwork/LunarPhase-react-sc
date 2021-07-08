@@ -121,6 +121,15 @@ body {
     font-weight: normal;
     color: $myDark;
 }
+.sc-contentFont.sc-conFontTitle {
+    /* 超商標題 */
+    font-weight: medium;
+}
+.sc-contentFont.sc-conFont {
+    /* 超商內文 */
+    color: $myGray;
+
+}
 .sc-describeFont {
     /* 訂單商品描述、 */
     font-family: 'Noto Sans TC', serif;

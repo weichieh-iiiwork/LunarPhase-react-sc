@@ -36,35 +36,68 @@ function ScContent3(props) {
       <div className="pb-2 mb-3 mt-5 titleDivider">
         <div className="scTitle col-5">選擇取貨超商</div>
       </div>
-      <div className="d-flex justify-content-start">
-        <h5 className="mx-2">711</h5>
-        <h5 className="mx-2">全家</h5>
-      </div>
-      <select className="scSelect sc-contentFont ml-5 my-3 w-25" name="conCity" 
-        value={inputs.conCity}
-        onChange={onChangeForField }
-              >  
-        <option value="-1">選擇縣市</option>
-        {/* key直接用city是因為只要unique就好 */}
-        { Object.keys(sevenCity).map(city => {
-            return(<option key={city} value={city}>{city}</option>)
-        })}
+      <div className="d-flex">
+        <div className="col-3 d-flex flex-column">
+          <select className="scSelect sc-contentFont ml-5 my-3 w-75" name="conType" 
+            value={inputs.conType}
+            onChange={onChangeForField }
+            // onFocus={handleSubmit}
+            // onClick={}
+            >  
+            <option value="-1">選擇超商</option>
+            <option value="711">7-11</option>
+            <option value="全家">全家</option>
+            <option value="OK">OK</option>
+          </select>
 
-      </select>
-      
-      <select className="scSelect sc-contentFont ml-5 my-3 w-25" name="conStore" 
-        value={inputs.conStore}
-        onChange={onChangeForField}
-        onClick={addData}
-        
-        >
-        <option value="-1">選擇門市</option>
-        { 
-          inputs.conCity &&
-          sevenStores.map((store,index)=>{           
-            return(<option key={index} value={store.POIName} data-address={store.Address}>{store.POIName}店</option>) 
-        })}
-      </select>
+          <select className="scSelect sc-contentFont ml-5 my-3 w-75" name="conCity" 
+            value={inputs.conCity}
+            onChange={onChangeForField }
+            // onFocus={handleSubmit}
+                  >  
+            <option value="-1">選擇縣市</option>
+            {/* key直接用city是因為只要unique就好 */}
+            {inputs.conType && Object.keys(sevenCity).map(city => {
+                return(<option key={city} value={city}>{city}</option>)
+            })}
+
+          </select>
+          
+          <select className="scSelect sc-contentFont ml-5 my-3 w-75" name="conStore" 
+            value={inputs.conStore}
+            onChange={onChangeForField}
+            onClick={addData}
+            
+            >
+            <option value="-1">選擇門市</option>
+            { 
+              inputs.conCity &&
+              sevenStores.map((store,index)=>{           
+                return(<option key={index} value={`${store.POIName}門市`} data-address={store.Address}>{store.POIName}店</option>) 
+            })}
+          </select>
+        </div>
+        <div className="col-3 d-flex align-items-center justify-content-center ml-5">
+        {(inputs.conType==="711") ? <img className="w-75" src="/img/Cart/711_logo.svg" alt="" /> : ""}
+        {(inputs.conType==="全家") ? <img className="w-75" src="/img/Cart/family_logo.svg" alt="" /> : ""}
+          {/* <img className="w-75" src="/img/Cart/711_logo.svg" alt="" /> */}
+          {/* <img className="w-75" src="/img/Cart/family_logo.svg" alt="" /> */}
+          
+        </div>
+        <div className="col-6 d-flex flex-column justify-content-center">
+        {(inputs.conType && inputs.conCity && inputs.conStore) ? 
+          
+          (<>
+            <div className="sc-contentFont sc-conFontTitle">{inputs.conType}</div>
+          <div className="sc-contentFont sc-conFontTitle">{inputs.conStore}</div>
+          <div className="sc-contentFont sc-conFont">{selectedConAddress}</div>
+          </>)
+
+          
+          : ""
+        }
+        </div>
+      </div>
     </>
   )
 
@@ -113,7 +146,7 @@ function ScContent3(props) {
             value={inputs.homeAddress}
             onChange={onChangeForField}
             placeholder="地址"
-            // autoFocus="true"
+            // autoFocus
           />
         </div>
       
@@ -129,40 +162,38 @@ function ScContent3(props) {
       </div>
       
       <div className="ml-5 d-flex flex-column">
-        <label className="sc-inputLabel">姓名：</label>
-        <input
-          className="scInput w-25 mb-4"
-          type="text"
-          name="scname"
-          value={inputs.scname}
-          onChange={onChangeForField}
-          placeholder="姓名"
-          required
-          // autoFocus="true"
-        />
-        {fieldErrors.scname && (
-            <small className="text-danger form-text">
-              {fieldErrors.scname}
-            </small>
-          )}
-        
-        
+        <div className="form-group">
+          <label className="sc-inputLabel" htmlFor="inputScname">姓名：</label>
+          <input
+            className={`scInput w-25 mb-4 form-control ${handleInvalid('scname')}`}
+            type="text"
+            id="inputScname"
+            name="scname"
+            value={inputs.scname}
+            onChange={onChangeForField}
+            placeholder="姓名"
+            required
+            aria-describedby="scnameHelp"
+            // autoFocus="true"
+          />
+          <div className="valid-feedback">您的尊名有如天仙下凡，音容動人</div>
+          <div className="invalid-feedback">要記得填姓名喔</div>
+        </div>
+        <div className="form-group">
         <label className="sc-inputLabel">連絡電話：</label>
-        <input
-          className="scInput w-25 mb-4"
-          type="text"
-          name="phone"
-          value={inputs.phone}
-          onChange={onChangeForField}
-          placeholder="聯絡電話"
-          required
-          // autoFocus="true"
-        />
-        {fieldErrors.phone && (
-            <small className="text-danger form-text">
-              {fieldErrors.phone}
-            </small>
-          )}
+          <input
+            className={`scInput w-25 mb-4 form-control ${handleInvalid('phone')}`}
+            type="text"
+            name="phone"
+            value={inputs.phone}
+            onChange={onChangeForField}
+            placeholder="聯絡電話"
+            required
+            // autoFocus="true"
+          />
+          <div className="valid-feedback">您的尊名有如天仙下凡，音容動人</div>
+          <div className="invalid-feedback">要記得填電話喔</div>
+        </div>
         
         {/* 透過判斷isCon來顯示地址 */}
         { !isCon && <HomeDataAddress/> }

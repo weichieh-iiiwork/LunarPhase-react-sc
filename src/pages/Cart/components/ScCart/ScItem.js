@@ -104,7 +104,7 @@ function ScItem(props) {
             className="itemRow d-flex bdBottom align-items-center position-relative"
           >
             <div className="col-6 d-flex align-items-center">
-              <div className="myCheckbox selectOne ml-4" />
+              {/* <div className="myCheckbox selectOne ml-4" /> */}
               <div className="itemPic ml-5" />
               <div className="sc-nameFont itemName">
                 <div className="mb-0">{item.name}</div>

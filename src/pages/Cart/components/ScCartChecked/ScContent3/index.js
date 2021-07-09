@@ -8,18 +8,13 @@ import Credit from './Credit'
 
 function ScContent3(props) {
   const {
-    inputs, onChangeForField,
+    inputs, setInputs, onChangeForField,
     handleSubmit,handleChange,handleInvalid,fieldErrors,handelErrors,
     isCon,
     paymentWay, setPaymentWay,
     selectedConAddress, setSeletedConAddress,
     country, setCountry, township, setTownship,
   } = props
-
-  const [cardNum, setCardNum] = useState('')
-  const [cardName, setCardName] = useState('')
-  const [cardDate, setCardDate] = useState('')
-  const [cardCode, setCardCode] = useState('')
 
   // let sevenStores = sevenCity[seletedConCity];
   let sevenStores = sevenCity[inputs.conCity];
@@ -29,6 +24,15 @@ function ScContent3(props) {
     setSeletedConAddress(e.target.options[e.target.selectedIndex].getAttribute('data-address'))
 
   }
+
+  // function resetInputs(e){
+
+  //   let resetInputs = {
+  //       ...inputs,
+  //       [e]: -1,
+  //   }
+  //   setInputs(resetInputs)
+  // }
 
   const SelCon = (
     <>
@@ -40,7 +44,8 @@ function ScContent3(props) {
         <div className="col-3 d-flex flex-column">
           <select className="scSelect sc-contentFont ml-5 my-3 w-75" name="conType" 
             value={inputs.conType}
-            onChange={onChangeForField }
+            onChange={onChangeForField}
+            // onChange={(e)=>{onChangeForField(e); resetInputs(inputs.conCity); resetInputs(inputs.conStore)}}
             // onFocus={handleSubmit}
             // onClick={}
             >  
@@ -208,79 +213,16 @@ function ScContent3(props) {
     </>
   )
 
- 
-
-// const CreditData = (
-//   <>
-//       {/* 信用卡資料 */}
-//       <div className="pb-2 mb-3 mt-5 titleDivider">
-//         <div className="scTitle col-5">信用卡資料</div>
-//       </div>
-//       <div className="d-flex">
-//         <div className="col-6">
-//           <div className="creditCard mr-4" />
-//         </div>
-//         <div className="col-6 d-flex flex-column">
-//           <label className="sc-inputLabel">信用卡號碼：</label>
-//           <input
-//             className="scInput w-100 mb-4"
-//             type="text"
-//             name="cardNum"
-//             value={cardNum}
-//             maxLength="16"
-//             onChange={(e) => {
-//               setCardNum(e.target.value)
-//             }}
-//           />
-//           <label className="sc-inputLabel">持卡人姓名：</label>
-//           <input
-//             className="scInput w-100 mb-4"
-//             type="text"
-//             name="cardName"
-//             value={cardName}
-//             onChange={(e) => {
-//               setCardName(e.target.value)
-//             }}
-//           />
-//           <div className="d-flex">
-//             <div className="d-flex flex-column mr-1">
-//               <label className="sc-inputLabel">有效日期：</label>
-//               <input
-//                 className="scInput w-100 mb-4"
-//                 type="text"
-//                 name="cardDate"
-//                 value={cardDate}
-//                 onChange={(e) => {
-//                   setCardDate(e.target.value)
-//                 }}
-//               />
-//             </div>
-//             <div className="d-flex flex-column ml-1">
-//               <label className="sc-inputLabel">安全碼：</label>
-//               <input className="scInput w-100 mb-4" type="text" 
-//                 name="cardCode"
-//                 value={cardCode}
-//                 onChange={(e) => {
-//                   setCardCode(e.target.value)
-//                 }}
-//               />
-//             </div>
-//           </div>
-//         </div>
-//       </div>
-//     </>
-// )
-
   return(
     <>
 
         {SelCon}
         {SelPayment}
         {HomeData}     
-        {/* {CreditData} */}
         <Credit
           inputs={inputs}
           onChangeForField={onChangeForField}
+          handleInvalid={handleInvalid}
         />
 
     </>

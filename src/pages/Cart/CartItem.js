@@ -73,7 +73,22 @@ function CartItem() {
       }
     }
     if(paymentWay==="信用卡"){
-
+      if (!inputs.number.trim()) {
+        newErrors.push('number')
+        setErrors(newErrors)
+      }
+      if (!inputs.name.trim()) {
+        newErrors.push('name')
+        setErrors(newErrors)
+      }
+      if (!inputs.expiry.trim()) {
+        newErrors.push('expiry')
+        setErrors(newErrors)
+      }
+      if (!inputs.cvc.trim()) {
+        newErrors.push('cvc')
+        setErrors(newErrors)
+      }
     }
     if (newErrors.length === 0) {
       setStep(4);

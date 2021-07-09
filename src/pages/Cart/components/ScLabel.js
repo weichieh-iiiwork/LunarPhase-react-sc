@@ -15,7 +15,7 @@ function ScLabel(props) {
             </div>
             <div className="labelSquare bgWhite">
               <div className="lableName">
-                <a href="/cart/order">訂閱</a>
+                <a href="/cart/kit">月訂</a>
               </div>
               <div className="labelTriangleWhite" />
             </div>

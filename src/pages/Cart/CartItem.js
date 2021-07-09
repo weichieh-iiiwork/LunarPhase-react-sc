@@ -62,7 +62,10 @@ function CartItem() {
       newErrors.push('phone')
       setErrors(newErrors)
     }
-    debugger
+    if (!inputs.homeAddress.trim()) {
+      newErrors.push('homeAddress')
+      setErrors(newErrors)
+    }
     if (newErrors.length === 0) {
       setStep(4);
       addOrderToSever();

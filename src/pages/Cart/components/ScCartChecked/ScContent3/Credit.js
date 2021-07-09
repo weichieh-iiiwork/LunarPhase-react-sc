@@ -44,6 +44,7 @@ export default class Credit extends React.Component {
               placeholder="Card Number"
               onChange={this.handleInputChange}
               onFocus={this.handleInputFocus}
+              maxLength="16"
             />
             <label className="sc-inputLabel">持卡人姓名：</label>
             <input
@@ -63,6 +64,8 @@ export default class Credit extends React.Component {
                     name="expiry"
                     onChange={this.handleInputChange}
                     onFocus={this.handleInputFocus}
+                    maxLength="4"
+
                 />
                 </div>
                 <div className="d-flex flex-column ml-1">
@@ -71,6 +74,7 @@ export default class Credit extends React.Component {
                     name="cvc"
                     onChange={this.handleInputChange}
                     onFocus={this.handleInputFocus}
+                    maxLength="3"
                 />
                 </div>
             </div>

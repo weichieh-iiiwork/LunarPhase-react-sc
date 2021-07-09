@@ -9,7 +9,7 @@ import Credit from './Credit'
 function ScContent3(props) {
   const {
     inputs, onChangeForField,
-    handleSubmit,handleChange,handleInvalid,fieldErrors,
+    handleSubmit,handleChange,handleInvalid,fieldErrors,handelErrors,
     isCon,
     paymentWay, setPaymentWay,
     selectedConAddress, setSeletedConAddress,
@@ -133,22 +133,28 @@ function ScContent3(props) {
     <>
     
       <label className="sc-inputLabel">寄送地址：</label>
-      <div>
+      <div className="d-flex ">
           <ZipCode
             country={country}
             setCountry={setCountry}
             township={township}
             setTownship={setTownship}
           />
-          <input
-            className="scInput w-50 mb-4"
-            type="text"
-            name="homeAddress"
-            value={inputs.homeAddress}
-            onChange={onChangeForField}
-            placeholder="地址"
-            // autoFocus
-          />
+          <div className="form-group w-75 mb-0">
+            <input
+              className={`scInput w-100 mb-4 form-control ${handleInvalid('homeAddress')}`}
+              type="text"
+              id="inputHomeAddress"
+              name="homeAddress"
+              value={inputs.homeAddress}
+              onChange={onChangeForField}
+              placeholder="地址"
+              required
+              // autoFocus
+            />
+            {/* <div className="valid-feedback">您的尊名有如天仙下凡，音容動人</div> */}
+            <div className="invalid-feedback">要記得填地址喔~</div>
+          </div>
         </div>
       
     </>
@@ -174,10 +180,10 @@ function ScContent3(props) {
             onChange={onChangeForField}
             placeholder="姓名"
             required
-            aria-describedby="scnameHelp"
+            // aria-describedby="scnameHelp"
             // autoFocus="true"
           />
-          <div className="valid-feedback">您的尊名有如天仙下凡，音容動人</div>
+          {/* <div className="valid-feedback">您的尊名有如天仙下凡，音容動人</div> */}
           <div className="invalid-feedback">要記得填姓名喔</div>
         </div>
         <div className="form-group">
@@ -192,7 +198,7 @@ function ScContent3(props) {
             required
             // autoFocus="true"
           />
-          <div className="valid-feedback">您的尊名有如天仙下凡，音容動人</div>
+          {/* <div className="valid-feedback">您的尊名有如天仙下凡，音容動人</div> */}
           <div className="invalid-feedback">要記得填電話喔</div>
         </div>
         
@@ -204,65 +210,66 @@ function ScContent3(props) {
 
  
 
-const CreditData = (
-  <>
-      {/* 信用卡資料 */}
-      <div className="pb-2 mb-3 mt-5 titleDivider">
-        <div className="scTitle col-5">信用卡資料</div>
-      </div>
-      <div className="d-flex">
-        <div className="col-6">
-          <div className="creditCard mr-4" />
-        </div>
-        <div className="col-6 d-flex flex-column">
-          <label className="sc-inputLabel">信用卡號碼：</label>
-          <input
-            className="scInput w-100 mb-4"
-            type="text"
-            name="cardNum"
-            value={cardNum}
-            onChange={(e) => {
-              setCardNum(e.target.value)
-            }}
-          />
-          <label className="sc-inputLabel">持卡人姓名：</label>
-          <input
-            className="scInput w-100 mb-4"
-            type="text"
-            name="cardName"
-            value={cardName}
-            onChange={(e) => {
-              setCardName(e.target.value)
-            }}
-          />
-          <div className="d-flex">
-            <div className="d-flex flex-column mr-1">
-              <label className="sc-inputLabel">有效日期：</label>
-              <input
-                className="scInput w-100 mb-4"
-                type="text"
-                name="cardDate"
-                value={cardDate}
-                onChange={(e) => {
-                  setCardDate(e.target.value)
-                }}
-              />
-            </div>
-            <div className="d-flex flex-column ml-1">
-              <label className="sc-inputLabel">安全碼：</label>
-              <input className="scInput w-100 mb-4" type="text" 
-                name="cardCode"
-                value={cardCode}
-                onChange={(e) => {
-                  setCardCode(e.target.value)
-                }}
-              />
-            </div>
-          </div>
-        </div>
-      </div>
-    </>
-)
+// const CreditData = (
+//   <>
+//       {/* 信用卡資料 */}
+//       <div className="pb-2 mb-3 mt-5 titleDivider">
+//         <div className="scTitle col-5">信用卡資料</div>
+//       </div>
+//       <div className="d-flex">
+//         <div className="col-6">
+//           <div className="creditCard mr-4" />
+//         </div>
+//         <div className="col-6 d-flex flex-column">
+//           <label className="sc-inputLabel">信用卡號碼：</label>
+//           <input
+//             className="scInput w-100 mb-4"
+//             type="text"
+//             name="cardNum"
+//             value={cardNum}
+//             maxLength="16"
+//             onChange={(e) => {
+//               setCardNum(e.target.value)
+//             }}
+//           />
+//           <label className="sc-inputLabel">持卡人姓名：</label>
+//           <input
+//             className="scInput w-100 mb-4"
+//             type="text"
+//             name="cardName"
+//             value={cardName}
+//             onChange={(e) => {
+//               setCardName(e.target.value)
+//             }}
+//           />
+//           <div className="d-flex">
+//             <div className="d-flex flex-column mr-1">
+//               <label className="sc-inputLabel">有效日期：</label>
+//               <input
+//                 className="scInput w-100 mb-4"
+//                 type="text"
+//                 name="cardDate"
+//                 value={cardDate}
+//                 onChange={(e) => {
+//                   setCardDate(e.target.value)
+//                 }}
+//               />
+//             </div>
+//             <div className="d-flex flex-column ml-1">
+//               <label className="sc-inputLabel">安全碼：</label>
+//               <input className="scInput w-100 mb-4" type="text" 
+//                 name="cardCode"
+//                 value={cardCode}
+//                 onChange={(e) => {
+//                   setCardCode(e.target.value)
+//                 }}
+//               />
+//             </div>
+//           </div>
+//         </div>
+//       </div>
+//     </>
+// )
 
   return(
     <>
@@ -271,7 +278,9 @@ const CreditData = (
         {SelPayment}
         {HomeData}     
         {/* {CreditData} */}
-        <Credit/>
+        <Credit
+          inputs
+        />
 
     </>
   )

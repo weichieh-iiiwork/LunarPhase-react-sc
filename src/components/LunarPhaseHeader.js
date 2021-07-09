@@ -1,8 +1,8 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 
-function LunarPhaseHeader() {
-
+function LunarPhaseHeader(props) {
+  const { orderItemsStr, amountSum} = props
   return(
     <>
       <nav className="nav-bar nav-bar-fixed container-fluid">
@@ -32,7 +32,7 @@ function LunarPhaseHeader() {
               <i className="fas fa-shopping-cart" />
             </Link>
 
-              <p className="small mx-0">(0)</p>
+              <p className="small mx-0">({amountSum(orderItemsStr)})</p>
             </div>
           </div>
         </div>

@@ -229,6 +229,8 @@ function CartItem() {
     switch(step){
       case 1:
         return <CartItemStep1 
+        amountSum={amountSum}
+        orderItemsStr={orderItemsStr}
         nextStep={() => setStep(2)}
         setStep={setStep}
       />

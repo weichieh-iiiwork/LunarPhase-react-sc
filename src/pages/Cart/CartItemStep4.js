@@ -29,7 +29,10 @@ function CartItemStep4(props) {
   } = props
   return (
     <>
-      <LunarPhaseHeader />
+      <LunarPhaseHeader 
+        amountSum={amountSum}
+        orderItemsStr={orderItemsStr}
+      />
       <Breadcrumb />
     {/* <form
         onSubmit={handleSubmit}

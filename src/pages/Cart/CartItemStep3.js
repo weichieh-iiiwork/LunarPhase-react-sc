@@ -30,7 +30,10 @@ function CartItemStep3(props) {
   } = props
   return (
     <>
-      <LunarPhaseHeader />
+      <LunarPhaseHeader 
+        amountSum={amountSum}
+        orderItemsStr={orderItemsStr}
+      />
       <Breadcrumb />
 
     {/* <form

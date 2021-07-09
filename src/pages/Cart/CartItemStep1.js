@@ -10,10 +10,13 @@ import ScLabel from './components/ScLabel'
 
 //網址 /cart/item
 function CartItemStep1(props) {
-  const { nextStep, setStep } = props
+  const { nextStep, setStep,orderItemsStr, amountSum} = props
   return (
     <>
-      <LunarPhaseHeader />
+      <LunarPhaseHeader 
+        amountSum={amountSum}
+        orderItemsStr={orderItemsStr}
+      />
       <Breadcrumb />
 
       <ScStepRow step={1} 

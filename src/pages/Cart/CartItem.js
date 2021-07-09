@@ -27,6 +27,10 @@ function CartItem() {
     conType:'',
     conCity: '', //超商(縣市)
     conStore:'', //超商(店家)
+    name:'', //信用卡號碼
+    number:'', //信用卡持卡人姓名
+    expiry:'', //信用卡有效日期
+    cvc:'', //信用卡安全碼
     // country:'', //收貨地址(縣市)
     // township:'', //收貨地址(區域)
     // conAddress:'', //超商地址
@@ -42,7 +46,6 @@ function CartItem() {
   const [errors, setErrors] = useState([])
   // 處理每個欄位的變動 //handleFieldChange
   const onChangeForField = (e) => {
-    debugger
     // 更新輸入欄位
     const updatedInputs = {
       ...inputs,
@@ -68,6 +71,9 @@ function CartItem() {
         newErrors.push('homeAddress')
         setErrors(newErrors)
       }
+    }
+    if(paymentWay==="信用卡"){
+
     }
     if (newErrors.length === 0) {
       setStep(4);

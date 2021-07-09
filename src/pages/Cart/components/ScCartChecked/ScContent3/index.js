@@ -279,7 +279,8 @@ function ScContent3(props) {
         {HomeData}     
         {/* {CreditData} */}
         <Credit
-          inputs
+          inputs={inputs}
+          onChangeForField={onChangeForField}
         />
 
     </>

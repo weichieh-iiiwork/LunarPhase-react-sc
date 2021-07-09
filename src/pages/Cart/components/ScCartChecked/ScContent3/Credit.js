@@ -40,9 +40,10 @@ export default class Credit extends React.Component {
             <input
               type="text"
               name="number"
+              value={this.props.inputs.number}
               className="scInput w-100 mb-4"
-              placeholder="Card Number"
-              onChange={this.handleInputChange}
+              placeholder="卡號"
+              onChange={(e)=>{this.handleInputChange(e); this.props.onChangeForField(e)}}
               onFocus={this.handleInputFocus}
               maxLength="16"
             />
@@ -51,8 +52,9 @@ export default class Credit extends React.Component {
                 className="scInput w-100 mb-4"
                 type="text"
                 name="name"
-                placeholder="Name"
-                onChange={this.handleInputChange}
+                value={this.props.inputs.name}
+                placeholder="姓名"
+                onChange={(e)=>{this.handleInputChange(e); this.props.onChangeForField(e)}}
                 onFocus={this.handleInputFocus}
             />
             <div className="d-flex">
@@ -62,9 +64,11 @@ export default class Credit extends React.Component {
                     className="scInput w-100 mb-4"
                     type="text"
                     name="expiry"
-                    onChange={this.handleInputChange}
+                    value={this.props.inputs.expiry}
+                    onChange={(e)=>{this.handleInputChange(e); this.props.onChangeForField(e)}}
                     onFocus={this.handleInputFocus}
                     maxLength="4"
+                    placeholder="MMYY"
 
                 />
                 </div>
@@ -72,9 +76,11 @@ export default class Credit extends React.Component {
                 <label className="sc-inputLabel">安全碼：</label>
                 <input className="scInput w-100 mb-4" type="text" 
                     name="cvc"
-                    onChange={this.handleInputChange}
+                    value={this.props.inputs.cvc}
+                    onChange={(e)=>{this.handleInputChange(e); this.props.onChangeForField(e)}}
                     onFocus={this.handleInputFocus}
                     maxLength="3"
+                    placeholder="卡片背後三碼"
                 />
                 </div>
             </div>

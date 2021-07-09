@@ -42,6 +42,7 @@ function CartItem() {
   const [errors, setErrors] = useState([])
   // 處理每個欄位的變動 //handleFieldChange
   const onChangeForField = (e) => {
+    debugger
     // 更新輸入欄位
     const updatedInputs = {
       ...inputs,
@@ -62,9 +63,11 @@ function CartItem() {
       newErrors.push('phone')
       setErrors(newErrors)
     }
-    if (!inputs.homeAddress.trim()) {
-      newErrors.push('homeAddress')
-      setErrors(newErrors)
+    if(!isCon){
+      if (!inputs.homeAddress.trim()) {
+        newErrors.push('homeAddress')
+        setErrors(newErrors)
+      }
     }
     if (newErrors.length === 0) {
       setStep(4);

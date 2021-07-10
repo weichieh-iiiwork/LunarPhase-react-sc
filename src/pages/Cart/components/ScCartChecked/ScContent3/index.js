@@ -215,15 +215,16 @@ function ScContent3(props) {
 
   return(
     <>
-
-        {SelCon}
-        {SelPayment}
-        {HomeData}     
+      {isCon && SelCon}
+      {SelPayment}
+      {HomeData}    
+      {(paymentWay==="信用卡") && 
         <Credit
           inputs={inputs}
           onChangeForField={onChangeForField}
           handleInvalid={handleInvalid}
         />
+      } 
 
     </>
   )

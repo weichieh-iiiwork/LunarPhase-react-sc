@@ -14,6 +14,8 @@ import Home from './pages/Home'
 import ProductList from './pages/Product/ProductList'
 import CartItem from './pages/Cart/CartItem'
 import Form from './pages/Form'
+import EvList from './pages/Product/EvList'
+import CartEv from './pages/Cart/CartEv'
 
 
 
@@ -24,6 +26,9 @@ function App() {
     <Router>
       <>
         <Switch>
+          <Route path="/cart/event">
+            <CartEv />
+          </Route>
           <Route path="/cart/item">
             <CartItem />
           </Route>
@@ -35,6 +40,9 @@ function App() {
           {/* 測試購物車存資料到localStorage */}
           <Route path="/productlist">
             <ProductList/>
+          </Route>
+          <Route path="/evlist">
+            <EvList/>
           </Route>
           {/* 測試購物車存資料到localStorage結束 */}
 

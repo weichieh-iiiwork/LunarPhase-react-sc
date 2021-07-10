@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
 function ScLabel(props) {
   return (
@@ -7,24 +8,24 @@ function ScLabel(props) {
       <div className="container-fluid">
         <div className="col-10 mx-auto px-0">
           <div className="myLabelGroup d-flex">
-            <div className="labelSquare">
-              <div className="lableName">
-                <a href="/cart/item">商品</a>
-              </div>
-              <div className="labelTriangle" />
-            </div>
-            <div className="labelSquare bgWhite">
-              <div className="lableName">
-                <a href="/cart/kit">月訂</a>
-              </div>
-              <div className="labelTriangleWhite" />
-            </div>
-            <div className="labelSquare bgWhite">
-              <div className="lableName">
-                <a href="/cart/event">活動</a>
-              </div>
-              <div className="labelTriangleWhite" />
-            </div>
+            <Link to="/cart/item">
+                <div className="labelSquare">
+                  <div className="lableName">商品</div>
+                  <div className="labelTriangle"></div>
+                </div>
+              </Link>
+              <Link to="/cart/kit">
+                <div className="labelSquare bgWhite">
+                  <div className="lableName">月訂</div>
+                  <div className="labelTriangleWhite"></div>
+                </div>
+              </Link>
+              <Link to="/cart/event">
+                <div className="labelSquare bgWhite">
+                  <div className="lableName">活動</div>
+                  <div className="labelTriangleWhite"></div>
+                </div>
+              </Link>
           </div>
         </div>
       </div>

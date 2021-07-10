@@ -17,7 +17,7 @@ function CartEv() {
   const [scOrderId, setScOrderId] = useState(0) //訂單編號
 
   // 從localStorage取出購物車資訊，往子女元件傳遞
-  const orderItems = localStorage.getItem('cart')
+  const orderItems = localStorage.getItem('evcart')
   const orderItemsStr = JSON.parse(orderItems)
 
   const [inputs, setInputs] = useState({
@@ -27,12 +27,6 @@ function CartEv() {
     conType: '',
     conCity: '', //超商(縣市)
     conStore: '', //超商(店家)
-    // country:'', //收貨地址(縣市)
-    // township:'', //收貨地址(區域)
-    // conAddress:'', //超商地址
-    // shipPrice:0, //運費
-    // shipType:'', //物流方式
-    // orderIdNum:'',
   })
 
   // 切換開始作檢查的旗標
@@ -76,27 +70,6 @@ function CartEv() {
   useEffect(() => {
     handleSubmit()
   }, [inputs])
-
-  // const [fieldErrors, setFieldErrors] = useState({
-  //   scname: '', //收貨人姓名  ok
-  //   phone: '', //收貨人電話  ok
-  //   homeAddress: '', //收貨地址  ok
-  //   conType:'',
-  //   conCity: '', //超商(縣市)
-  //   conStore:'', //超商(店家)
-  //   // orderIdNum:'',
-  // })
-
-  // form有更動會觸發這個函式
-  // const handleChange = (e) => {
-  //     console.log('更動欄位：', e.target.name)
-
-  // const onChangeForField = (fieldName) => (e) => {
-  //   setInputs((state) => ({
-  //     ...state,
-  //     [fieldName]: e.target.value,
-  //   }))
-  // }
 
   /*
    data格式:{

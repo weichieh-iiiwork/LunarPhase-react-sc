@@ -32,7 +32,7 @@ function LunarPhaseHeader(props) {
               <i className="fas fa-shopping-cart" />
             </Link>
 
-              <p className="small mx-0">({amountSum(orderItemsStr)})</p>
+              {/* <p className="small mx-0">({amountSum(orderItemsStr)})</p> */}
             </div>
           </div>
         </div>
@@ -40,12 +40,11 @@ function LunarPhaseHeader(props) {
           <ul className="d-flex justify-content-around col-11 mx-auto">
             <li>
               {/* <a href="#shop">SHOP</a> */}
-              <a href="/productlist">商品列表</a>
+              <Link to="/productlist">商品列表</Link>
             </li>
             <li>
               {/* <a href="#article">ARTICLE</a> */}
-              <Link to="/cart/item">購物車</Link>
-              {/* <a href="/cart/test">購物車測試</a> */}
+              <Link to="/evlist">活動列表</Link>
             </li>
             <li>
               <a href="#order">ORDER</a>

@@ -4,6 +4,15 @@ import { FcBookmark } from 'react-icons/fc'
 const _ = require('lodash');
 
 function Form() {
+  // 使用經緯度去連接googlemap
+  const your_lng=121.796067
+  const your_lat=25.13967
+  const showInMapClicked = () => {
+    window.open("https://maps.google.com?q="+your_lat+","+your_lng );
+  };
+
+  
+  
   // 測試lodash
   const arr = [1,2]
   const newArr = _.remove(arr,function(n) {
@@ -98,6 +107,21 @@ function Form() {
 
   return (
     <>
+    <iframe
+    title="1"
+    src="https://maps.google.com.tw/maps?f=q&hl=zh-TW&geocode=&q=臺北市羅斯福路二段102號&z=16&output=embed&t="
+    width="600"
+    height="450"
+    frameBorder="0"
+    style={{ border: 0 }}
+    allowFullScreen=""
+    aria-hidden="false"
+    tabIndex="0"
+  />
+
+    <button
+  onClick={showInMapClicked}
+  >連到googlemap</button>
     {/* <img src={`/img/Product/${imgName}`}  alt=""/> */}
     {/* 錯誤訊息顯示在欄位的下方，
     但錯誤訊息依然是瀏覽器的預設錯誤訊息

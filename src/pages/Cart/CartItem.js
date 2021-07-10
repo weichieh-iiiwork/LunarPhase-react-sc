@@ -4,6 +4,8 @@ import CartItemStep2 from './CartItemStep2'
 import CartItemStep3 from './CartItemStep3'
 import CartItemStep4 from './CartItemStep4'
 import { countries, townships, postcodes } from '../../data/townships'
+const _ = require('lodash');
+
 
 function CartItem() {
   const [step, setStep] = useState(1)
@@ -44,8 +46,20 @@ function CartItem() {
   const [startToChecked, setStartToChecked] = useState(false)
   // 錯誤陣列，記錄有錯誤的欄位名稱
   const [errors, setErrors] = useState([])
+
   // 處理每個欄位的變動 //handleFieldChange
   const onChangeForField = (e) => {
+    // 當改變那個input的時候，先清空那欄位的錯誤訊息
+    setErrors(_.remove(errors, function(n){
+      for(let i=0; i<errors.length; i++){
+        if(n!==e.target.name){
+          return true
+        }
+      }
+    }))
+    
+    // setErrors([]) //改變那個input欄位時，全部錯誤訊息清空
+
     // 更新輸入欄位
     const updatedInputs = {
       ...inputs,
@@ -100,7 +114,8 @@ function CartItem() {
    const handleInvalid = (fieldName) => {
     if (!startToChecked) return ''
 
-    return errors.includes(fieldName) ? 'is-invalid' : 'is-valid'
+    return errors.includes(fieldName) ? 'is-invalid' : ''
+    // return errors.includes(fieldName) ? 'is-invalid' : 'is-valid'
   }
 
   // useEffect(() => {

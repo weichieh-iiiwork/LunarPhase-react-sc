@@ -1,9 +1,25 @@
 import React, { useState } from 'react'
 import { BsBookmark } from 'react-icons/bs'
 import { FcBookmark } from 'react-icons/fc'
+const _ = require('lodash');
 
 function Form() {
+  // 測試lodash
+  const arr = [1,2]
+  const newArr = _.remove(arr,function(n) {
 
+    for (let i = 0; i < arr.length; i++)
+    {
+        if (n === 2)
+        {
+            return true;
+        }
+    }
+})
+  
+  console.log('arr',arr,'newArr',newArr)
+  
+  // arr = _.remove(arr, ['name'])
   const [addToCollection, setAddToCollection] = useState("22px")
   const [chg, setChg] = useState(1)
   // 養成習慣，先定義有哪些欄位屬性

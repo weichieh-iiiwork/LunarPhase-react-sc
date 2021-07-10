@@ -16,6 +16,7 @@ import CartItem from './pages/Cart/CartItem'
 import Form from './pages/Form'
 import EvList from './pages/Product/EvList'
 import CartEv from './pages/Cart/CartEv'
+import OrderList from './pages/OrderList'
 
 
 
@@ -35,9 +36,14 @@ function App() {
           <Route path="/form">
             <Form/>
           </Route>
+          
       
           
-          {/* 測試購物車存資料到localStorage */}
+          {/* 測試購物車存資料到localStorage；測試撈訂單 */}
+          <Route path="/orderlist">
+            <OrderList/>
+          </Route>
+
           <Route path="/productlist">
             <ProductList/>
           </Route>

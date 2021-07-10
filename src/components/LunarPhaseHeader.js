@@ -47,7 +47,7 @@ function LunarPhaseHeader(props) {
               <Link to="/evlist">活動列表</Link>
             </li>
             <li>
-              <a href="#order">ORDER</a>
+              <a href="/orderlist">訂單查詢</a>
             </li>
             <li>
               <a href="#event">EVENT</a>

@@ -13,6 +13,7 @@ $myRed: #E64B4B;
 $myGray: #9B9B9B;
 $myWhite: #fff;
 $myLineGray: #CDCDD2;
+$bg-hover: #fdd2bb69;
 
 @mixin sizeXl {
     @media (max-width:1200px){
@@ -348,6 +349,9 @@ body {
     padding:40px 0;
     background-color: $myWhite;
 }
+.itemRow:hover {
+    background-color: $bg-hover;
+}
 .bdTop {
     /* 上方分隔線*/
     border-top: 1px solid $myLineGray;
@@ -513,6 +517,9 @@ $labelName: 20px;
 .dropdownItem:nth-of-type(even) {
     /* 商品偶數加背景色 */
     background-color: rgba(205,205,210,0.35);
+}
+.dropdownItem:hover {
+    background-color: $bg-hover;
 }
 .dropdownItemsPanel.hidden {
     display: none;

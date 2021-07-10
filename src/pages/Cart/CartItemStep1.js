@@ -7,6 +7,7 @@ import ScCart from './components/ScCart/'
 
 import ScBtn from './components/ScBtn'
 import ScLabel from './components/ScLabel'
+import ScAd from './components/ScAD'
 
 //網址 /cart/item
 function CartItemStep1(props) {
@@ -25,11 +26,13 @@ function CartItemStep1(props) {
       {/*-------------- 第一頁 --------------*/}
       <ScLabel />
       <ScCart />
+      
       <ScBtn
         nextStep={nextStep} 
         showStep1={false}
         showStep2={true}
       />
+      <ScAd/>
     </>
   )
 }

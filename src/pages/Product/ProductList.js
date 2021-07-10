@@ -44,7 +44,7 @@ function ProductList(props) {
       <Link to="/cart/test">
         <button >到購物車</button>
       </Link>
-      <Link to="/cart/item/step1">
+      <Link to="/cart/item">
         <button >到購物車step1</button>
       </Link>
       

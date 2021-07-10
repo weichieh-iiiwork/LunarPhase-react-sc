@@ -82,32 +82,32 @@ function ScContent3(props) {
             })}
           </select>
         </div>
-        <div className="col-2 d-flex align-items-center justify-content-center ml-5">
-        {(inputs.conType==="711") ? <img className="w-75" src="/img/Cart/711_logo.svg" alt="" /> : ""}
-        {(inputs.conType==="全家") ? <img className="w-75" src="/img/Cart/family_logo.svg" alt="" /> : ""}
-        {(inputs.conType==="OK") ? <img className="w-75" src="/img/Cart/OK_logo.svg" alt="" /> : ""}
-          {/* <img className="w-75" src="/img/Cart/711_logo.svg" alt="" /> */}
-          {/* <img className="w-75" src="/img/Cart/family_logo.svg" alt="" /> */}
+        <div className="col-6 d-flex mt-3 align-items-start justify-content-center ">
+          <iframe
+            title={selectedConAddress}
+            src={`https://maps.google.com.tw/maps?f=q&hl=zh-TW&geocode=&q=${selectedConAddress}&z=16&output=embed&t=`}
+            width="350"
+            height="200"
+            frameBorder="0"
+            style={{ border: 0 }}
+            allowFullScreen=""
+            aria-hidden="false"
+            tabIndex="0"
+          />
           
         </div>
-        <div className="col-6 d-flex flex-column justify-content-center">
+        <div className="col-3 d-flex flex-column justify-content-center mt-3">
         {(inputs.conType && inputs.conCity && inputs.conStore) ? 
           
           (<>
-            <iframe
-              title="1"
-              src={`https://maps.google.com.tw/maps?f=q&hl=zh-TW&geocode=&q=${selectedConAddress}&z=16&output=embed&t=`}
-              width="300"
-              height="150"
-              frameBorder="0"
-              style={{ border: 0 }}
-              allowFullScreen=""
-              aria-hidden="false"
-              tabIndex="0"
-            />
-            <div className="sc-contentFont sc-conFontTitle">{inputs.conType}</div>
-          <div className="sc-contentFont sc-conFontTitle">{inputs.conStore}</div>
-          <div className="sc-contentFont sc-conFont">{selectedConAddress}</div>
+            {(inputs.conType==="711") ? <img className="w-25" src="/img/Cart/711_logo.svg" alt="" /> : ""}
+            {(inputs.conType==="全家") ? <img className="w-25" src="/img/Cart/family_logo.svg" alt="" /> : ""}
+            {(inputs.conType==="OK") ? <img className="w-25" src="/img/Cart/OK_logo.svg" alt="" /> : ""}
+            
+            <div className="sc-contentFont sc-conFontTitle mt-3">{inputs.conType}</div>
+            <div className="sc-contentFont sc-conFontTitle">{inputs.conStore}</div>
+            <div className="sc-contentFont sc-conFont mb-2">{selectedConAddress}</div>
+            
           </>)
 
           

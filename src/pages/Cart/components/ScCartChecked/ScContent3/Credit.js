@@ -74,8 +74,8 @@ export default class Credit extends React.Component {
                     value={this.props.inputs.expiry}
                     onChange={(e)=>{this.handleInputChange(e); this.props.onChangeForField(e)}}
                     onFocus={this.handleInputFocus}
-                    maxLength="4"
-                    placeholder="MMYY"
+                    maxLength="5"
+                    placeholder="MM/YY"
                     required
                 />
                 <div className="invalid-feedback">卡片上面的有效日期</div>

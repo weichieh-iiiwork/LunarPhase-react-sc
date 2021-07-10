@@ -137,7 +137,7 @@ function ScContent3(props) {
   const HomeDataAddress = ()=>(
     <>
     
-      <label className="sc-inputLabel">寄送地址：</label>
+      <label className="sc-inputLabel mt-2">寄送地址：</label>
       <div className="d-flex ">
           <ZipCode
             country={country}
@@ -147,7 +147,7 @@ function ScContent3(props) {
           />
           <div className="form-group w-75 mb-0">
             <input
-              className={`scInput w-100 mb-4 form-control ${handleInvalid('homeAddress')}`}
+              className={`scInput w-100 form-control ${handleInvalid('homeAddress')}`}
               type="text"
               id="inputHomeAddress"
               name="homeAddress"
@@ -177,7 +177,7 @@ function ScContent3(props) {
         <div className="form-group">
           <label className="sc-inputLabel" htmlFor="inputScname">姓名：</label>
           <input
-            className={`scInput w-25 mb-4 form-control ${handleInvalid('scname')}`}
+            className={`scInput w-25 form-control ${handleInvalid('scname')}`}
             type="text"
             id="inputScname"
             name="scname"
@@ -192,9 +192,9 @@ function ScContent3(props) {
           <div className="invalid-feedback">要記得填姓名喔</div>
         </div>
         <div className="form-group">
-        <label className="sc-inputLabel">連絡電話：</label>
+        <label className="sc-inputLabel mt-2">連絡電話：</label>
           <input
-            className={`scInput w-25 mb-4 form-control ${handleInvalid('phone')}`}
+            className={`scInput w-25 form-control ${handleInvalid('phone')}`}
             type="text"
             name="phone"
             value={inputs.phone}

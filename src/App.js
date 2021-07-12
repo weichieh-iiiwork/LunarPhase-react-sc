@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import {
   BrowserRouter as Router,
   Route,
@@ -7,10 +7,6 @@ import {
 
 // 導入所需頁面
 import Home from './pages/Home'
-// import CartItemStep1 from './pages/Cart/CartItemStep1'
-// import CartItemStep2 from './pages/Cart/CartItemStep2'
-// import CartItemStep3 from './pages/Cart/CartItemStep3'
-// import CartItemStep4 from './pages/Cart/CartItemStep4'
 import ProductList from './pages/Product/ProductList'
 import CartItem from './pages/Cart/CartItem'
 import Form from './pages/Form'
@@ -23,15 +19,61 @@ import OrderList from './pages/OrderList'
 function App() {
 
 
+  const [cartQty, setCartQty] = useState(
+  {
+    itemsQty: 0,
+    eventsQty: 0,
+    kitsQty: 0,
+    totalQty: 0,
+  })
+
+  // 從localStorage取出購物車資訊，往子女元件傳遞
+  const orderItems = localStorage.getItem('cart') || 0
+  const orderItemsStr = JSON.parse(orderItems)
+  const orderEvents = localStorage.getItem('evcart') || 0
+  const orderEventsStr = JSON.parse(orderEvents)
+  const orderKits = localStorage.getItem('kitcart') || 0
+  const orderKitsStr = JSON.parse(orderKits)
+
+  // 計算總商品數量的函式
+  const amountSum = (items) => {
+    let totalAmount = 0
+    for (let i = 0; i < items.length; i++) {
+      totalAmount += items[i].amount
+    }
+    return totalAmount
+  }
+
+  function updateCartQty () {
+    const newItemsQty = {...cartQty,
+      itemsQty: amountSum(orderItemsStr),
+      eventsQty: amountSum(orderEventsStr),
+      kitsQty: amountSum(orderKitsStr),
+      totalQty: amountSum(orderItemsStr)+amountSum(orderEventsStr)+amountSum(orderKitsStr),
+    }
+    setCartQty(newItemsQty)
+  }
+  useEffect(()=>{
+    updateCartQty()
+  },[cartQty.totalQty, cartQty.itemsQty, cartQty.eventsQty,cartQty.kitsQty])
+
+
   return (
     <Router>
       <>
         <Switch>
           <Route path="/cart/event">
-            <CartEv />
+            <CartEv 
+              cartQty={cartQty}
+              orderEventsStr={orderEventsStr}
+            />
           </Route>
           <Route path="/cart/item">
-            <CartItem />
+            <CartItem 
+              cartQty={cartQty}
+              updateCartQty={updateCartQty}
+              orderItemsStr={orderItemsStr}
+            />
           </Route>
           <Route path="/form">
             <Form/>

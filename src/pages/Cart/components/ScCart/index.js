@@ -2,6 +2,7 @@ import React  from 'react'
 import ScItem from './ScItem'
 
 function ScCart(props) {
+  const { updateCartQty } = props
 
   const ScBar = (
     <>
@@ -36,7 +37,9 @@ function ScCart(props) {
         <div className="col-10 mx-auto px-0 shadow-sm ">
           {ScBar}
           {ScFormTitle} 
-          <ScItem />
+          <ScItem 
+            updateCartQty={updateCartQty}
+          />
         </div>
       </div>
     </>

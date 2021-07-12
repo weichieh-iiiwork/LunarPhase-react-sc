@@ -7,7 +7,8 @@ import { countries, townships, postcodes } from '../../data/townships'
 const _ = require('lodash');
 
 
-function CartItem() {
+function CartItem(props) {
+  const {cartQty,orderItemsStr,updateCartQty} = props
   const [step, setStep] = useState(1)
   const [isCon, setIsCon] = useState(false) //物流是否為便利商店
   const [shipPrice, setShipPrice] = useState(0) //運費
@@ -19,8 +20,8 @@ function CartItem() {
   const [scOrderId, setScOrderId] = useState(0) //訂單編號
 
   // 從localStorage取出購物車資訊，往子女元件傳遞
-  const orderItems = localStorage.getItem('cart')
-  const orderItemsStr = JSON.parse(orderItems)
+  // const orderItems = localStorage.getItem('cart')
+  // const orderItemsStr = JSON.parse(orderItems)
 
   const [inputs, setInputs] = useState({
     scname: '', //收貨人姓名  ok
@@ -33,14 +34,7 @@ function CartItem() {
     number:'', //信用卡持卡人姓名
     expiry:'', //信用卡有效日期
     cvc:'', //信用卡安全碼
-    // country:'', //收貨地址(縣市)
-    // township:'', //收貨地址(區域)
-    // conAddress:'', //超商地址
-    // shipPrice:0, //運費
-    // shipType:'', //物流方式
-    // orderIdNum:'',
   })
-
 
   // 切換開始作檢查的旗標
   const [startToChecked, setStartToChecked] = useState(false)
@@ -118,33 +112,6 @@ function CartItem() {
     // return errors.includes(fieldName) ? 'is-invalid' : 'is-valid'
   }
 
-  // useEffect(() => {
-  //   handleSubmit()
-  // }, [inputs])
-
-
-  // const [fieldErrors, setFieldErrors] = useState({
-  //   scname: '', //收貨人姓名  ok
-  //   phone: '', //收貨人電話  ok
-  //   homeAddress: '', //收貨地址  ok
-  //   conType:'',
-  //   conCity: '', //超商(縣市)
-  //   conStore:'', //超商(店家)
-  //   // orderIdNum:'',
-  // })
-
-
-
-  // form有更動會觸發這個函式
-  // const handleChange = (e) => {
-  //     console.log('更動欄位：', e.target.name)
-
-  // const onChangeForField = (fieldName) => (e) => {
-  //   setInputs((state) => ({
-  //     ...state,
-  //     [fieldName]: e.target.value,
-  //   }))
-  // }
 
   /*
    data格式:{
@@ -244,6 +211,8 @@ function CartItem() {
     switch(step){
       case 1:
         return <CartItemStep1 
+        cartQty={cartQty}
+        updateCartQty={updateCartQty}
         amountSum={amountSum}
         orderItemsStr={orderItemsStr}
         nextStep={() => setStep(2)}
@@ -252,6 +221,7 @@ function CartItem() {
       break
       case 2:
         return <CartItemStep2 
+        cartQty={cartQty}
         prevStep={() => setStep(1)}
         nextStep={() => { return setStep(3)}} 
         setStep={setStep}
@@ -287,6 +257,7 @@ function CartItem() {
        break
       case 3:
         return <CartItemStep3 
+        cartQty={cartQty}
         prevStep={() => setStep(2)}
         nextStep={() => {handleSubmit() }}
         setStep={setStep}
@@ -321,6 +292,7 @@ function CartItem() {
        break
        case 4:
       return <CartItemStep4 
+        cartQty={cartQty}
         setStep={setStep}
         inputs={inputs}
         setInputs={setInputs}

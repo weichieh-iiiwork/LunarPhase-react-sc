@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
 
 function ScItem(props) {
+  const { updateCartQty } = props
   const [mycart, setMycart] = useState([])
   const [mycartDisplay, setMycartDisplay] = useState([])
 
@@ -40,6 +41,7 @@ function ScItem(props) {
 
   // 更新購物車中的商品數量
   const updateCartToLocalStorage = (item, isAdded = true) => {
+    updateCartQty()
     console.log(item, isAdded)
     const currentCart = JSON.parse(localStorage.getItem('cart')) || []
 
@@ -123,7 +125,7 @@ function ScItem(props) {
               <div className="sc-qtyFont p-2">{item.amount}</div>
               <div
                 className="sc-qtyFont p-2 scBtn scBtnAdd"
-                onClick={() => updateCartToLocalStorage(item, true)}
+                onClick={() =>{ updateCartToLocalStorage(item, true)} }
               >
                 +
               </div>

@@ -10,10 +10,11 @@ import ScEvLabel from './components/ScEvLabel'
 
 //網址 /cart/event
 function CartEvStep1(props) {
-  const { nextStep, setStep, orderItemsStr, amountSum } = props
+  const { nextStep, setStep, orderItemsStr, amountSum,cartQty } = props
   return (
     <>
-      <LunarPhaseHeader amountSum={amountSum} orderItemsStr={orderItemsStr} />
+      <LunarPhaseHeader 
+        cartQty={cartQty} />
       <Breadcrumb />
 
       <ScStepRow step={1} setStep={setStep} />

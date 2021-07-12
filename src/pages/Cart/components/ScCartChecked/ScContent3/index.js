@@ -25,14 +25,6 @@ function ScContent3(props) {
 
   }
 
-  // function resetInputs(e){
-
-  //   let resetInputs = {
-  //       ...inputs,
-  //       [e]: -1,
-  //   }
-  //   setInputs(resetInputs)
-  // }
 
   const SelCon = (
     <>
@@ -196,8 +188,6 @@ function ScContent3(props) {
             onChange={onChangeForField}
             placeholder="姓名"
             required
-            // aria-describedby="scnameHelp"
-            // autoFocus="true"
           />
           {/* <div className="valid-feedback">您的尊名有如天仙下凡，音容動人</div> */}
           <div className="invalid-feedback">要記得填姓名喔</div>
@@ -212,7 +202,6 @@ function ScContent3(props) {
             onChange={onChangeForField}
             placeholder="聯絡電話"
             required
-            // autoFocus="true"
           />
           {/* <div className="valid-feedback">您的尊名有如天仙下凡，音容動人</div> */}
           <div className="invalid-feedback">要記得填電話喔</div>

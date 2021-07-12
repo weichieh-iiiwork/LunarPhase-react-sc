@@ -8,7 +8,7 @@ import ScBtn from './components/ScBtn'
 
 function CartItemStep4(props) {
   const { 
-    setStep,
+    setStep, cartQty,
     inputs, setInputs,onChangeForField,
     handleSubmit,handleChange,handleInvalid,fieldErrors,
     isCon,
@@ -30,8 +30,7 @@ function CartItemStep4(props) {
   return (
     <>
       <LunarPhaseHeader 
-        amountSum={amountSum}
-        orderItemsStr={orderItemsStr}
+        cartQty={cartQty}
       />
       <Breadcrumb />
     {/* <form

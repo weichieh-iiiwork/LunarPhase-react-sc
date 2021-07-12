@@ -10,7 +10,7 @@ import ScLabel from './components/ScLabel'
 //網址 /cart/item
 function CartItemStep3(props) {
   const { 
-    prevStep, nextStep, setStep,
+    prevStep, nextStep, setStep, cartQty,
     inputs, setInputs,onChangeForField,
     handleSubmit,handleChange,handleInvalid,fieldErrors,
     isCon,
@@ -31,8 +31,7 @@ function CartItemStep3(props) {
   return (
     <>
       <LunarPhaseHeader 
-        amountSum={amountSum}
-        orderItemsStr={orderItemsStr}
+        cartQty={cartQty}
       />
       <Breadcrumb />
 

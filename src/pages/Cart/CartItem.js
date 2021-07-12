@@ -5,6 +5,7 @@ import CartItemStep3 from './CartItemStep3'
 import CartItemStep4 from './CartItemStep4'
 import { countries, townships, postcodes } from '../../data/townships'
 const _ = require('lodash');
+const Swal = require('sweetalert2')
 
 
 function CartItem(props) {
@@ -22,6 +23,15 @@ function CartItem(props) {
   // 從localStorage取出購物車資訊，往子女元件傳遞
   // const orderItems = localStorage.getItem('cart')
   // const orderItemsStr = JSON.parse(orderItems)
+
+  function HandleAlert() {
+    Swal.fire({
+      icon: 'success',
+      title: '成功加入購物車',
+      showConfirmButton: false,
+      timer: 1500
+    })
+  }
 
   const [inputs, setInputs] = useState({
     scname: '', //收貨人姓名  ok
@@ -100,6 +110,7 @@ function CartItem(props) {
     }
     if (newErrors.length === 0) {
       setStep(4);
+      HandleAlert();
       addOrderToSever();
     }
   }

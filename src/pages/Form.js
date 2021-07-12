@@ -2,8 +2,34 @@ import React, { useState } from 'react'
 import { BsBookmark } from 'react-icons/bs'
 import { FcBookmark } from 'react-icons/fc'
 const _ = require('lodash');
+const Swal = require('sweetalert2')
 
 function Form() {
+
+  function HandleClick() {
+    Swal.fire({
+      // position: 'top-end',
+      icon: 'success',
+      title: '成功加入購物車',
+      showConfirmButton: false,
+      timer: 1500
+    })
+  }
+
+// const myAlert = ()=>(
+//   Swal.fire({
+//     position: 'top-end',
+//     icon: 'success',
+//     title: 'Your work has been saved',
+//     showConfirmButton: false,
+//     timer: 1500
+//   })
+// )
+
+
+
+
+
   // 使用經緯度去連接googlemap
   const your_lng=121.796067
   const your_lat=25.13967
@@ -107,6 +133,10 @@ function Form() {
 
   return (
     <>
+
+    <button 
+    onClick={HandleClick}>嗨</button>
+
     {/* Z(比例尺) */}
     <iframe
     title="1"

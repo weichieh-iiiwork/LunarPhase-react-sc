@@ -2,395 +2,387 @@
   outline: 1px solid lightseagreen;
 } */
 ::selection {
-    background: #e64b4b;
-  }
-  body {
-    box-sizing: border-box;
-    background-color: #f7f7ee;
-    color: #383844;
-  }
-  .row {
-    text-align: center;
-    margin: 60px 140px;
-  }
-  
-  ul {
-    list-style-type: none;
-    font-family: "Montserrat", sans-serif;
-    font-size: 18px;
-  }
-  
-  a {
-    color: #383844;
-  }
-  a:hover {
-    color: #383844;
-    text-decoration: none;
-  }
-  Link {
-    color: #383844;
-  }
-  Link:hover {
-    color: #383844;
-    text-decoration: none;
-  }
-  
-  .underline {
-    border-bottom: 1px solid #383844;
-  }
-  
-  /* ----- nav bar  -----*/
-  .nav-bar {
-    width: 100%;
-    height: 120px;
-    background-color: #f7f7ee;
-    text-align: center;
-    box-shadow: 0px 10px 10px -12px #38384470;
-  
-    padding: 20px 140px;
-    margin: 0;
-  }
-  .nav-bar-fixed {
-    position: fixed;
-    top: 0;
-    z-index: 999;
-  }
-  .nav-logo img{
-    width: 150px;
-    height: 100%;
-  }
-  .nav-bar-bottom > ul > li > a {
-    position: relative;
-  }
-  .nav-bar-bottom > ul > li > a:hover {
-    font-weight: 500;
-    transition: 0.3s;
-  }
-  .nav-bar-bottom > ul > li > a:after {
-    /* background: none repeat scroll 0 0 transparent; */
-    bottom: 3;
-    content: "";
-    display: block;
-    height: 2px;
-    left: 50%;
-    position: absolute;
-    background: #383844;
-    transition: width 0.3s ease 0s, left 0.3s ease 0s;
-    width: 0;
-  }
-  
-  .nav-bar-bottom > ul > li > a:hover:after {
-    width: 100%;
-    left: 0;
-  }
-  .nav-member-act > div a:hover {
-    color: #38384470;
-    transition: 0.2s;
-  }
-  
-  .nav-shop {
-    display: none;
-    position: absolute;
-    top: 120px;
-    z-index: 98;
-    width: 100%;
-    height: 60px;
-    background-color: #f7f7eecc;
-  }
-  .nav-shop a {
-    font-size: 16px;
-  }
-  .nav-shop-box {
-    margin: 20px 140px;
-  }
-  .nav-shop-show {
-    display: block;
-  }
-  
-  /* ----- breadcrumb search-bar  -----*/
-  .top-line {
-    position: absolute;
-    top: 0;
-    width: 100%;
-    margin-top: 120px;
-    padding: 25px 20px;
-  }
-  .bread-bar {
-    padding: 10px;
-  }
-  .bread a,
-  p {
-    margin-right: 10px;
-  }
-  .search-box {
-    position: relative;
-  }
-  .search-box:hover {
-  }
-  .search-box:hover .search-input {
-  }
-  .search-box:hover .search-button {
-  }
-  .search-input {
-    width: 250px;
-    height: 38px;
-    position: absolute;
-    right: 0;
-    border-radius: 20px;
-    border: 1px solid #383844;
-    background-color: rgba(255, 255, 255, 0.4);
-    color: #383844;
-    font-size: 16px;
-    padding-left: 20px;
-  }
-  .search-button {
-    position: absolute;
-    right: 0;
-    width: 38px;
-    height: 38px;
-    border-radius: 50%;
-    border: 1px solid #383844;
-    background-color: #f7f7ee;
-    color: #383844;
-  }
-  .search-button:hover {
-    background-color: #383844;
-    color: #f7f7ee;
-    transition: 0.2s;
-  }
-  
-  /* ----- colors ----- */
-  .colors {
-    margin: 0;
-  }
-  .color-box {
-    width: 120px;
-    height: 80px;
-    border: 1px solid #383844;
-  }
-  .cb1 {
-    background-color: #f7f7ee;
-  }
-  .cb2 {
-    background-color: #fdd2bb;
-  }
-  .cb3 {
-    background-color: #383844;
-  }
-  .cb4 {
-    background-color: #ffffff;
-  }
-  .cb5 {
-    background-color: #e64b4b;
-  }
-  
-  /* ----- typography ----- */
-  h2 {
-    font-family: "DM Serif Display", serif;
-    font-size: 48px;
-  }
-  .h2-tc {
-    font-family: "Noto Serif TC", serif;
-    font-size: 48px;
-    font-weight: bold;
-  }
-  
-  h3 {
-    font-family: "Montserrat", sans-serif;
-    font-size: 24px;
-    font-weight: 300;
-  }
-  .h3-tc {
-    font-family: "Noto Sans TC", sans-serif;
-    font-size: 24px;
-  }
-  
-  h4 {
-    font-family: "DM Serif Display", serif;
-    font-size: 30px;
-  }
-  .h4-tc {
-    font-family: "Noto Serif TC", serif;
-    font-weight: bold;
-    font-size: 30px;
-  }
-  
-  h5 {
-    font-family: "DM Serif Display", serif;
-    font-size: 20px;
-  }
-  .h5-tc {
-    font-family: "Noto Serif TC", serif;
-    font-weight: bold;
-    font-size: 20px;
-  }
-  
-  h6 {
-    font-family: "Montserrat", sans-serif;
-    font-weight: bold;
-    font-size: 16px;
-  }
-  .h6-tc {
-    font-family: "Noto Sans TC", sans-serif;
-    font-weight: bold;
-    font-size: 16px;
-  }
-  
-  p {
-    font-family: "Noto Sans TC", sans-serif;
-    font-size: 16px;
-  }
-  
-  /* ----- button ----- */
-  .bg-green {
-    width: 100%;
-    height: 100px;
-    background-color: #f7f7ee;
-  }
-  .bg-pink {
-    width: 100%;
-    height: 100px;
-    background-color: #fdd2bb;
-  }
-  
-  .btn-soft-green {
-    width: 200px;
-    height: 42px;
-    border-radius: 2rem;
-    border: none;
-    background: #f7f7ee;
-    box-shadow: 6px 6px 16px #e3e3db, -6px -6px 16px #ffffff;
-    font-family: "Montserrat", sans-serif;
-    font-weight: normal;
-    font-size: 18px;
-    text-align: center;
-    transition: 1s;
-  }
-  .btn-soft-green:hover {
-    box-shadow: inset 6px 6px 16px #e3e3db, inset -6px -6px 16px #ffffff;
-  }
-  
-  .btn-soft-pink {
-    width: 200px;
-    height: 42px;
-    border-radius: 2rem;
-    border: none;
-    background: #fdd2bb;
-    /* box-shadow: none; */
-    box-shadow: 6px 6px 16px #e9c1ac, -6px -6px 16px #f7f7eecc;
-    font-family: "Montserrat", sans-serif;
-    font-weight: normal;
-    font-size: 18px;
-    text-align: center;
-    transition: all 0.3s ease;
-  }
-  .btn-soft-pink:hover {
-    /* box-shadow: none; */
-    box-shadow: inset 6px 6px 16px #e9c1ac, inset -6px -6px 16px #f7f7ee91;
-    /* transition: all 0.3s ease; */
-  }
-  .btn-border {
-    width: 200px;
-    height: 42px;
-    border-radius: 2rem;
-    background-color: #f7f7ee;
-    border: 1px solid #383844;
-    font-family: "Montserrat", sans-serif;
-    font-weight: normal;
-    font-size: 18px;
-    text-align: center;
-  }
-  .btn-border:hover {
-    transition: 0.3s;
-    background-color: #383844;
-    color: #f7f7ee;
-  }
-  
-  .btn-more {
-    width: 120px;
-    height: 40px;
-    background: none;
-    font-family: "Montserrat", sans-serif;
-    font-weight: normal;
-    font-size: 20px;
-    text-align: left;
-    padding: 10px 0;
-    border: none;
-    border-bottom: 1px solid #383844;
-    opacity: 1;
-  }
-  .btn-more:hover {
-    transition: 0.2s;
-    opacity: 0.6;
-  }
-  .btn-read {
-    width: 70px;
-    height: 25px;
-    font-family: "Montserrat", sans-serif;
-    font-weight: normal;
-    font-size: 16px;
-    padding: 2px 5px;
-    background: none;
-    border: 1px solid #383844;
-  }
-  .btn-read:hover {
-    transition: 0.2s;
-    background-color: #383844;
-    color: #f7f7ee;
-  }
-  .btn-tag {
-    font-family: "Noto Sans TC", sans-serif;
-    font-weight: 500;
-    font-size: 16px;
-    text-decoration: underline;
-    background: none;
-    border: none;
-    opacity: 1;
-  }
-  .btn-tag:hover {
-    transition: 0.2s;
-    opacity: 0.6;
-  }
-  /* ----- component ----- */
-  
-  /* ----- gradient ----- */
-  .gradient-basic {
-    width: 100%;
-    height: 200px;
-    background: linear-gradient(#f7f7ee, #fdd2bb);
-  }
-  .gradient-move {
-    width: 100%;
-    height: 200px;
-    background: linear-gradient(180deg, #f7f7ee, #fdd2bb);
-    background-size: 400% 400%;
-    animation: gradient-animation 10s ease infinite;
-  }
-  @keyframes gradient-animation {
-    0% {
-      background-position: 50% 0%;
-    }
-    50% {
-      background-position: 51% 100%;
-    }
-    100% {
-      background-position: 50% 0%;
-    }
-  }
-  /* .gradient-point {
-  } */
-  
-  /* ----- card ----- */
-  .card1 {
-    width: 100%;
-    height: 100px;
-    background: #ffffff;
-  }
-  .card2 {
-    width: 100%;
-    height: 100px;
-    background: #ffffff;
-    border-radius: 20px;
-  }
-  /* ----- form ----- */
-  
+  background: #e64b4b;
+}
+body {
+  box-sizing: border-box;
+  background-color: #f7f7ee;
+  color: #383844;
+}
+.row {
+  text-align: center;
+  margin: 60px 140px;
+}
+
+ul {
+  list-style-type: none;
+  font-family: "Montserrat", sans-serif;
+  font-size: 18px;
+}
+
+a {
+  color: #383844;
+}
+a:hover {
+  color: #383844;
+  text-decoration: none;
+}
+
+.underline {
+  border-bottom: 1px solid #383844;
+}
+
+/* ----- nav bar  -----*/
+.nav-bar {
+  width: 100%;
+  height: 120px;
+  background-color: #f7f7ee;
+  text-align: center;
+  box-shadow: 0px 10px 10px -12px #38384470;
+
+  padding: 20px 140px;
+  margin: 0;
+}
+.nav-bar-fixed {
+  position: fixed;
+  top: 0;
+  z-index: 999;
+}
+.nav-logo {
+  width: 150px;
+  height: 100%;
+}
+.nav-bar-bottom > ul > li > a {
+  position: relative;
+}
+.nav-bar-bottom > ul > li > a:hover {
+  font-weight: 500;
+  transition: 0.3s;
+}
+.nav-bar-bottom > ul > li > a:after {
+  /* background: none repeat scroll 0 0 transparent; */
+  bottom: 3;
+  content: "";
+  display: block;
+  height: 2px;
+  left: 50%;
+  position: absolute;
+  background: #383844;
+  transition: width 0.3s ease 0s, left 0.3s ease 0s;
+  width: 0;
+}
+
+.nav-bar-bottom > ul > li > a:hover:after {
+  width: 100%;
+  left: 0;
+}
+.nav-member-act > div a:hover {
+  color: #38384470;
+  transition: 0.2s;
+}
+
+.nav-shop {
+  display: none;
+  position: absolute;
+  top: 120px;
+  z-index: 98;
+  width: 100%;
+  height: 60px;
+  background-color: #f7f7eecc;
+}
+.nav-shop a {
+  font-size: 16px;
+}
+.nav-shop-box {
+  margin: 20px 140px;
+}
+.nav-shop-show {
+  display: block;
+}
+
+/* ----- breadcrumb search-bar  -----*/
+.top-line {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  margin-top: 120px;
+  padding: 25px 20px;
+}
+.bread-bar {
+  padding: 10px;
+}
+.bread a,
+p {
+  margin-right: 10px;
+}
+.search-box {
+  position: relative;
+}
+.search-box:hover {
+}
+.search-box:hover .search-input {
+}
+.search-box:hover .search-button {
+}
+.search-input {
+  width: 250px;
+  height: 38px;
+  position: absolute;
+  right: 0;
+  border-radius: 20px;
+  border: 1px solid #383844;
+  background-color: rgba(255, 255, 255, 0.4);
+  color: #383844;
+  font-size: 16px;
+  padding-left: 20px;
+}
+.search-button {
+  position: absolute;
+  right: 0;
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  border: 1px solid #383844;
+  background-color: #f7f7ee;
+  color: #383844;
+}
+.search-button:hover {
+  background-color: #383844;
+  color: #f7f7ee;
+  transition: 0.2s;
+}
+
+/* ----- colors ----- */
+.colors {
+  margin: 0;
+}
+.color-box {
+  width: 120px;
+  height: 80px;
+  border: 1px solid #383844;
+}
+.cb1 {
+  background-color: #f7f7ee;
+}
+.cb2 {
+  background-color: #fdd2bb;
+}
+.cb3 {
+  background-color: #383844;
+}
+.cb4 {
+  background-color: #ffffff;
+}
+.cb5 {
+  background-color: #e64b4b;
+}
+
+/* ----- typography ----- */
+h2 {
+  font-family: "DM Serif Display", serif;
+  font-size: 48px;
+}
+.h2-tc {
+  font-family: "Noto Serif TC", serif;
+  font-size: 48px;
+  font-weight: bold;
+}
+
+h3 {
+  font-family: "Montserrat", sans-serif;
+  font-size: 24px;
+  font-weight: 300;
+}
+.h3-tc {
+  font-family: "Noto Sans TC", sans-serif;
+  font-size: 24px;
+}
+
+h4 {
+  font-family: "DM Serif Display", serif;
+  font-size: 30px;
+}
+.h4-tc {
+  font-family: "Noto Serif TC", serif;
+  font-weight: bold;
+  font-size: 30px;
+}
+
+h5 {
+  font-family: "DM Serif Display", serif;
+  font-size: 20px;
+}
+.h5-tc {
+  font-family: "Noto Serif TC", serif;
+  font-weight: bold;
+  font-size: 20px;
+}
+
+h6 {
+  font-family: "Montserrat", sans-serif;
+  font-weight: bold;
+  font-size: 16px;
+}
+.h6-tc {
+  font-family: "Noto Sans TC", sans-serif;
+  font-weight: bold;
+  font-size: 16px;
+}
+
+p {
+  font-family: "Noto Sans TC", sans-serif;
+  font-size: 16px;
+}
+
+/* ----- button ----- */
+.bg-green {
+  width: 100%;
+  height: 100px;
+  background-color: #f7f7ee;
+}
+.bg-pink {
+  width: 100%;
+  height: 100px;
+  background-color: #fdd2bb;
+}
+
+.btn-soft-green {
+  width: 200px;
+  height: 42px;
+  border-radius: 2rem;
+  border: none;
+  background: #f7f7ee;
+  box-shadow: 6px 6px 16px #e3e3db, -6px -6px 16px #ffffff;
+  font-family: "Montserrat", sans-serif;
+  font-weight: normal;
+  font-size: 18px;
+  text-align: center;
+  transition: 1s;
+}
+.btn-soft-green:hover {
+  box-shadow: inset 6px 6px 16px #e3e3db, inset -6px -6px 16px #ffffff;
+}
+
+.btn-soft-pink {
+  width: 200px;
+  height: 42px;
+  border-radius: 2rem;
+  border: none;
+  background: #fdd2bb;
+  /* box-shadow: none; */
+  box-shadow: 6px 6px 16px #e9c1ac, -6px -6px 16px #f7f7eecc;
+  font-family: "Montserrat", sans-serif;
+  font-weight: normal;
+  font-size: 18px;
+  text-align: center;
+  transition: all 0.3s ease;
+}
+.btn-soft-pink:hover {
+  /* box-shadow: none; */
+  box-shadow: inset 6px 6px 16px #e9c1ac, inset -6px -6px 16px #f7f7ee91;
+  /* transition: all 0.3s ease; */
+}
+.btn-border {
+  width: 200px;
+  height: 42px;
+  border-radius: 2rem;
+  background-color: #f7f7ee;
+  border: 1px solid #383844;
+  font-family: "Montserrat", sans-serif;
+  font-weight: normal;
+  font-size: 18px;
+  text-align: center;
+}
+.btn-border:hover {
+  transition: 0.3s;
+  background-color: #383844;
+  color: #f7f7ee;
+}
+
+.btn-more {
+  width: 120px;
+  height: 40px;
+  background: none;
+  font-family: "Montserrat", sans-serif;
+  font-weight: normal;
+  font-size: 20px;
+  text-align: left;
+  padding: 10px 0;
+  border: none;
+  border-bottom: 1px solid #383844;
+  opacity: 1;
+}
+.btn-more:hover {
+  transition: 0.2s;
+  opacity: 0.6;
+}
+.btn-read {
+  width: 70px;
+  height: 25px;
+  font-family: "Montserrat", sans-serif;
+  font-weight: normal;
+  font-size: 16px;
+  padding: 2px 5px;
+  background: none;
+  border: 1px solid #383844;
+}
+.btn-read:hover {
+  transition: 0.2s;
+  background-color: #383844;
+  color: #f7f7ee;
+}
+.btn-tag {
+  font-family: "Noto Sans TC", sans-serif;
+  font-weight: 500;
+  font-size: 16px;
+  text-decoration: underline;
+  background: none;
+  border: none;
+  opacity: 1;
+}
+.btn-tag:hover {
+  transition: 0.2s;
+  opacity: 0.6;
+}
+/* ----- component ----- */
+
+/* ----- gradient ----- */
+.gradient-basic {
+  width: 100%;
+  height: 200px;
+  background: linear-gradient(#f7f7ee, #fdd2bb);
+}
+.gradient-move {
+  width: 100%;
+  height: 200px;
+  background: linear-gradient(180deg, #f7f7ee, #fdd2bb);
+  background-size: 400% 400%;
+  animation: gradient-animation 10s ease infinite;
+}
+@keyframes gradient-animation {
+  0% {
+    background-position: 50% 0%;
+  }
+  50% {
+    background-position: 51% 100%;
+  }
+  100% {
+    background-position: 50% 0%;
+  }
+}
+/* .gradient-point {
+} */
+
+/* ----- card ----- */
+.card1 {
+  width: 100%;
+  height: 100px;
+  background: #ffffff;
+}
+.card2 {
+  width: 100%;
+  height: 100px;
+  background: #ffffff;
+  border-radius: 20px;
+}
+/* ----- form ----- */

@@ -11,12 +11,12 @@ import ScAd from './components/ScAD'
 
 //網址 /cart/item
 function CartItemStep1(props) {
-  const { nextStep, setStep, cartQty, updateCartQty} = props
+  const { nextStep, setStep, cartQty, setCartQty} = props
   return (
     <>
-      <LunarPhaseHeader 
+      {/* <LunarPhaseHeader 
         cartQty={cartQty}
-      />
+      /> */}
       <Breadcrumb />
 
       <ScStepRow step={1} 
@@ -25,7 +25,8 @@ function CartItemStep1(props) {
       {/*-------------- 第一頁 --------------*/}
       <ScLabel />
       <ScCart 
-        updateCartQty={updateCartQty}
+        cartQty={cartQty}
+        setCartQty={setCartQty}
       />
       
       <ScBtn

@@ -1,13 +1,32 @@
 import React, { useState, useEffect } from 'react'
 
 function ScItem(props) {
-  const { updateCartQty } = props
+  const { cartQty, setCartQty} = props
   const [mycart, setMycart] = useState([])
   const [mycartDisplay, setMycartDisplay] = useState([])
+
+  function updateQty (){
+    const orderItems = localStorage.getItem('cart') || 0
+    const orderItemsArr = JSON.parse(orderItems)
+    const orderEvents = localStorage.getItem('evcart') || 0
+    const orderEventsArr = JSON.parse(orderEvents)
+    const orderKits = localStorage.getItem('kitcart') || 0
+    const orderKitsArr = JSON.parse(orderKits)
+
+    const newItemsQty = {...cartQty,
+      itemsQty: amountSum(orderItemsArr),
+      eventsQty: amountSum(orderEventsArr),
+      kitsQty: amountSum(orderKitsArr),
+      totalQty: amountSum(orderItemsArr)+amountSum(orderEventsArr)+amountSum(orderKitsArr),
+    }
+    setCartQty(newItemsQty)
+  }
 
   function getCartFromLocalStorage() {
     const newCart = localStorage.getItem('cart') || '[]'
 
+    updateQty()
+    
     console.log(JSON.parse(newCart))
     setMycart(JSON.parse(newCart))
   }
@@ -41,7 +60,6 @@ function ScItem(props) {
 
   // 更新購物車中的商品數量
   const updateCartToLocalStorage = (item, isAdded = true) => {
-    updateCartQty()
     console.log(item, isAdded)
     const currentCart = JSON.parse(localStorage.getItem('cart')) || []
 
@@ -58,6 +76,7 @@ function ScItem(props) {
 
     // 設定資料
     setMycart(currentCart)
+    updateQty()
   }
 
   // 參考ProductList.js中updateCartToLocalStorage概念
@@ -75,6 +94,8 @@ function ScItem(props) {
       currentCart.splice(index, 1)
       localStorage.setItem('cart', JSON.stringify(currentCart))
       setMycart(currentCart)
+
+      updateQty()
     }
   }
 

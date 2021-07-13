@@ -15,12 +15,14 @@ import CartEv from './pages/Cart/CartEv'
 import OrderList from './pages/OrderList'
 import ScrollToTop from './components/ScrollToTop'
 import Login from './pages/Login'
+import LunarPhaseHeader from './components/LunarPhaseHeader'
 
 
 
 function App() {
 
 
+  // const [qty, setQty] = useState(0)
   const [cartQty, setCartQty] = useState(
   {
     itemsQty: 0,
@@ -46,23 +48,15 @@ function App() {
     return totalAmount
   }
 
-  function updateCartQty () {
-    const newItemsQty = {...cartQty,
-      itemsQty: amountSum(orderItemsStr),
-      eventsQty: amountSum(orderEventsStr),
-      kitsQty: amountSum(orderKitsStr),
-      totalQty: amountSum(orderItemsStr)+amountSum(orderEventsStr)+amountSum(orderKitsStr),
-    }
-    setCartQty(newItemsQty)
-  }
-  useEffect(()=>{
-    updateCartQty()
-  },[cartQty.totalQty, cartQty.itemsQty, cartQty.eventsQty,cartQty.kitsQty])
-
 
   return (
     <Router>
       <>
+      <LunarPhaseHeader 
+        cartQty={cartQty}
+        setCartQty={setCartQty}
+        // qty={qty}
+      />
       <ScrollToTop>
         <Switch>
           <Route path="/cart/event">
@@ -74,7 +68,7 @@ function App() {
           <Route path="/cart/item">
             <CartItem 
               cartQty={cartQty}
-              updateCartQty={updateCartQty}
+              setCartQty={setCartQty}
               orderItemsStr={orderItemsStr}
             />
           </Route>

@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { Link } from 'react-router-dom'
 // react-icon
 import { FaShoppingCart } from 'react-icons/fa'
@@ -6,7 +6,7 @@ import { FaUser } from 'react-icons/fa'
 import { FaBookmark } from 'react-icons/fa'
 
 function LunarPhaseHeader(props) {
-  const { cartQty } = props
+  const {cartQty, setCartQty, qty} = props
   return(
     <>
       <nav className="nav-bar nav-bar-fixed container-fluid">

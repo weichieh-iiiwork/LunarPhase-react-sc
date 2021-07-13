@@ -389,7 +389,22 @@ body {
         display: none;
     }
 } */
-
+.oneClickBtn{
+    width: 200px;
+    height: 42px;
+    border-radius: 20px;
+    background-color: #fff;
+    border: 1px solid #383844;
+    font-family: "Montserrat", sans-serif;
+    font-weight: normal;
+    font-size: 18px;
+    text-align: center;
+}
+.oneClickBtn:hover {
+    transition: 0.3s;
+    background-color: #383844;
+    color: #f7f7ee;
+  }
 .delOne {
     /* X按鈕 */
     top: 0;

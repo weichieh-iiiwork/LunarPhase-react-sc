@@ -14,6 +14,7 @@ import EvList from './pages/Product/EvList'
 import CartEv from './pages/Cart/CartEv'
 import OrderList from './pages/OrderList'
 import ScrollToTop from './components/ScrollToTop'
+import Login from './pages/Login'
 
 
 
@@ -82,7 +83,9 @@ function App() {
           </Route>
           
       
-          
+          <Route path="/login">
+            <Login/>
+          </Route>
           {/* 測試購物車存資料到localStorage；測試撈訂單 */}
           <Route path="/orderlist">
             <OrderList/>

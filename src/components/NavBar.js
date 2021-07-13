@@ -6,7 +6,8 @@ import { FaShoppingCart } from 'react-icons/fa'
 import { FaUser } from 'react-icons/fa'
 import { FaBookmark } from 'react-icons/fa'
 
-function Navbar() {
+function Navbar(props) {
+  const {auth, user} = props
   return (
     <>
       <nav id="navbar" className="nav-bar sticky">
@@ -25,7 +26,7 @@ function Navbar() {
           </div>
           <div className="nav-member-act col-4 d-flex justify-content-end ">
             <div className="mt-2">
-              <p className="small">來賓 您好</p>
+              <p className="small">{auth ? user : '貴賓'}您好</p>
             </div>
             <div className="ml-2 mt-2">
               <Link to="/login" className="mx-0">

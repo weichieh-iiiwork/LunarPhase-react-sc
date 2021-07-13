@@ -210,7 +210,7 @@ function ScContent3(props) {
         
         {/* 透過判斷isCon來顯示地址 */}
         { !isCon && <HomeDataAddress/> }
-        <button className="fitContent"
+        <button className="oneClickBtn"
         onClick={()=>{
           const updatedInputs = {
             ...inputs,

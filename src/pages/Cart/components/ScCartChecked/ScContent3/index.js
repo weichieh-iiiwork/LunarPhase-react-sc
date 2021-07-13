@@ -9,7 +9,7 @@ import Credit from './Credit'
 function ScContent3(props) {
   const {
     inputs, setInputs, onChangeForField,
-    handleSubmit,handleChange,handleInvalid,fieldErrors,handelErrors,
+    handleInvalid,
     isCon,
     paymentWay, setPaymentWay,
     selectedConAddress, setSeletedConAddress,
@@ -177,6 +177,7 @@ function ScContent3(props) {
       </div>
       
       <div className="ml-5 d-flex flex-column">
+        
         <div className="form-group">
           <label className="sc-inputLabel" htmlFor="inputScname">姓名：</label>
           <input
@@ -209,6 +210,18 @@ function ScContent3(props) {
         
         {/* 透過判斷isCon來顯示地址 */}
         { !isCon && <HomeDataAddress/> }
+        <button className="fitContent"
+        onClick={()=>{
+          const updatedInputs = {
+            ...inputs,
+            scname: 'wei',
+            phone: '0988888888',
+            homeAddress: '中正路194巷5號',
+          }
+          setInputs(updatedInputs)
+          setCountry(5)
+          setTownship(6)
+        }}>填入會員資料</button>
       </div>
     </>
   )

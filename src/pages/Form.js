@@ -1,10 +1,13 @@
-import React, { useState } from 'react'
+import React, { useState, useRef } from 'react'
 import { BsBookmark } from 'react-icons/bs'
 import { FcBookmark } from 'react-icons/fc'
 const _ = require('lodash');
 const Swal = require('sweetalert2')
 
 function Form() {
+
+  const [myInput, setMyInput] = useState('')
+  const inputEl = useRef()
 
   function HandleClick() {
     Swal.fire({
@@ -133,10 +136,24 @@ function Form() {
 
   return (
     <>
+    <div className="col-8 mx-auto">
+    <h5>Input內容:{myInput}</h5>
+      <input type="text"
+        value={myInput}
+        // ref={inputEl}
+        onChange={(e)=>setMyInput(e.target.value)}
+      />
+      <button
+      onClick={()=>{
+        setMyInput('123')
+      }}> 一鍵輸入 </button>
 
+    <hr/>
+    {/* 測試sweetalert2 */}
     <button 
-    onClick={HandleClick}>嗨</button>
+    onClick={HandleClick}>嗨,測試sweetalert2</button>
 
+    <hr/>
     {/* Z(比例尺) */}
     <iframe
     title="1"
@@ -231,6 +248,7 @@ function Form() {
         </div>
         <button type="submit">提交</button>
       </form>
+      </div>
     </>
   )
 }

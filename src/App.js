@@ -13,6 +13,7 @@ import Form from './pages/Form'
 import EvList from './pages/Product/EvList'
 import CartEv from './pages/Cart/CartEv'
 import OrderList from './pages/OrderList'
+import ScrollToTop from './components/ScrollToTop'
 
 
 
@@ -61,6 +62,7 @@ function App() {
   return (
     <Router>
       <>
+      <ScrollToTop>
         <Switch>
           <Route path="/cart/event">
             <CartEv 
@@ -98,6 +100,7 @@ function App() {
             <Home />
           </Route>
         </Switch>
+      </ScrollToTop>
       </>
     </Router>
   )

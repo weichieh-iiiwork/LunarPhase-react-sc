@@ -64,8 +64,6 @@ $bg-hover: #fdd2bb69;
 
 body {
     background-color: $myLight;
-    /* 之後要刪 */
-    padding-top: 100px;
 }
 
 .bgMountainRow {
@@ -140,7 +138,7 @@ body {
     font-weight: normal;
     color: $myDark; 
 }
-.sc-describeFont span{
+.sc-describeFont scspan{
     font-family: 'Montserrat', sans-serif; 
 }
 .sc-describePriceFont {
@@ -196,7 +194,7 @@ body {
     color: $myDark;
     letter-spacing: 3px;
 }
-.totalQtyFont span {
+.totalQtyFont scspan {
     color: $myRed;
     font-weight: medium;
 }
@@ -218,7 +216,7 @@ body {
     color: $myDark;
     letter-spacing: 3px;
 }
-.totalPriceFont-med span {
+.totalPriceFont-med scspan {
     color: $myRed;
 }
 .stepFont {
@@ -411,6 +409,7 @@ body {
     /* X按鈕 */
     top: 0;
     right: 0;
+    padding: 8px 12px;
 }
 .scBtn:hover {
     /* 所有按鈕的效果 */

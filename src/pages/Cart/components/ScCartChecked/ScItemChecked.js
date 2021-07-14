@@ -28,7 +28,7 @@ function ScItemChecked(props) {
       <div className="dropdownBtnPanel d-flex justify-content-end align-items-center mt-2 ml-auto"
       onClick={()=>{toggleIsHidden()}}>
         <div className="sc-describeFont mx-3">
-          訂單金額(<span>{amountSum(orderItemsStr)}</span> 件商品)
+          訂單金額(<scspan>{amountSum(orderItemsStr)}</scspan> 件商品)
         </div>
         <div className="sc-describePriceFont mx-4">NT{sum(orderItemsStr)}</div>
         <img

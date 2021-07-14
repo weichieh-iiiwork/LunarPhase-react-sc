@@ -1,56 +1,87 @@
-/* * {
-  outline: 1px solid lightseagreen;
-} */
+// * {
+//   outline: 1px solid lightseagreen;
+// }
 ::selection {
   background: #e64b4b;
 }
 body {
   box-sizing: border-box;
-  background-color: #f7f7ee;
+  background: #f7f7ee;
   color: #383844;
-}
-.row {
-  text-align: center;
-  margin: 60px 140px;
 }
 
 ul {
   list-style-type: none;
-  font-family: "Montserrat", sans-serif;
-  font-size: 18px;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 16px;
 }
 
 a {
   color: #383844;
+  font-family: 'Montserrat', sans-serif;
 }
 a:hover {
   color: #383844;
   text-decoration: none;
+  transition: 0.3s;
 }
 
 .underline {
   border-bottom: 1px solid #383844;
 }
 
-/* ----- nav bar  -----*/
+/* ----- page set ----- */
+.row {
+  text-align: center;
+  margin: 60px 140px;
+}
+@media (max-width: 576px) {
+  .row {
+    margin: 60px 20px;
+  }
+}
+
+/* ----- only for this page ----- */
+.style-container {
+  margin: 0;
+}
+.style-row {
+  margin: 0 140px;
+  padding: 0;
+}
+
+/* ----- nav bar -----*/
 .nav-bar {
   width: 100%;
   height: 120px;
   background-color: #f7f7ee;
   text-align: center;
-  box-shadow: 0px 10px 10px -12px #38384470;
-
-  padding: 20px 140px;
+  box-shadow: 0px 3px 8px -5px #38384455;
+  padding: 10px 140px;
   margin: 0;
+  z-index: 999;
 }
-.nav-bar-fixed {
-  position: fixed;
+@media (max-width: 768px) {
+  .nav-bar {
+    padding: 20px 20px;
+  }
+}
+.sticky {
+  position: sticky;
   top: 0;
+  left: 0;
   z-index: 999;
 }
 .nav-logo {
-  width: 150px;
-  height: 100%;
+  height: 36px;
+  // margin-top: -5px;
+}
+.nav-logo:hover {
+  opacity: 0.6;
+  transition: 0.3s;
+}
+.nav-member-act {
+  margin-top: 5px;
 }
 .nav-bar-bottom > ul > li > a {
   position: relative;
@@ -62,7 +93,7 @@ a:hover {
 .nav-bar-bottom > ul > li > a:after {
   /* background: none repeat scroll 0 0 transparent; */
   bottom: 3;
-  content: "";
+  content: '';
   display: block;
   height: 2px;
   left: 50%;
@@ -81,24 +112,24 @@ a:hover {
   transition: 0.2s;
 }
 
-.nav-shop {
-  display: none;
-  position: absolute;
-  top: 120px;
-  z-index: 98;
-  width: 100%;
-  height: 60px;
-  background-color: #f7f7eecc;
-}
-.nav-shop a {
-  font-size: 16px;
-}
-.nav-shop-box {
-  margin: 20px 140px;
-}
-.nav-shop-show {
-  display: block;
-}
+/* .nav-product {
+    display: none;
+    position: absolute;
+    top: 120px;
+    z-index: 98;
+    width: 100%;
+    height: 60px;
+    background-color: #f7f7eecc;
+  }
+  .nav-product a {
+    font-size: 16px;
+  }
+  .nav-product-box {
+    margin: 20px 140px;
+  }
+  .nav-product-show {
+    display: block;
+  } */
 
 /* ----- breadcrumb search-bar  -----*/
 .top-line {
@@ -113,7 +144,11 @@ a:hover {
 }
 .bread a,
 p {
+  font-size: 16px;
   margin-right: 10px;
+}
+.bread a:hover {
+  color: #e64b4b;
 }
 .search-box {
   position: relative;
@@ -152,9 +187,25 @@ p {
   transition: 0.2s;
 }
 
+/* ----- title ----- */
+.style-container {
+  margin-top: 0px;
+}
+
+/* ----- logo ----- */
+.logo-header {
+  height: 160px;
+}
+.logo-nav {
+  height: 36px;
+}
+.logo-footer {
+  height: 130px;
+}
 /* ----- colors ----- */
 .colors {
   margin: 0;
+  padding: 0 60px;
 }
 .color-box {
   width: 120px;
@@ -179,81 +230,96 @@ p {
 
 /* ----- typography ----- */
 h2 {
-  font-family: "DM Serif Display", serif;
+  font-family: 'DM Serif Display', serif;
   font-size: 48px;
 }
 .h2-tc {
-  font-family: "Noto Serif TC", serif;
+  font-family: 'Noto Serif TC', serif;
   font-size: 48px;
   font-weight: bold;
 }
 
 h3 {
-  font-family: "Montserrat", sans-serif;
+  font-family: 'Montserrat', sans-serif;
   font-size: 24px;
   font-weight: 300;
 }
 .h3-tc {
-  font-family: "Noto Sans TC", sans-serif;
+  font-family: 'Noto Sans TC', sans-serif;
   font-size: 24px;
 }
 
 h4 {
-  font-family: "DM Serif Display", serif;
+  font-family: 'DM Serif Display', serif;
   font-size: 30px;
 }
 .h4-tc {
-  font-family: "Noto Serif TC", serif;
+  font-family: 'Noto Serif TC', serif;
   font-weight: bold;
   font-size: 30px;
 }
 
 h5 {
-  font-family: "DM Serif Display", serif;
+  font-family: 'DM Serif Display', serif;
   font-size: 20px;
 }
 .h5-tc {
-  font-family: "Noto Serif TC", serif;
+  font-family: 'Noto Serif TC', serif;
   font-weight: bold;
   font-size: 20px;
 }
 
 h6 {
-  font-family: "Montserrat", sans-serif;
+  font-family: 'Montserrat', sans-serif;
   font-weight: bold;
   font-size: 16px;
 }
 .h6-tc {
-  font-family: "Noto Sans TC", sans-serif;
-  font-weight: bold;
+  font-family: 'Noto Sans TC', sans-serif;
+  font-weight: 500;
   font-size: 16px;
 }
 
 p {
-  font-family: "Noto Sans TC", sans-serif;
+  font-family: 'Montserrat', sans-serif;
   font-size: 16px;
+}
+.p-tc {
+  font-family: 'Noto Sans TC', sans-serif;
+  font-size: 16px;
+}
+
+span {
+  font-family: 'DM Serif Display', serif;
+  font-size: 22px;
+  font-weight: bold;
+  font-style: italic;
+}
+.span-tc {
+  font-family: 'Noto Serif TC', serif;
+  font-weight: bold;
+  font-size: 22px;
 }
 
 /* ----- button ----- */
 .bg-green {
   width: 100%;
-  height: 100px;
   background-color: #f7f7ee;
 }
 .bg-pink {
   width: 100%;
-  height: 100px;
   background-color: #fdd2bb;
 }
 
 .btn-soft-green {
   width: 200px;
   height: 42px;
+  line-height: 42px;
   border-radius: 2rem;
   border: none;
   background: #f7f7ee;
   box-shadow: 6px 6px 16px #e3e3db, -6px -6px 16px #ffffff;
-  font-family: "Montserrat", sans-serif;
+  font-family: 'Montserrat', sans-serif;
   font-weight: normal;
   font-size: 18px;
   text-align: center;
@@ -262,33 +328,68 @@ p {
 .btn-soft-green:hover {
   box-shadow: inset 6px 6px 16px #e3e3db, inset -6px -6px 16px #ffffff;
 }
+.btn-soft-green-s {
+  width: 160px;
+  height: 36px;
+  line-height: 36px;
+  border-radius: 2rem;
+  border: none;
+  background: #f7f7ee;
+  box-shadow: 6px 6px 16px #e3e3db, -6px -6px 16px #ffffff;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: normal;
+  font-size: 16px;
+  text-align: center;
+  transition: 1s;
+}
+.btn-soft-green-s:hover {
+  box-shadow: inset 6px 6px 16px #e3e3db, inset -6px -6px 16px #ffffff;
+}
 
 .btn-soft-pink {
   width: 200px;
   height: 42px;
+  line-height: 42px;
   border-radius: 2rem;
   border: none;
   background: #fdd2bb;
-  /* box-shadow: none; */
   box-shadow: 6px 6px 16px #e9c1ac, -6px -6px 16px #f7f7eecc;
-  font-family: "Montserrat", sans-serif;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: normal;
+  font-size: 16px;
+  text-align: center;
+  transition: all 0.3s ease;
+}
+.btn-soft-pink:hover {
+  box-shadow: inset 6px 6px 16px #e9c1ac, inset -6px -6px 16px #f7f7ee91;
+  /* transition: all 0.3s ease; */
+}
+.btn-soft-pink-s {
+  width: 160px;
+  height: 36px;
+  line-height: 36px;
+  border-radius: 2rem;
+  border: none;
+  background: #fdd2bb;
+  box-shadow: 6px 6px 16px #e9c1ac, -6px -6px 16px #f7f7eecc;
+  font-family: 'Montserrat', sans-serif;
   font-weight: normal;
   font-size: 18px;
   text-align: center;
   transition: all 0.3s ease;
 }
-.btn-soft-pink:hover {
-  /* box-shadow: none; */
+.btn-soft-pink-s:hover {
   box-shadow: inset 6px 6px 16px #e9c1ac, inset -6px -6px 16px #f7f7ee91;
   /* transition: all 0.3s ease; */
 }
 .btn-border {
   width: 200px;
   height: 42px;
+  line-height: 42px;
   border-radius: 2rem;
-  background-color: #f7f7ee;
+  background: none;
   border: 1px solid #383844;
-  font-family: "Montserrat", sans-serif;
+  font-family: 'Montserrat', 'Noto Sans TC', sans-serif;
   font-weight: normal;
   font-size: 18px;
   text-align: center;
@@ -298,12 +399,54 @@ p {
   background-color: #383844;
   color: #f7f7ee;
 }
-
+.btn-border:hover a {
+  color: #f7f7ee;
+}
+.btn-border-l {
+  width: 100%;
+  height: 42px;
+  line-height: 42px;
+  border-radius: 2rem;
+  background: none;
+  border: 1px solid #383844;
+  font-family: 'Montserrat', 'Noto Sans TC', sans-serif;
+  font-weight: normal;
+  font-size: 18px;
+  text-align: center;
+}
+.btn-border-l:hover {
+  transition: 0.3s;
+  background-color: #383844;
+  color: #f7f7ee;
+}
+.btn-border-l:hover a {
+  color: #f7f7ee;
+}
+.btn-border-s {
+  width: 160px;
+  height: 36px;
+  line-height: 36px;
+  border-radius: 2rem;
+  background: none;
+  border: 1px solid #383844;
+  font-family: 'Montserrat', 'Noto Sans TC', sans-serif;
+  font-weight: normal;
+  font-size: 16px;
+  text-align: center;
+}
+.btn-border-s:hover {
+  transition: 0.3s;
+  background-color: #383844;
+  color: #f7f7ee;
+}
+.btn-border-s:hover a {
+  color: #f7f7ee;
+}
 .btn-more {
   width: 120px;
   height: 40px;
   background: none;
-  font-family: "Montserrat", sans-serif;
+  font-family: 'Montserrat', sans-serif;
   font-weight: normal;
   font-size: 20px;
   text-align: left;
@@ -316,23 +459,28 @@ p {
   transition: 0.2s;
   opacity: 0.6;
 }
+
 .btn-read {
   width: 70px;
   height: 25px;
-  font-family: "Montserrat", sans-serif;
+  font-family: 'Montserrat', sans-serif;
   font-weight: normal;
   font-size: 16px;
   padding: 2px 5px;
   background: none;
+  color: #383844;
   border: 1px solid #383844;
 }
 .btn-read:hover {
   transition: 0.2s;
-  background-color: #383844;
+  background: #383844;
+  color: #f7f7ee;
+}
+.btn-read:hover a {
   color: #f7f7ee;
 }
 .btn-tag {
-  font-family: "Noto Sans TC", sans-serif;
+  font-family: 'Noto Sans TC', sans-serif;
   font-weight: 500;
   font-size: 16px;
   text-decoration: underline;
@@ -370,8 +518,6 @@ p {
     background-position: 50% 0%;
   }
 }
-/* .gradient-point {
-} */
 
 /* ----- card ----- */
 .card1 {
@@ -386,3 +532,28 @@ p {
   border-radius: 20px;
 }
 /* ----- form ----- */
+
+/* ----- footer ----- */
+
+.footer-box {
+  width: 100%;
+  background: linear-gradient(#f7f7ee, #fdd2bb);
+  padding: 60px;
+}
+.footer-logo {
+  height: 130px;
+}
+.footer-logo:hover {
+  opacity: 0.6;
+  transition: 0.3s;
+}
+.footer-sns {
+  font-size: 22px;
+}
+.footer-sns a:hover {
+  opacity: 0.6;
+  transition: 0.3s;
+}
+.footer-copyright {
+  margin-top: 40px;
+}

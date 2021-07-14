@@ -12,13 +12,13 @@ function ScPriceRowCheck(props) {
         <div className="col-3 d-flex justify-content-between p-0 ml-auto">
           <div className="sc-describeFont">商品總金額:</div>
           <div className="sc-describeFont">
-            <span>NT {sum(orderItemsStr)}</span>
+            <scspan>NT {sum(orderItemsStr)}</scspan>
           </div>
         </div>
         <div className="col-3 d-flex justify-content-between p-0 ml-auto">
           <div className="sc-describeFont">運費總金額:</div>
           <div className="sc-describeFont">
-            <span>NT {shipPrice}</span>
+            <scspan>NT {shipPrice}</scspan>
           </div>
         </div>
       </div>
@@ -26,7 +26,7 @@ function ScPriceRowCheck(props) {
       <div className="w-100 d-flex jus justify-content-end my-2 px-0">
         <div className="totalPriceFont col-3 px-0">總計</div>
         <div className="totalPriceFont-med col-3 px-0">
-          NT<span>${sum(orderItemsStr)+shipPrice}</span>
+          NT<scspan>${sum(orderItemsStr)+shipPrice}</scspan>
         </div>
       </div>
     </>

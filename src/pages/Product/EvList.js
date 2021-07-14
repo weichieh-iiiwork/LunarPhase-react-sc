@@ -31,7 +31,7 @@ function ProductList(props) {
   //   <>
   //     <div className="d-flex justify-content-center">
   //       <div className="spinner-border" role="status">
-  //         <span className="sr-only">Loading...</span>
+  //         <scspan className="sr-only">Loading...</scspan>
   //       </div>
   //     </div>
   //   </>

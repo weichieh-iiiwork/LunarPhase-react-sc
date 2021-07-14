@@ -3,6 +3,7 @@ import { BsBookmark } from 'react-icons/bs'
 import { FcBookmark } from 'react-icons/fc'
 import { IoMoon } from 'react-icons/io5'
 import { RiMoonClearFill } from 'react-icons/ri'
+import { FaTimes } from 'react-icons/fa'
 const _ = require('lodash')
 const Swal = require('sweetalert2')
 
@@ -130,6 +131,7 @@ function Form() {
   return (
     <>
       <div className="mt-5"></div>
+      <FaTimes className=" "/>
 
       <div className="col-8 mx-auto">
         {chgMoon ? <IoMoon /> : <RiMoonClearFill />}

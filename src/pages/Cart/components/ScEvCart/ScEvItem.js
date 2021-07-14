@@ -150,12 +150,12 @@ function ScEvItem(props) {
       <div className="w-100 priceRow px-0">
         <div className=" col-10 bdBottom d-flex flex-column align-items-center py-5 mx-auto">
           <div className="w-100 totalQtyFont my-2 px-0 py-3 bdBottom">
-            共<span>{amountSum(mycartDisplay)}</span>件商品
+            共<scspan>{amountSum(mycartDisplay)}</scspan>件商品
           </div>
           <div className="w-100 d-flex jus justify-content-end my-2 px-0">
             <div className="totalPriceFont col-3 px-0">總計</div>
             <div className="totalPriceFont-med col-3 px-0">
-              NT<span>{sum(mycartDisplay)}</span>
+              NT<scspan>{sum(mycartDisplay)}</scspan>
             </div>
           </div>
         </div>

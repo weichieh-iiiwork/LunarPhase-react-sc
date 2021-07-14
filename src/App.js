@@ -22,7 +22,6 @@ import LunarPhaseHeader from './components/LunarPhaseHeader'
 function App() {
 
 
-  // const [qty, setQty] = useState(0)
   const [cartQty, setCartQty] = useState(
   {
     itemsQty: 0,
@@ -37,7 +36,6 @@ function App() {
       <LunarPhaseHeader 
         cartQty={cartQty}
         setCartQty={setCartQty}
-        // qty={qty}
       />
       <ScrollToTop>
         <Switch>

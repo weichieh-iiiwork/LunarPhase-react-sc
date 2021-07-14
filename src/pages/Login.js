@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import Navbar from '../components/NavBar'
-import AdTest from './ScCarousel/AdTest'
-import ScAd from './Cart/components/ScAD'
+
 function Login() {
   const [account, setAccount] = useState('')
   const [password, setPassword] = useState('')
@@ -86,11 +85,6 @@ function Login() {
           登入
         </button>
       </div>
-      <div className="mt-5"></div>
-
-      <AdTest/>
-      <div className="mt-5"></div>
-      <ScAd/>
     </>
   )
 }

@@ -10,9 +10,9 @@
 */
 
 import React, { useState, useEffect, Component } from 'react'
-import './AdTest.scss'
+import './ScAdSlider.scss'
 
-function AdTest() {
+function ScAdSlider() {
   let imageArray = [
     {
       image: '/img/Product/mc01-00.jpg',
@@ -32,25 +32,25 @@ function AdTest() {
       image: '/img/Product/mc01-00.jpg',
     },
     {
-      image: 'https://picsum.photos/id/10/2500/1667',
+      image: '/img/Product/mc01-01.jpg',
     },
     {
-      image: 'https://picsum.photos/id/1000/5626/3635',
+      image: '/img/Product/pd06-01.jpg',
     },
     {
-      image: 'https://picsum.photos/id/1003/1181/1772',
+      image: '/img/Product/mc-i-01.jpg',
     },
     {
-      image: 'https://picsum.photos/id/1000/5626/3635',
+      image: '/img/Product/mc01-00.jpg',
     },
     {
-      image: 'https://picsum.photos/id/1003/1181/1772',
+      image: '/img/Product/pd01-01.jpg',
     },
     {
-      image: 'https://picsum.photos/id/1000/5626/3635',
+      image: '/img/Product/mc-i-01.jpg',
     },
     {
-      image: 'https://picsum.photos/id/1003/1181/1772',
+      image: '/img/Product/pd06-01.jpg',
     },
   ]
   class Container extends React.Component {
@@ -189,4 +189,4 @@ function AdTest() {
   )
 }
 
-export default AdTest
+export default ScAdSlider

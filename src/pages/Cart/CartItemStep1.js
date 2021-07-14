@@ -1,5 +1,4 @@
 import React from 'react'
-import LunarPhaseHeader from '../../components/LunarPhaseHeader'
 import Breadcrumb from '../../components/Breadcrumb'
 
 import ScStepRow from './components/ScStepRow'
@@ -7,16 +6,13 @@ import ScCart from './components/ScCart/'
 
 import ScBtn from './components/ScBtn'
 import ScLabel from './components/ScLabel'
-import ScAd from './components/ScAD'
+import ScAdSlider from './components/ScAdSlider/ScAdSlider'
 
 //網址 /cart/item
 function CartItemStep1(props) {
   const { nextStep, setStep, cartQty, setCartQty} = props
   return (
     <>
-      {/* <LunarPhaseHeader 
-        cartQty={cartQty}
-      /> */}
       <Breadcrumb />
 
       <ScStepRow step={1} 
@@ -34,7 +30,8 @@ function CartItemStep1(props) {
         showStep1={false}
         showStep2={true}
       />
-      <ScAd/>
+      <ScAdSlider/>
+      <div className="my-5"></div>
     </>
   )
 }

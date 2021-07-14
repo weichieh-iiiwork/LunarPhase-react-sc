@@ -22,7 +22,7 @@ function CartItem(props) {
   const [scOrderId, setScOrderId] = useState(0) //訂單編號
 
   // 從localStorage取出購物車資訊，往子女元件傳遞
-  const orderItems = localStorage.getItem('cart')
+  const orderItems = localStorage.getItem('cart') || 0
   const orderItemsStr = JSON.parse(orderItems)
 
   function HandleAlert() {
@@ -113,6 +113,7 @@ function CartItem(props) {
       setStep(4);
       HandleAlert();
       addOrderToSever();
+      // localStorage.removeItem('cart');
     }
   }
 

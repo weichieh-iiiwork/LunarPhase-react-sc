@@ -30,9 +30,9 @@ function CartItemStep2(props) {
   } = props
   return (
     <>
-      {/* <LunarPhaseHeader 
+      <LunarPhaseHeader 
          cartQty={cartQty}
-      /> */}
+      />
       <Breadcrumb />
 
     {/* <form

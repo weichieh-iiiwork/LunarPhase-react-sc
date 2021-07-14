@@ -7,12 +7,16 @@ import ScCart from './components/ScCart/'
 import ScBtn from './components/ScBtn'
 import ScLabel from './components/ScLabel'
 import ScAdSlider from './components/ScAdSlider/ScAdSlider'
+import LunarPhaseHeader from '../../components/LunarPhaseHeader'
 
 //網址 /cart/item
 function CartItemStep1(props) {
   const { nextStep, setStep, cartQty, setCartQty} = props
   return (
     <>
+      <LunarPhaseHeader
+        cartQty={cartQty}
+      />
       <Breadcrumb />
     
       <ScStepRow step={1} 

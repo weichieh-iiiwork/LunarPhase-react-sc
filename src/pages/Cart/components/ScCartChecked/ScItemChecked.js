@@ -1,11 +1,12 @@
 import React from 'react'
+const _ = require('lodash');
 
 function ScItemChecked(props) {
   const {isHidden, toggleIsHidden, orderItemsStr, amountSum, sum} = props
 
   const displayItems = (
     <>
-    {orderItemsStr.map((item, index)=>{
+    {!_.isEmpty(orderItemsStr) && orderItemsStr.map((item, index)=>{
       return (
         <div key={item.id} className="dropdownItem my-2 d-flex align-items-center py-3">
           <div className="col-5 d-flex align-items-center sc-nameFont">

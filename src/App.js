@@ -33,10 +33,10 @@ function App() {
   return (
     <Router>
       <>
-      <LunarPhaseHeader 
+      {/* <LunarPhaseHeader 
         cartQty={cartQty}
         setCartQty={setCartQty}
-      />
+      /> */}
       <ScrollToTop>
         <Switch>
           <Route path="/cart/event">

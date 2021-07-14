@@ -6,10 +6,10 @@ import { FaUser } from 'react-icons/fa'
 import { FaBookmark } from 'react-icons/fa'
 
 function LunarPhaseHeader(props) {
-  const {cartQty, setCartQty, qty} = props
+  const {cartQty} = props
   return(
     <>
-      <nav className="nav-bar nav-bar-fixed container-fluid">
+      <nav className="nav-bar sticky nav-bar-fixed container-fluid">
         <div className="nav-bar-top d-flex">
           <div className="col-4" />
           <div className=" col-4 d-flex justify-content-center">

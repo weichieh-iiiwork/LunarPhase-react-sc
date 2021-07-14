@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useState } from 'react'
 import {
   BrowserRouter as Router,
   Route,
@@ -31,24 +31,6 @@ function App() {
     totalQty: 0,
   })
 
-  // 從localStorage取出購物車資訊，往子女元件傳遞
-  const orderItems = localStorage.getItem('cart') || 0
-  const orderItemsStr = JSON.parse(orderItems)
-  const orderEvents = localStorage.getItem('evcart') || 0
-  const orderEventsStr = JSON.parse(orderEvents)
-  const orderKits = localStorage.getItem('kitcart') || 0
-  const orderKitsStr = JSON.parse(orderKits)
-
-  // 計算總商品數量的函式
-  const amountSum = (items) => {
-    let totalAmount = 0
-    for (let i = 0; i < items.length; i++) {
-      totalAmount += items[i].amount
-    }
-    return totalAmount
-  }
-
-
   return (
     <Router>
       <>
@@ -61,15 +43,12 @@ function App() {
         <Switch>
           <Route path="/cart/event">
             <CartEv 
-              cartQty={cartQty}
-              orderEventsStr={orderEventsStr}
             />
           </Route>
           <Route path="/cart/item">
             <CartItem 
               cartQty={cartQty}
               setCartQty={setCartQty}
-              orderItemsStr={orderItemsStr}
             />
           </Route>
           <Route path="/form">

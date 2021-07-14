@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react'
+import './cart.scss'
 import CartItemStep1 from './CartItemStep1'
 import CartItemStep2 from './CartItemStep2'
 import CartItemStep3 from './CartItemStep3'
@@ -9,7 +10,7 @@ const Swal = require('sweetalert2')
 
 
 function CartItem(props) {
-  const {cartQty, setCartQty,orderItemsStr} = props
+  const {cartQty, setCartQty} = props
   const [step, setStep] = useState(1)
   const [isCon, setIsCon] = useState(false) //物流是否為便利商店
   const [shipPrice, setShipPrice] = useState(0) //運費
@@ -21,8 +22,8 @@ function CartItem(props) {
   const [scOrderId, setScOrderId] = useState(0) //訂單編號
 
   // 從localStorage取出購物車資訊，往子女元件傳遞
-  // const orderItems = localStorage.getItem('cart')
-  // const orderItemsStr = JSON.parse(orderItems)
+  const orderItems = localStorage.getItem('cart')
+  const orderItemsStr = JSON.parse(orderItems)
 
   function HandleAlert() {
     Swal.fire({

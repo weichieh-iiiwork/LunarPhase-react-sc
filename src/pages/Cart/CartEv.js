@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react'
+import './cart.scss'
 import CartEvStep1 from './CartEvStep1'
 import CartEvStep2 from './CartEvStep2'
 import CartEvStep3 from './CartEvStep3'

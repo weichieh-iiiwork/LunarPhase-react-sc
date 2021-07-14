@@ -1,11 +1,12 @@
 import React, { useState, useRef } from 'react'
 import { BsBookmark } from 'react-icons/bs'
 import { FcBookmark } from 'react-icons/fc'
-const _ = require('lodash');
+import { IoMoon } from 'react-icons/io5'
+import { RiMoonClearFill } from 'react-icons/ri'
+const _ = require('lodash')
 const Swal = require('sweetalert2')
 
 function Form() {
-
   const [myInput, setMyInput] = useState('')
   const inputEl = useRef()
 
@@ -15,51 +16,43 @@ function Form() {
       icon: 'success',
       title: '成功加入購物車',
       showConfirmButton: false,
-      timer: 1500
+      timer: 1500,
     })
   }
 
-// const myAlert = ()=>(
-//   Swal.fire({
-//     position: 'top-end',
-//     icon: 'success',
-//     title: 'Your work has been saved',
-//     showConfirmButton: false,
-//     timer: 1500
-//   })
-// )
-
-
-
-
+  // const myAlert = ()=>(
+  //   Swal.fire({
+  //     position: 'top-end',
+  //     icon: 'success',
+  //     title: 'Your work has been saved',
+  //     showConfirmButton: false,
+  //     timer: 1500
+  //   })
+  // )
 
   // 使用經緯度去連接googlemap
-  const your_lng=121.796067
-  const your_lat=25.13967
+  const your_lng = 121.796067
+  const your_lat = 25.13967
   const showInMapClicked = () => {
-    window.open("https://maps.google.com?q="+your_lat+","+your_lng );
-  };
+    window.open('https://maps.google.com?q=' + your_lat + ',' + your_lng)
+  }
 
-  
-  
   // 測試lodash
-  const arr = [1,2]
-  const newArr = _.remove(arr,function(n) {
-
-    for (let i = 0; i < arr.length; i++)
-    {
-        if (n === 2)
-        {
-            return true;
-        }
+  const arr = [1, 2]
+  const newArr = _.remove(arr, function (n) {
+    for (let i = 0; i < arr.length; i++) {
+      if (n === 2) {
+        return true
+      }
     }
-})
-  
-  console.log('arr',arr,'newArr',newArr)
-  
+  })
+
+  console.log('arr', arr, 'newArr', newArr)
+
   // arr = _.remove(arr, ['name'])
-  const [addToCollection, setAddToCollection] = useState("22px")
+  const [addToCollection, setAddToCollection] = useState('22px')
   const [chg, setChg] = useState(1)
+  const [chgMoon, setChgMoon] = useState(true)
   // 養成習慣，先定義有哪些欄位屬性
   const [fields, setFields] = useState({
     username: '',
@@ -136,118 +129,136 @@ function Form() {
 
   return (
     <>
-    <div className="col-8 mx-auto">
-    <h5>Input內容:{myInput}</h5>
-      <input type="text"
-        value={myInput}
-        // ref={inputEl}
-        onChange={(e)=>setMyInput(e.target.value)}
-      />
-      <button
-      onClick={()=>{
-        setMyInput('123')
-      }}> 一鍵輸入 </button>
+      <div className="mt-5"></div>
 
-    <hr/>
-    {/* 測試sweetalert2 */}
-    <button 
-    onClick={HandleClick}>嗨,測試sweetalert2</button>
+      <div className="col-8 mx-auto">
+        {chgMoon ? <IoMoon /> : <RiMoonClearFill />}
 
-    <hr/>
-    {/* Z(比例尺) */}
-    <iframe
-    title="1"
-    src="https://maps.google.com.tw/maps?f=q&hl=zh-TW&geocode=&q=臺北市羅斯福路二段102號&z=16&output=embed&t="
-    width="600"
-    height="450"
-    frameBorder="0"
-    style={{ border: 0 }}
-    allowFullScreen=""
-    aria-hidden="false"
-    tabIndex="0"
-  />
+        <h5
+          className="mytitlehover"
+          onMouseOver={() => {
+            setChgMoon(false)
+          }}
+          onMouseLeave={() => {
+            setChgMoon(true)
+          }}
+        >
+          測試標題
+        </h5>
+        <hr />
+        <h5>Input內容:{myInput}</h5>
+        <input
+          type="text"
+          value={myInput}
+          // ref={inputEl}
+          onChange={(e) => setMyInput(e.target.value)}
+        />
+        <button
+          onClick={() => {
+            setMyInput('123')
+          }}
+        >
+          {' '}
+          一鍵輸入{' '}
+        </button>
 
-    <button
-  onClick={showInMapClicked}
-  >連到googlemap</button>
-    {/* <img src={`/img/Product/${imgName}`}  alt=""/> */}
-    {/* 錯誤訊息顯示在欄位的下方，
+        <hr />
+        {/* 測試sweetalert2 */}
+        <button onClick={HandleClick}>嗨,測試sweetalert2</button>
+
+        <hr />
+        {/* Z(比例尺) */}
+        <iframe
+          title="1"
+          src="https://maps.google.com.tw/maps?f=q&hl=zh-TW&geocode=&q=臺北市羅斯福路二段102號&z=16&output=embed&t="
+          width="600"
+          height="450"
+          frameBorder="0"
+          style={{ border: 0 }}
+          allowFullScreen=""
+          aria-hidden="false"
+          tabIndex="0"
+        />
+
+        <button onClick={showInMapClicked}>連到googlemap</button>
+        {/* <img src={`/img/Product/${imgName}`}  alt=""/> */}
+        {/* 錯誤訊息顯示在欄位的下方，
     但錯誤訊息依然是瀏覽器的預設錯誤訊息
     ，只是統一css風格 */}
-    <div>
-    {chg ? 
-    <BsBookmark
-      size="22px"
-      onMouseDown={() => {
-        setChg(0)
-      }}
-    />
-    :
-    <FcBookmark
-      size="22px"
-      onMouseDown={() => {
-        setChg(1)
-      }}
-    />
-    }
-    </div>
-      <form
-        onSubmit={handleSubmit}
-        onChange={handleChange}
-        onInvalid={handleInvalid}
-      >
-        <div className="form-group">
-          <label>帳號</label>
-          <input
-            type="text"
-            name="username"
-            value={fields.username}
-            onChange={handleFieldChange}
-            required
-            placeholder="帳號"
-          />
-          {fieldErrors.username && (
-            <small className="text-danger form-text">
-              {fieldErrors.username}
-            </small>
+        <div>
+          {chg ? (
+            <BsBookmark
+              size="22px"
+              onMouseDown={() => {
+                setChg(0)
+              }}
+            />
+          ) : (
+            <FcBookmark
+              size="22px"
+              onMouseDown={() => {
+                setChg(1)
+              }}
+            />
           )}
         </div>
-        <div className="form-group">
-          <label>Email</label>
-          <input
-            type="email"
-            name="email"
-            value={fields.email}
-            onChange={handleFieldChange}
-            required
-            placeholder="email信箱"
-          />
-          {fieldErrors.email && (
-            <small className="text-danger form-text">
-              {fieldErrors.email}
-            </small>
-          )}
-        </div>
+        <form
+          onSubmit={handleSubmit}
+          onChange={handleChange}
+          onInvalid={handleInvalid}
+        >
+          <div className="form-group">
+            <label>帳號</label>
+            <input
+              type="text"
+              name="username"
+              value={fields.username}
+              onChange={handleFieldChange}
+              required
+              placeholder="帳號"
+            />
+            {fieldErrors.username && (
+              <small className="text-danger form-text">
+                {fieldErrors.username}
+              </small>
+            )}
+          </div>
+          <div className="form-group">
+            <label>Email</label>
+            <input
+              type="email"
+              name="email"
+              value={fields.email}
+              onChange={handleFieldChange}
+              required
+              placeholder="email信箱"
+            />
+            {fieldErrors.email && (
+              <small className="text-danger form-text">
+                {fieldErrors.email}
+              </small>
+            )}
+          </div>
 
-        <div className="form-group">
-          <label>密碼</label>
-          <input
-            type="password"
-            name="password"
-            value={fields.password}
-            onChange={handleFieldChange}
-            placeholder="密碼"
-            required
-            minLength="6"
-          />
-          {fieldErrors.password && (
-            <small className="text-danger form-text">
-              {fieldErrors.password}
-            </small>
-          )}
-        </div>
-        <button type="submit">提交</button>
-      </form>
+          <div className="form-group">
+            <label>密碼</label>
+            <input
+              type="password"
+              name="password"
+              value={fields.password}
+              onChange={handleFieldChange}
+              placeholder="密碼"
+              required
+              minLength="6"
+            />
+            {fieldErrors.password && (
+              <small className="text-danger form-text">
+                {fieldErrors.password}
+              </small>
+            )}
+          </div>
+          <button type="submit">提交</button>
+        </form>
       </div>
     </>
   )

@@ -36,12 +36,14 @@ $bg-hover: #fdd2bb69;
     }
 }
 
-
+.moon-wrap {
+    top: 300px;
+}
 .moon {
     width: 50px;
     height: 50px;
     border-radius: 100%;
-    box-shadow: 15px -15px;
+    box-shadow: 25px -25px;
     position: absolute;
     margin: 0 100px;
     animation: moonmove 3s infinite linear;
@@ -50,13 +52,13 @@ $bg-hover: #fdd2bb69;
 
 @keyframes moonmove {
     0% {
-        box-shadow: 15px -15px #f5a693;
-        transform: translateX(-15px) translateY(15px);
+        box-shadow: 25px -25px #f5a693;
+        transform: translateX(-25px) translateY(25px);
     }
 
     100% {
-        box-shadow: -30px 30px #bbd0fd;
-        transform: translateX(30px) translateY(-30px);
+        box-shadow: -25px 25px #f5a693;
+        transform: translateX(25px) translateY(-25px);
     }
 }
 

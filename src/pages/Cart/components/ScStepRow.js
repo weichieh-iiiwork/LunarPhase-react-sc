@@ -13,6 +13,9 @@ function ScStepRow(props) {
         <div className="bgMountain position-absolute">
           <img src="/img/Cart/bgMountain.svg" alt="" />
         </div>
+        <div className="moon-wrap position-absolute">
+          <div class="moon"></div>
+        </div>
       </div>
       {/* 購物車流程 */}
       <div className="container-fluid">
@@ -24,8 +27,14 @@ function ScStepRow(props) {
               <i className="stepArrow right" />
             </div>
             <div className="stepFont">
-              <Link to="#"
-              onClick={()=>{setStep(1)}}>確認購物車</Link>
+              <Link
+                to="#"
+                onClick={() => {
+                  setStep(1)
+                }}
+              >
+                確認購物車
+              </Link>
             </div>
           </div>
           <div className="step">
@@ -35,8 +44,14 @@ function ScStepRow(props) {
               <i className="stepArrow right" />
             </div>
             <div className="stepFont">
-              <Link to="#"
-              onClick={()=>{setStep(2)}}>物流選擇</Link>
+              <Link
+                to="#"
+                onClick={() => {
+                  setStep(2)
+                }}
+              >
+                物流選擇
+              </Link>
             </div>
           </div>
           <div className="step">
@@ -46,8 +61,14 @@ function ScStepRow(props) {
               <i className="stepArrow right" />
             </div>
             <div className="stepFont">
-              <Link to="#"
-              onClick={()=>{setStep(3)}}>填寫資料</Link>
+              <Link
+                to="#"
+                onClick={() => {
+                  setStep(3)
+                }}
+              >
+                填寫資料
+              </Link>
             </div>
           </div>
           <div className="step">

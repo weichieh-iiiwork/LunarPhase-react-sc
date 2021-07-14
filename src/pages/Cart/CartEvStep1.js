@@ -13,8 +13,8 @@ function CartEvStep1(props) {
   const { nextStep, setStep, orderItemsStr, amountSum,cartQty } = props
   return (
     <>
-      <LunarPhaseHeader 
-        cartQty={cartQty} />
+      {/* <LunarPhaseHeader 
+        cartQty={cartQty} /> */}
       <Breadcrumb />
 
       <ScStepRow step={1} setStep={setStep} />

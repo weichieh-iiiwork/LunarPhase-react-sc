@@ -13,14 +13,14 @@ function ShipSel(props) {
   let totalPrice = sum(orderItemsStr)
 
   const conShipPrice=(price)=>{
-    if (price < 3000) {
+    if (price < 2000) {
       return 60
     } else {
       return 0
     }
   }
   const homeShipPrice=(price)=>{
-    if (price < 3000) {
+    if (price < 2000) {
       return 120
     } else {
       return 0
@@ -53,7 +53,7 @@ function ShipSel(props) {
           checked={shipType==="便利商店"}
         />
         <label className="sc-contentFont mb-0 ml-3">
-          便利商店(未滿900元，運費60元)
+          便利商店(未滿2000元，運費60元)
         </label>
       </div>
       <div className="d-flex align-items-center justify-content-start my-2">
@@ -76,7 +76,7 @@ function ShipSel(props) {
           checked={shipType==="宅配"}
         />
         <label className="sc-contentFont mb-0 ml-3">
-          宅配(未滿900元，運費120元)
+          宅配(未滿2000元，運費120元)
         </label>
       </div>
     </>

@@ -23,7 +23,6 @@ function ScPriceRowCheck(props) {
         </div>
       </div>
       {/* 總金額列 */}
-      {/* TODO: 無法保留原先的運費紀錄 */}
       <div className="w-100 d-flex jus justify-content-end my-2 px-0">
         <div className="totalPriceFont col-3 px-0">總計</div>
         <div className="totalPriceFont-med col-3 px-0">

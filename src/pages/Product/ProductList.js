@@ -73,7 +73,7 @@ function ProductList(props) {
               className="btn btn-success"
               onClick={() => {
                 updateCartToLocalStorage({
-                  id: 1,
+                  id: 6,
                   name: '弦月柔棉 日用薄型衛生棉 15片',
                   amount: 1,
                   price: 600,

@@ -5,6 +5,7 @@ import CartItemStep2 from './CartItemStep2'
 import CartItemStep3 from './CartItemStep3'
 import CartItemStep4 from './CartItemStep4'
 import { countries, townships, postcodes } from '../../data/townships'
+import CartItemOrder from './CartItemOrder'
 const _ = require('lodash');
 const Swal = require('sweetalert2')
 
@@ -303,38 +304,46 @@ function CartItem(props) {
         scOrderId={scOrderId}
       />
        break
-       case 4:
-      return <CartItemStep4 
-        cartQty={cartQty}
-        setStep={setStep}
-        inputs={inputs}
-        setInputs={setInputs}
-        onChangeForField={onChangeForField}
-        handleSubmit={handleSubmit}
-        // handleChange={handleChange}
-        handleInvalid={handleInvalid}
-        // fieldErrors={fieldErrors}
+       case 4: 
+       return <CartItemOrder
+         cartQty={cartQty}
+         amountSum={amountSum}
+         sum={sum}
+         isCon={isCon}
+         scOrderId={scOrderId}
+       />
+      //  case 4:
+      // return <CartItemStep4 
+      //   cartQty={cartQty}
+      //   setStep={setStep}
+      //   inputs={inputs}
+      //   setInputs={setInputs}
+      //   onChangeForField={onChangeForField}
+      //   handleSubmit={handleSubmit}
+      //   // handleChange={handleChange}
+      //   handleInvalid={handleInvalid}
+      //   // fieldErrors={fieldErrors}
 
-        isCon={isCon}
-        setIsCon={setIsCon}
-        shipPrice={shipPrice}
-        setShipPrice={setShipPrice}
-        shipType={shipType}
-        setShipType={setShipType}
-        paymentWay={paymentWay}
-        setPaymentWay={setPaymentWay}
-        country={country}
-        setCountry={setCountry}
-        township={township}
-        setTownship={setTownship}
-        selectedConAddress={selectedConAddress}
-        setSeletedConAddress={setSeletedConAddress}
-        sum={sum}
-        amountSum={amountSum}
-        addOrderToSever={addOrderToSever}
-        orderItemsStr={orderItemsStr}
-        scOrderId={scOrderId}
-      />
+      //   isCon={isCon}
+      //   setIsCon={setIsCon}
+      //   shipPrice={shipPrice}
+      //   setShipPrice={setShipPrice}
+      //   shipType={shipType}
+      //   setShipType={setShipType}
+      //   paymentWay={paymentWay}
+      //   setPaymentWay={setPaymentWay}
+      //   country={country}
+      //   setCountry={setCountry}
+      //   township={township}
+      //   setTownship={setTownship}
+      //   selectedConAddress={selectedConAddress}
+      //   setSeletedConAddress={setSeletedConAddress}
+      //   sum={sum}
+      //   amountSum={amountSum}
+      //   addOrderToSever={addOrderToSever}
+      //   orderItemsStr={orderItemsStr}
+      //   scOrderId={scOrderId}
+      // />
        
        default:
        return ""

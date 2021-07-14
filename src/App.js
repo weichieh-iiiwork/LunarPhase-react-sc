@@ -15,7 +15,7 @@ import CartEv from './pages/Cart/CartEv'
 import OrderList from './pages/OrderList'
 import ScrollToTop from './components/ScrollToTop'
 import Login from './pages/Login'
-import LunarPhaseHeader from './components/LunarPhaseHeader'
+import CartItemOrder from './pages/Cart/CartItemOrder'
 
 
 
@@ -41,6 +41,12 @@ function App() {
         <Switch>
           <Route path="/cart/event">
             <CartEv 
+            />
+          </Route>
+          <Route path="/cart/item/order">
+            <CartItemOrder 
+              cartQty={cartQty}
+              // setCartQty={setCartQty}
             />
           </Route>
           <Route path="/cart/item">

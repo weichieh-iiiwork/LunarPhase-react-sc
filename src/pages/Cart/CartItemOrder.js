@@ -3,6 +3,7 @@ import LunarPhaseHeader from '../../components/LunarPhaseHeader'
 import Breadcrumb from '../../components/Breadcrumb'
 import ScStepRow from './components/ScStepRow'
 import ScLabel from './components/ScLabel'
+const _ = require('lodash');
 
 
 function CartItemOrder(props) {
@@ -37,6 +38,7 @@ function CartItemOrder(props) {
     const dataRes = await response.json()
     console.log('訂單dataRes', dataRes)
     setOrder(dataRes)
+     
     console.log('訂單scOrderId', scOrderId)
     // console.log('訂單order', order) //會是空的因為setOrder異步執行
   }
@@ -44,7 +46,9 @@ function CartItemOrder(props) {
     getOrderFromServer()
   }, [])
 
-
+  useEffect(() => {
+    console.log('訂單order的變化', order)
+  }, [order])
 
   const toggleIsHidden = () => {
     setIsHidden(!isHidden)
@@ -60,7 +64,7 @@ function CartItemOrder(props) {
   )
   const displayItems = (
     <>
-      {order.length &&
+      {!_.isEmpty(order) &&
         order.map((item, index) => {
           return (
             <div
@@ -209,6 +213,7 @@ function CartItemOrder(props) {
         </div>
       </div>
       <div className="my-5"></div>
+      
     </>
   )
 }

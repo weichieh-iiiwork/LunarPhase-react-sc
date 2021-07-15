@@ -88,8 +88,8 @@ function CartItemOrder(props) {
               <div className="col-2 sc-priceFont">
                 $ {item.checkSubtotal}
               </div>
-              <Link to={`/product-detail/${item.itemId}`}>
-                <div className="col-2 sc-priceFont">商品詳細頁</div>
+              <Link className="col-2" to={`/product-detail/${item.itemId}`}>
+                <div className="sc-priceFont">商品詳細頁</div>
               </Link>
             </div>
           )

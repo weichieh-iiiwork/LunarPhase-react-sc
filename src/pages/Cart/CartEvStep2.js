@@ -6,6 +6,7 @@ import ScStepRow from './components/ScStepRow'
 import ScCartChecked from './components/ScCartChecked'
 import ScBtn from './components/ScBtn'
 import ScLabel from './components/ScLabel'
+import Footer from '../../components/Footer'
 
 //網址 /cart/item
 function CartEvStep2(props) {
@@ -89,6 +90,7 @@ function CartEvStep2(props) {
         showStep2={true}
       />
       {/* </form> */}
+      <Footer/>
     </>
   )
 }

@@ -8,6 +8,7 @@ import ScBtn from './components/ScBtn'
 import ScLabel from './components/ScLabel'
 import ScAdSlider from './components/ScAdSlider/ScAdSlider'
 import LunarPhaseNavbar from '../../components/LunarPhaseNavbar'
+import Footer from '../../components/Footer'
 
 //網址 /cart/item
 function CartItemStep1(props) {
@@ -37,6 +38,7 @@ function CartItemStep1(props) {
       />
       <ScAdSlider/>
       <div className="my-5"></div>
+      <Footer/>
     </>
   )
 }

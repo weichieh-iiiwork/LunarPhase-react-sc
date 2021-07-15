@@ -7,6 +7,7 @@ import ScEvCart from './components/ScEvCart/'
 
 import ScBtn from './components/ScBtn'
 import ScEvLabel from './components/ScEvLabel'
+import Footer from '../../components/Footer'
 
 //網址 /cart/event
 function CartEvStep1(props) {
@@ -22,6 +23,7 @@ function CartEvStep1(props) {
       <ScEvLabel />
       <ScEvCart />
       <ScBtn nextStep={nextStep} showStep1={false} showStep2={true} />
+      <Footer/>
     </>
   )
 }

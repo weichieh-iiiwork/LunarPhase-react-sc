@@ -5,6 +5,7 @@ import ScStepRow from './components/ScStepRow'
 import ScLabel from './components/ScLabel'
 import ScCartChecked from './components/ScCartChecked/'
 import ScBtn from './components/ScBtn'
+import Footer from '../../components/Footer'
 
 function CartEvStep4(props) {
   const {
@@ -81,6 +82,7 @@ function CartEvStep4(props) {
       />
       <ScBtn showStep1={false} showStep2={false} />
       {/* </form> */}
+      <Footer/>
     </>
   )
 }

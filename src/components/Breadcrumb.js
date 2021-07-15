@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
 function Breadcrumb() {
   return (
@@ -7,9 +8,14 @@ function Breadcrumb() {
         <div className="d-flex justify-content-between">
           <div className="bread-box">
             <div className="bread d-flex">
-              <a href="/">HOME</a>
+              <Link to="/">HOME</Link>
               <p>&gt;</p>
-              <a href="#/">CART</a>
+              <Link to="/cart/item">CART</Link>
+              
+              <p>-----------</p>
+              <Link to="/productlist">商品測試頁</Link>
+              <Link to="/evlist">活動測試頁</Link>
+
             </div>
           </div>
           <div className="search-box">

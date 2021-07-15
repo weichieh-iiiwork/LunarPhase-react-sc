@@ -29,7 +29,7 @@ function CartItem(props) {
   function HandleAlert() {
     Swal.fire({
       icon: 'success',
-      title: '成功加入購物車',
+      title: '成功加入訂單',
       showConfirmButton: false,
       timer: 1700
     })

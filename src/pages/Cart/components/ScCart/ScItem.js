@@ -3,7 +3,7 @@ import { FaTimes } from 'react-icons/fa'
 const _ = require('lodash');
 
 function ScItem(props) {
-  const { cartQty, setCartQty, updateQty} = props
+  const { updateQty } = props
   const [mycart, setMycart] = useState([])
   const [mycartDisplay, setMycartDisplay] = useState([])
 

@@ -1,12 +1,10 @@
-import React, { useEffect } from 'react'
+import React from 'react'
 
 function ShipSel(props) {
   const {
     orderItemsStr,
     sum,
-    shipPrice,
     setShipPrice,
-    isCon,
     setIsCon,
     shipType, setShipType
   } = props

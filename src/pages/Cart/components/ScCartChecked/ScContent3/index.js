@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react'
+import React from 'react'
 import sevenCity from '../../../../../data/711/711.json'
 import ZipCode from './ZipCode'
 import Credit from './Credit'

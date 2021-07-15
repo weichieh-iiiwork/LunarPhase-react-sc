@@ -9,7 +9,7 @@ const _ = require('lodash');
 
 
 function CartItemOrder(props) {
-  const { setStep, cartQty, setCartQty, isCon, scOrderId } = props
+  const { setStep, cartQty, isCon, scOrderId } = props
   const [isHidden, setIsHidden] = useState(true) //下拉選單的顯示與否
   const [order, setOrder] = useState([])
 

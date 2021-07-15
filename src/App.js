@@ -15,7 +15,7 @@ import CartEv from './pages/Cart/CartEv'
 import OrderList from './pages/OrderList'
 import ScrollToTop from './components/ScrollToTop'
 import Login from './pages/Login'
-import CartItemOrder from './pages/Cart/CartItemOrder'
+// import CartItemOrder from './pages/Cart/CartItemOrder'
 
 
 
@@ -43,12 +43,12 @@ function App() {
             <CartEv 
             />
           </Route>
-          <Route path="/cart/item/order">
+          {/* <Route path="/cart/item/order">
             <CartItemOrder 
               cartQty={cartQty}
               // setCartQty={setCartQty}
             />
-          </Route>
+          </Route> */}
           <Route path="/cart/item">
             <CartItem 
               cartQty={cartQty}

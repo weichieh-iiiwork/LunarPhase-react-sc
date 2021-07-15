@@ -311,6 +311,7 @@ function CartItem(props) {
          sum={sum}
          isCon={isCon}
          scOrderId={scOrderId}
+         setStep={setStep}
        />
       //  case 4:
       // return <CartItemStep4 

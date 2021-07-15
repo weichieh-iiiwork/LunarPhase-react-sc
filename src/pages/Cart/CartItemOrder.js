@@ -13,17 +13,18 @@ function CartItemOrder(props) {
   const [order, setOrder] = useState([])
 //   const [orderItems, setOrderItems] = useState([])
   // 計算總商品數量的函式
-  const amountSum = (items) => {
-    let totalAmount = 0
-    for (let i = 0; i < items.length; i++) {
-      totalAmount += items[i].checkQty
-    }
-    return totalAmount
-  }
+  // const amountSum = (items) => {
+  //   let totalAmount = 0
+  //   for (let i = 0; i < items.length; i++) {
+  //     totalAmount += items[i].checkQty
+  //   }
+  //   return totalAmount
+  // }
 
   async function getOrderFromServer() {
     /* get orderid去取訂單資料 */
     const url = 'http://localhost:4567/orderlist/' + scOrderId
+    console.log('scOrderId',scOrderId)
 
     const request = new Request(url, {
       method: 'GET',
@@ -35,7 +36,12 @@ function CartItemOrder(props) {
     const response = await fetch(request)
     const dataRes = await response.json()
     console.log('訂單dataRes', dataRes)
+    // debugger
     setOrder(dataRes)
+    console.log('訂單scOrderId', scOrderId)
+    console.log('訂單order', order)
+    // console.log('訂單order[0].orderPrice', order[0].orderPrice)
+    // console.log('訂單order[0].receiverName', order[0].receiverName)
   }
   useEffect(() => {
     getOrderFromServer()
@@ -109,15 +115,15 @@ function CartItemOrder(props) {
   )
   const OrderCon = () => (
     <>
-      超商：{order[0].conStore}店
+      {/* 超商：{order[0].conStore}店
       <br />
-      地址：{order[0].conAddress}
+      地址：{order[0].conAddress} */}
       <br />
     </>
   )
   const OrderHome = () => (
     <>
-      地址：{order[0].homeAddress}
+      {/* 地址：{order[0].homeAddress} */}
       <br />
     </>
   )
@@ -132,10 +138,10 @@ function CartItemOrder(props) {
           <img src="/img/Cart/gift.svg" alt="" />
         </div>
         <div className="sc-contentFont ml-5">
-          姓名：{order[0].receiverName}
+          {/* 姓名：{order[0].receiverName}
           <br />
           電話：{order[0].receiverPhone}
-          <br />
+          <br /> */}
           {isCon && <OrderCon />}
           {!isCon && <OrderHome />}
         </div>

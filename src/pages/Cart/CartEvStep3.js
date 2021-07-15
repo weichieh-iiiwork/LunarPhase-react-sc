@@ -1,5 +1,5 @@
 import React from 'react'
-import LunarPhaseNavbar from '../../components/LunarPhaseNavbar'
+// import LunarPhaseNavbar from '../../components/LunarPhaseNavbar'
 import Breadcrumb from '../../components/Breadcrumb'
 
 import ScStepRow from './components/ScStepRow'

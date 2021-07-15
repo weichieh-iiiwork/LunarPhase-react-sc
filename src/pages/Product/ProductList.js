@@ -65,7 +65,7 @@ function ProductList(props) {
             <p className="card-text">
             親膚少刺激嚴選天然無漂白素材6大無添加新升級波紋瞬潔層
             </p>
-            <p className="card-text text-danger">NTD 600元</p>
+            <p className="card-text text-danger">NTD 100元</p>
           </div>
           <div className="card-footer">
             <button
@@ -73,10 +73,10 @@ function ProductList(props) {
               className="btn btn-success"
               onClick={() => {
                 updateCartToLocalStorage({
-                  id: 6,
-                  name: '弦月柔棉 日用薄型衛生棉 15片',
+                  id: 2,
+                  name: '弦月柔棉 日用薄型衛生棉',
                   amount: 1,
-                  price: 600,
+                  price: 100,
                 })
               }}
             >
@@ -95,7 +95,7 @@ function ProductList(props) {
             <p className="card-text">
             親膚少刺激嚴選天然無漂白素材6大無添加新升級波紋瞬潔層
             </p>
-            <p className="card-text text-danger">NTD 400元</p>
+            <p className="card-text text-danger">NTD 120元</p>
           </div>
           <div className="card-footer">
             <button
@@ -103,10 +103,10 @@ function ProductList(props) {
               className="btn btn-success"
               onClick={() => {
                 updateCartToLocalStorage({
-                  id: 2,
+                  id: 9,
                   name: '滿月柔棉 夜用加長衛生棉 7片',
                   amount: 1,
-                  price: 400,
+                  price: 120,
                 })
               }}
             >
@@ -121,11 +121,11 @@ function ProductList(props) {
             alt="..."
           />
           <div className="card-body">
-            <h5 className="card-title">朔月柔棉 超薄護墊 40片</h5>
+            <h5 className="card-title">新月衛生棉條 一般型</h5>
             <p className="card-text">
             親膚少刺激嚴選天然無漂白素材6大無添加新升級波紋瞬潔層
             </p>
-            <p className="card-text text-danger">NTD 900元</p>
+            <p className="card-text text-danger">NTD 150元</p>
           </div>
           <div className="card-footer">
             <button
@@ -133,10 +133,10 @@ function ProductList(props) {
               className="btn btn-success"
               onClick={() => {
                 updateCartToLocalStorage({
-                  id: 3,
-                  name: '朔月柔棉 超薄護墊 40片',
+                  id: 15,
+                  name: '新月衛生棉條 一般型',
                   amount: 1,
-                  price: 900,
+                  price: 150,
                 })
               }}
             >

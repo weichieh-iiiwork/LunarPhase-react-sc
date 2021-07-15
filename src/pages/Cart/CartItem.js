@@ -31,8 +31,25 @@ function CartItem(props) {
       icon: 'success',
       title: '成功加入購物車',
       showConfirmButton: false,
-      timer: 1500
+      timer: 1700
     })
+  }
+
+  function updateQty (){
+    const orderItems = localStorage.getItem('cart') || 0
+    const orderItemsArr = JSON.parse(orderItems)
+    const orderEvents = localStorage.getItem('evcart') || 0
+    const orderEventsArr = JSON.parse(orderEvents)
+    const orderKits = localStorage.getItem('kitcart') || 0
+    const orderKitsArr = JSON.parse(orderKits)
+
+    const newItemsQty = {...cartQty,
+      itemsQty: amountSum(orderItemsArr),
+      eventsQty: amountSum(orderEventsArr),
+      kitsQty: amountSum(orderKitsArr),
+      totalQty: amountSum(orderItemsArr)+amountSum(orderEventsArr)+amountSum(orderKitsArr),
+    }
+    setCartQty(newItemsQty)
   }
 
   const [inputs, setInputs] = useState({
@@ -114,7 +131,8 @@ function CartItem(props) {
       setStep(4);
       HandleAlert();
       addOrderToSever();
-      // localStorage.removeItem('cart');
+      localStorage.removeItem('cart');
+      updateQty()
     }
   }
 
@@ -307,6 +325,7 @@ function CartItem(props) {
        case 4: 
        return <CartItemOrder
          cartQty={cartQty}
+         setCartQty={setCartQty}
          amountSum={amountSum}
          sum={sum}
          isCon={isCon}

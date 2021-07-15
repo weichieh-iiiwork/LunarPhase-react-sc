@@ -2,7 +2,7 @@ import React  from 'react'
 import ScItem from './ScItem'
 
 function ScCart(props) {
-  const { cartQty, setCartQty } = props
+  const { cartQty, setCartQty, updateQty } = props
 
   const ScBar = (
     <>
@@ -37,6 +37,7 @@ function ScCart(props) {
           {ScBar}
           {ScFormTitle} 
           <ScItem 
+            updateQty={updateQty}
             cartQty={cartQty}
             setCartQty={setCartQty}
           />

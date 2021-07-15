@@ -16,6 +16,7 @@ import OrderList from './pages/OrderList'
 import ScrollToTop from './components/ScrollToTop'
 import Login from './pages/Login'
 // import CartItemOrder from './pages/Cart/CartItemOrder'
+const _ = require('lodash');
 
 
 
@@ -29,6 +30,23 @@ function App() {
     kitsQty: 0,
     totalQty: 0,
   })
+
+  function updateQty (){
+    const orderItems = localStorage.getItem('cart') || 0
+    const orderItemsArr = JSON.parse(orderItems)
+    const orderEvents = localStorage.getItem('evcart') || 0
+    const orderEventsArr = JSON.parse(orderEvents)
+    const orderKits = localStorage.getItem('kitcart') || 0
+    const orderKitsArr = JSON.parse(orderKits)
+
+    const newItemsQty = {...cartQty,
+      itemsQty: _.sumBy(orderItemsArr, function(o){return o.amount}),
+      eventsQty: _.sumBy(orderEventsArr, function(o){return o.amount}),
+      kitsQty: _.sumBy(orderKitsArr, function(o){return o.amount}),
+      totalQty: _.sumBy(orderItemsArr, function(o){return o.amount})+_.sumBy(orderEventsArr, function(o){return o.amount})+_.sumBy(orderKitsArr, function(o){return o.amount}),
+    }
+    setCartQty(newItemsQty)
+  }
 
   return (
     <Router>
@@ -51,6 +69,7 @@ function App() {
           </Route> */}
           <Route path="/cart/item">
             <CartItem 
+              updateQty={updateQty}
               cartQty={cartQty}
               setCartQty={setCartQty}
             />

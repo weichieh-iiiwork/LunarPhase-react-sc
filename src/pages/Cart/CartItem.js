@@ -11,7 +11,7 @@ const Swal = require('sweetalert2')
 
 
 function CartItem(props) {
-  const {cartQty, setCartQty} = props
+  const {cartQty, setCartQty, updateQty} = props
   const [step, setStep] = useState(1)
   const [isCon, setIsCon] = useState(false) //物流是否為便利商店
   const [shipPrice, setShipPrice] = useState(0) //運費
@@ -36,22 +36,22 @@ function CartItem(props) {
     })
   }
 
-  function updateQty (){
-    const orderItems = localStorage.getItem('cart') || 0
-    const orderItemsArr = JSON.parse(orderItems)
-    const orderEvents = localStorage.getItem('evcart') || 0
-    const orderEventsArr = JSON.parse(orderEvents)
-    const orderKits = localStorage.getItem('kitcart') || 0
-    const orderKitsArr = JSON.parse(orderKits)
+  // function updateQty (){
+  //   const orderItems = localStorage.getItem('cart') || 0
+  //   const orderItemsArr = JSON.parse(orderItems)
+  //   const orderEvents = localStorage.getItem('evcart') || 0
+  //   const orderEventsArr = JSON.parse(orderEvents)
+  //   const orderKits = localStorage.getItem('kitcart') || 0
+  //   const orderKitsArr = JSON.parse(orderKits)
 
-    const newItemsQty = {...cartQty,
-      itemsQty: amountSum(orderItemsArr),
-      eventsQty: amountSum(orderEventsArr),
-      kitsQty: amountSum(orderKitsArr),
-      totalQty: amountSum(orderItemsArr)+amountSum(orderEventsArr)+amountSum(orderKitsArr),
-    }
-    setCartQty(newItemsQty)
-  }
+  //   const newItemsQty = {...cartQty,
+  //     itemsQty: amountSum(orderItemsArr),
+  //     eventsQty: amountSum(orderEventsArr),
+  //     kitsQty: amountSum(orderKitsArr),
+  //     totalQty: amountSum(orderItemsArr)+amountSum(orderEventsArr)+amountSum(orderKitsArr),
+  //   }
+  //   setCartQty(newItemsQty)
+  // }
 
   const [inputs, setInputs] = useState({
     scname: '', //收貨人姓名  ok
@@ -244,6 +244,7 @@ function CartItem(props) {
     switch(step){
       case 1:
         return <CartItemStep1 
+        updateQty={updateQty}
         cartQty={cartQty}
         setCartQty={setCartQty}
         amountSum={amountSum}
@@ -325,6 +326,7 @@ function CartItem(props) {
        break
        case 4: 
        return <CartItemOrder
+          updateQty={updateQty}
          cartQty={cartQty}
          setCartQty={setCartQty}
          amountSum={amountSum}

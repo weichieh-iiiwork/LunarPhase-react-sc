@@ -11,7 +11,7 @@ import LunarPhaseHeader from '../../components/LunarPhaseHeader'
 
 //網址 /cart/item
 function CartItemStep1(props) {
-  const { nextStep, setStep, cartQty, setCartQty} = props
+  const { nextStep, setStep, cartQty, setCartQty, updateQty} = props
   return (
     <>
       <LunarPhaseHeader
@@ -25,6 +25,7 @@ function CartItemStep1(props) {
       {/*-------------- 第一頁 --------------*/}
       <ScLabel />
       <ScCart 
+        updateQty={updateQty}
         cartQty={cartQty}
         setCartQty={setCartQty}
       />

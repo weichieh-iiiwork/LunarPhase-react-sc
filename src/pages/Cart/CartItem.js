@@ -3,7 +3,6 @@ import './cart.scss'
 import CartItemStep1 from './CartItemStep1'
 import CartItemStep2 from './CartItemStep2'
 import CartItemStep3 from './CartItemStep3'
-import CartItemStep4 from './CartItemStep4'
 import { countries, townships, postcodes } from '../../data/townships'
 import CartItemOrder from './CartItemOrder'
 const _ = require('lodash');
@@ -252,7 +251,7 @@ function CartItem(props) {
         nextStep={() => setStep(2)}
         setStep={setStep}
       />
-      break
+      
       case 2:
         return <CartItemStep2 
         cartQty={cartQty}
@@ -288,7 +287,7 @@ function CartItem(props) {
         orderItemsStr={orderItemsStr}
         scOrderId={scOrderId}
       />
-       break
+       
       case 3:
         return <CartItemStep3 
         cartQty={cartQty}
@@ -323,7 +322,7 @@ function CartItem(props) {
         orderItemsStr={orderItemsStr} 
         scOrderId={scOrderId}
       />
-       break
+       
        case 4: 
        return <CartItemOrder
           updateQty={updateQty}

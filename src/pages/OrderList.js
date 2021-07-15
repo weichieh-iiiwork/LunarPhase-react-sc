@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react'
 import LunarPhaseHeader from '../components/LunarPhaseHeader'
 
 function OrderList() {
-  const [order, setOrder] = useState([]) //初始資料
+  const [orderAll, setOrderAll] = useState([]) //初始資料
 
   async function getOrderListFromServer() {
     const url = 'http://localhost:5500/orderlist'
@@ -19,7 +19,7 @@ function OrderList() {
     const response = await fetch(request)
     const data = await response.json()
 
-    setOrder(data.data)
+    setOrderAll(data.data)
   }
 
   useEffect(() => {
@@ -31,7 +31,7 @@ function OrderList() {
       <LunarPhaseHeader />
       <div className="col-10 mt-5 mx-auto">
         <h2>訂單查詢</h2>
-        {order.map((v, i) => {
+        {orderAll.map((v, i) => {
           return (
             <div className="my-2 d-flex align-items-center py-3">
               <div className="col-5 d-flex align-items-center sc-nameFont">

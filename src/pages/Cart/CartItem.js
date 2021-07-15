@@ -28,10 +28,11 @@ function CartItem(props) {
 
   function HandleAlert() {
     Swal.fire({
-      icon: 'success',
+      // icon: 'success',
+      imageUrl: '/img/Cart/412-gift-outline.gif',
       title: '成功加入訂單',
       showConfirmButton: false,
-      timer: 1700
+      timer: 1500
     })
   }
 

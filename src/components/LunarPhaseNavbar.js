@@ -5,7 +5,7 @@ import { FaShoppingCart } from 'react-icons/fa'
 import { FaUser } from 'react-icons/fa'
 import { FaBookmark } from 'react-icons/fa'
 
-function LunarPhaseHeader(props) {
+function LunarPhaseNavbar(props) {
   const {cartQty} = props
   return(
     <>
@@ -66,4 +66,4 @@ function LunarPhaseHeader(props) {
   )
 }
 
-export default LunarPhaseHeader
+export default LunarPhaseNavbar

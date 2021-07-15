@@ -1,5 +1,5 @@
 import React from 'react'
-import LunarPhaseHeader from '../../components/LunarPhaseHeader'
+import LunarPhaseNavbar from '../../components/LunarPhaseNavbar'
 import Breadcrumb from '../../components/Breadcrumb'
 
 import ScStepRow from './components/ScStepRow'
@@ -13,7 +13,7 @@ function CartEvStep1(props) {
   const { nextStep, setStep, cartQty } = props
   return (
     <>
-      <LunarPhaseHeader 
+      <LunarPhaseNavbar 
         cartQty={cartQty} />
       <Breadcrumb />
 

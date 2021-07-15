@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
-import LunarPhaseHeader from '../../components/LunarPhaseHeader'
+import LunarPhaseNavbar from '../../components/LunarPhaseNavbar'
 import Breadcrumb from '../../components/Breadcrumb'
 import ScStepRow from './components/ScStepRow'
 import ScLabel from './components/ScLabel'
@@ -181,7 +181,7 @@ function CartItemOrder(props) {
 
   return (
     <>
-      <LunarPhaseHeader cartQty={cartQty} />
+      <LunarPhaseNavbar cartQty={cartQty} />
       <Breadcrumb />
       <ScStepRow step={4} setStep={setStep} />
       {/*-------------- 第四頁 --------------*/}

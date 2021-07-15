@@ -1,12 +1,12 @@
 import React from 'react'
-// import LunarPhaseHeader from '../components/LunarPhaseHeader'
+// import LunarPhaseNavbar from '../components/LunarPhaseNavbar'
 import NavBar from '../components/NavBar'
 
 function Home() {
 
   return(
     <>
-      {/* <LunarPhaseHeader/> */}
+      {/* <LunarPhaseNavbar/> */}
       <NavBar/>
     </>
   )

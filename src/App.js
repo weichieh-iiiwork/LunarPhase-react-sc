@@ -51,7 +51,7 @@ function App() {
   return (
     <Router>
       <>
-      {/* <LunarPhaseHeader 
+      {/* <LunarPhaseNavbar 
         cartQty={cartQty}
         setCartQty={setCartQty}
       /> */}

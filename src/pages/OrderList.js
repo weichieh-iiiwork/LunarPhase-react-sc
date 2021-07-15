@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import LunarPhaseHeader from '../components/LunarPhaseHeader'
+import LunarPhaseNavbar from '../components/LunarPhaseNavbar'
 
 function OrderList() {
   const [orderAll, setOrderAll] = useState([]) //初始資料
@@ -28,7 +28,7 @@ function OrderList() {
 
   return (
     <>
-      <LunarPhaseHeader />
+      <LunarPhaseNavbar />
       <div className="col-10 mt-5 mx-auto">
         <h2>訂單查詢</h2>
         {orderAll.map((v, i) => {

@@ -14,7 +14,7 @@ function ScStepRow(props) {
           <img src="/img/Cart/bgMountain.svg" alt="" />
         </div>
         <div className="moon-wrap position-absolute">
-          <div class="moon"></div>
+          <div className="moon"></div>
         </div>
       </div>
       {/* 購物車流程 */}

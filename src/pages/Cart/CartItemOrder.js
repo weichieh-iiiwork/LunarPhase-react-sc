@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react'
+import { Link } from 'react-router-dom'
 import LunarPhaseHeader from '../../components/LunarPhaseHeader'
 import Breadcrumb from '../../components/Breadcrumb'
 import ScStepRow from './components/ScStepRow'
@@ -86,7 +87,9 @@ function CartItemOrder(props) {
               <div className="col-2 sc-priceFont">
                 $ {item.checkSubtotal}
               </div>
-              <div className="col-2 sc-priceFont">商品詳細頁</div>
+              <Link to={`/product-detail/${item.itemId}`}>
+                <div className="col-2 sc-priceFont">商品詳細頁</div>
+              </Link>
             </div>
           )
         })}

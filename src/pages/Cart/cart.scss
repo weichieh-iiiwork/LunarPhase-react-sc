@@ -530,6 +530,9 @@ $labelName: 20px;
 .dropdownBtnPanel {
     cursor: pointer;
 }
+.dropdownItem {
+    cursor: pointer;
+}
 .dropdownItem:nth-of-type(even) {
     /* 商品偶數加背景色 */
     background-color: rgba(205,205,210,0.35);

@@ -4,6 +4,7 @@ import LunarPhaseNavbar from '../../components/LunarPhaseNavbar'
 import Breadcrumb from '../../components/Breadcrumb'
 import ScStepRow from './components/ScStepRow'
 import ScLabel from './components/ScLabel'
+import Footer from '../../components/Footer'
 const _ = require('lodash');
 
 
@@ -104,9 +105,9 @@ function CartItemOrder(props) {
         }}
       >
         <div className="sc-describeFont mx-3">
-          訂單金額(<scspan>{order.length && amountSum(order)}</scspan> 件商品)
+          訂單金額(<scspan>{!_.isEmpty(order) && amountSum(order)}</scspan> 件商品)
         </div>
-        <div className="sc-describePriceFont mx-4">NT{(order.length && order[0].orderPrice)-( order.length && order[0].shippingPrice)}</div>
+        <div className="sc-describePriceFont mx-4">NT{(!_.isEmpty(order) && order[0].orderPrice)-( !_.isEmpty(order) && order[0].shippingPrice)}</div>
         <img
           id="dropdownBtn"
           // className="icon18px dropdownIcon"
@@ -119,15 +120,15 @@ function CartItemOrder(props) {
   )
   const OrderCon = () => (
     <>
-      超商：{order.length && order[0].conStore}店
+      超商：{!_.isEmpty(order) && order[0].conStore}店
       <br />
-      地址：{order.length && order[0].conAddress}
+      地址：{!_.isEmpty(order) && order[0].conAddress}
       <br />
     </>
   )
   const OrderHome = () => (
     <>
-      地址：{order.length && order[0].homeAddress}
+      地址：{!_.isEmpty(order) && order[0].homeAddress}
       <br />
     </>
   )
@@ -142,9 +143,9 @@ function CartItemOrder(props) {
           <img src="/img/Cart/gift.svg" alt="" />
         </div>
         <div className="sc-contentFont ml-5">
-          姓名：{order.length && order[0].receiverName}
+          姓名：{!_.isEmpty(order) && order[0].receiverName}
           <br />
-          電話：{order.length && order[0].receiverPhone}
+          電話：{!_.isEmpty(order) && order[0].receiverPhone}
           <br />
           {isCon && <OrderCon />}
           {!isCon && <OrderHome />}
@@ -159,13 +160,13 @@ function CartItemOrder(props) {
         <div className="col-3 d-flex justify-content-between p-0 ml-auto">
           <div className="sc-describeFont">商品總金額:</div>
           <div className="sc-describeFont">
-            <scspan>NT {(order.length && order[0].orderPrice)-( order.length && order[0].shippingPrice)}</scspan>
+            <scspan>NT {(!_.isEmpty(order) && order[0].orderPrice)-( !_.isEmpty(order) && order[0].shippingPrice)}</scspan>
           </div>
         </div>
         <div className="col-3 d-flex justify-content-between p-0 ml-auto">
           <div className="sc-describeFont">運費總金額:</div>
           <div className="sc-describeFont">
-            <scspan>NT{order.length && order[0].shippingPrice}</scspan>
+            <scspan>NT{!_.isEmpty(order) && order[0].shippingPrice}</scspan>
           </div>
         </div>
       </div>
@@ -173,7 +174,7 @@ function CartItemOrder(props) {
       <div className="w-100 d-flex jus justify-content-end my-2 px-0">
         <div className="totalPriceFont col-3 px-0">總計</div>
         <div className="totalPriceFont-med col-3 px-0">
-          NT<scspan>${order.length && order[0].orderPrice}</scspan>
+          NT<scspan>${!_.isEmpty(order) && order[0].orderPrice}</scspan>
         </div>
       </div>
     </>
@@ -216,6 +217,7 @@ function CartItemOrder(props) {
         </div>
       </div>
       <div className="my-5"></div>
+      <Footer/>
       
     </>
   )

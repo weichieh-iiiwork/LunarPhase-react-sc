@@ -1,11 +1,13 @@
 import React, { useState, useEffect } from 'react'
 
 function ScEvItem(props) {
+  const { updateQty } = props
   const [mycart, setMycart] = useState([])
   const [mycartDisplay, setMycartDisplay] = useState([])
 
   function getCartFromLocalStorage() {
     const newCart = localStorage.getItem('evcart') || '[]'
+    updateQty()
 
     console.log(JSON.parse(newCart))
     setMycart(JSON.parse(newCart))
@@ -56,6 +58,7 @@ function ScEvItem(props) {
 
     // 設定資料
     setMycart(currentCart)
+    updateQty()
   }
 
   // 參考ProductList.js中updateCartToLocalStorage概念
@@ -73,6 +76,7 @@ function ScEvItem(props) {
       currentCart.splice(index, 1)
       localStorage.setItem('evcart', JSON.stringify(currentCart))
       setMycart(currentCart)
+      updateQty()
     }
   }
 

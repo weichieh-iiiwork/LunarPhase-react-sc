@@ -59,6 +59,9 @@ function App() {
         <Switch>
           <Route path="/cart/event">
             <CartEv 
+              updateQty={updateQty}
+              cartQty={cartQty}
+              setCartQty={setCartQty}
             />
           </Route>
           {/* <Route path="/cart/item/order">

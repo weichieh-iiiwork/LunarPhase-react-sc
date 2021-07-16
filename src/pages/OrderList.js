@@ -5,7 +5,7 @@ function OrderList() {
   const [orderAll, setOrderAll] = useState([]) //初始資料
 
   async function getOrderListFromServer() {
-    const url = 'http://localhost:5500/orderlist'
+    const url = 'http://localhost:4567/orderlist'
 
     // 注意資料格式要設定，伺服器才知道是json格式
     const request = new Request(url, {

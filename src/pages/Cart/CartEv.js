@@ -141,7 +141,7 @@ function CartEv(props) {
     }
 
     // 連接的伺服器資料網址
-    const url = 'http://localhost:5500/cart/event/order/add'
+    const url = 'http://localhost:4567/cart/event/order/add'
 
     // 注意資料格式要設定，伺服器才知道是json格式
     // 轉成json檔傳到伺服器

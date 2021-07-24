@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "/LunarPhase-react-sc/static/css/main.05addfc8.chunk.css",
+    "main.js": "/LunarPhase-react-sc/static/js/main.b3790b9f.chunk.js",
+    "main.js.map": "/LunarPhase-react-sc/static/js/main.b3790b9f.chunk.js.map",
+    "runtime-main.js": "/LunarPhase-react-sc/static/js/runtime-main.9b5e870d.js",
+    "runtime-main.js.map": "/LunarPhase-react-sc/static/js/runtime-main.9b5e870d.js.map",
+    "static/js/2.22272f42.chunk.js": "/LunarPhase-react-sc/static/js/2.22272f42.chunk.js",
+    "static/js/2.22272f42.chunk.js.map": "/LunarPhase-react-sc/static/js/2.22272f42.chunk.js.map",
+    "static/js/3.384ac2d9.chunk.js": "/LunarPhase-react-sc/static/js/3.384ac2d9.chunk.js",
+    "static/js/3.384ac2d9.chunk.js.map": "/LunarPhase-react-sc/static/js/3.384ac2d9.chunk.js.map",
+    "index.html": "/LunarPhase-react-sc/index.html",
+    "static/css/main.05addfc8.chunk.css.map": "/LunarPhase-react-sc/static/css/main.05addfc8.chunk.css.map",
+    "static/js/2.22272f42.chunk.js.LICENSE.txt": "/LunarPhase-react-sc/static/js/2.22272f42.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.9b5e870d.js",
+    "static/js/2.22272f42.chunk.js",
+    "static/css/main.05addfc8.chunk.css",
+    "static/js/main.b3790b9f.chunk.js"
+  ]
+}

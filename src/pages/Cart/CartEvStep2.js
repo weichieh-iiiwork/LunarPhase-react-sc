@@ -1,5 +1,5 @@
 import React from 'react'
-// import LunarPhaseNavbar from '../../components/LunarPhaseNavbar'
+import LunarPhaseNavbar from '../../components/LunarPhaseNavbar'
 import Breadcrumb from '../../components/Breadcrumb'
 
 import ScStepRow from './components/ScStepRow'
@@ -11,6 +11,7 @@ import Footer from '../../components/Footer'
 //網址 /cart/item
 function CartEvStep2(props) {
   const {
+    cartQty,
     prevStep,
     nextStep,
     setStep,
@@ -42,14 +43,11 @@ function CartEvStep2(props) {
   } = props
   return (
     <>
-      {/* <LunarPhaseNavbar amountSum={amountSum} orderItemsStr={orderItemsStr} /> */}
+      <LunarPhaseNavbar 
+         cartQty={cartQty}
+      />
       <Breadcrumb />
 
-      {/* <form
-        onSubmit={handleSubmit}
-        onChange={handleChange}
-        onInvalid={handleInvalid}
-      > */}
       <ScStepRow step={2} setStep={setStep} />
       {/*-------------- 第二頁 --------------*/}
       <ScLabel />
@@ -89,7 +87,6 @@ function CartEvStep2(props) {
         showStep1={true}
         showStep2={true}
       />
-      {/* </form> */}
       <Footer/>
     </>
   )

@@ -15,6 +15,7 @@ import CartEv from './pages/Cart/CartEv'
 import OrderList from './pages/OrderList'
 import ScrollToTop from './components/ScrollToTop'
 import Login from './pages/Login'
+import DisplayOrder from './pages/Cart/DisplayOrder'
 // import CartItemOrder from './pages/Cart/CartItemOrder'
 const _ = require('lodash');
 
@@ -57,6 +58,11 @@ function App() {
       /> */}
       <ScrollToTop>
         <Switch>
+          <Route path="/order">
+            <DisplayOrder 
+              
+            />
+          </Route>
           <Route path="/cart/event">
             <CartEv 
               updateQty={updateQty}

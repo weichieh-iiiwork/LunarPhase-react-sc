@@ -80,6 +80,20 @@ body {
     width: 100%;
 }
 
+.bmbgMountainRow {
+    overflow: hidden;
+}
+
+.bmbgMountain {
+    left: 0;
+    top: 180px;
+    width: 100%;
+}
+
+.bmbgMountain img {
+    width: 100%;
+}
+
 /*======== 共同class ==================*/
 
 .fitContent {
@@ -280,7 +294,7 @@ body {
     display: inline-block;
     padding: 7px;
 }
-.stepArrow.right {
+.stepArrow.scright {
     margin-left: -16px;
     transform: rotate(-45deg);
     -webkit-transform: rotate(-45deg);
@@ -321,6 +335,11 @@ body {
     height: 50px;
     background-color: $myPink;
 }
+.bmbar {
+    width: 100%;
+    height: 30px;
+    background-color: $myPink;
+}
 /*================= Radio Checkbox =======================*/
 
 .myCheckbox, .myRadio {
@@ -349,6 +368,25 @@ body {
     padding:40px 0;
     background-color: $myWhite;
 }
+.bmRow {
+    width: 100%;
+    padding:20px;
+    background-color: $myWhite;
+    flex-wrap: wrap;
+}
+.bmRow .col-6:hover {
+    background-color: $bg-hover;
+    .bmdelOne{
+        display: block;
+    }
+}
+.bmdelOne {
+    /* X按鈕 */
+    display: none;
+    top: 0;
+    right: 0;
+    padding: 8px 12px;
+}
 .itemRow:hover {
     background-color: $bg-hover;
 }
@@ -368,11 +406,16 @@ body {
 .itemPic {
     width: 195px;
     height: 130px;
+    overflow: hidden;
     background-color: #ccc;
-    //  margin-left: 3vw; 
-    // @include sizeLg {
-    //     display: none;
-    // }
+}
+.itemEvPic {
+    width: 195px;
+    height: 130px;
+    background-color: #ccc;
+    // object-fit: cover;
+    overflow: hidden;
+    object-position: center bottom;
 }
 .itemPic-sm {
     width: 78px;
@@ -464,8 +507,14 @@ $labelName: 20px;
     margin-top: 100px;
     margin-left: 20px;
 }
+.myBmLabelGroup {
+    padding: 0 $labelTriW;
+    margin-top: 170px;
+    margin-left: 20px;
+}
 
 .labelSquare {
+    cursor: pointer;
     position: relative;
     width: $labelSquareW;
     height: $labelSquareH;
@@ -592,4 +641,9 @@ $labelName: 20px;
 // }
 .scInput {
   border: #707070 0.5px solid;
+}
+.orderDisplay {
+    // flex-wrap: wrap;
+    background-color: #fff;
+    text-align: center;
 }
